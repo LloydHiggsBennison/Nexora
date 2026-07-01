@@ -1,0 +1,455 @@
+<!-- ============================================================ -->
+<!-- DASHBOARD — Panel de Demos Freemium                        -->
+<!-- ============================================================ -->
+
+<div class="dash-page">
+
+  <!-- ── TOP NAVBAR ── -->
+  <nav class="dash-nav">
+    <div class="dash-nav__brand">
+      <div class="dash-logo-icon">⬡</div>
+      <span class="dash-logo-text">Digital<span class="dash-logo-accent">Agency</span></span>
+      <span class="dash-badge">Panel Demo</span>
+    </div>
+
+    <!-- Token meter -->
+    <div class="dash-tokens">
+      <div class="tokens-label">
+        <span class="tokens-icon">🔋</span>
+        <span>Tokens disponibles</span>
+        <span class="tokens-count" [class.low]="remainingTokens < 100">{{ remainingTokens }}/{{ totalTokens }}</span>
+      </div>
+      <div class="tokens-bar">
+        <div class="tokens-bar__fill" [style.width.%]="100 - tokenPercent" [class.low]="remainingTokens < 100"></div>
+      </div>
+    </div>
+
+    <button class="dash-logout" (click)="logout()" id="btn-logout">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+      </svg>
+      Salir
+    </button>
+  </nav>
+
+  <div class="dash-layout">
+
+    <!-- ── SIDEBAR PRODUCTOS ── -->
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar__title">Productos</div>
+
+      <div class="product-list">
+        <button
+          *ngFor="let prod of products"
+          class="product-item"
+          [class.active]="activeProduct === prod.id"
+          [style.--prod-color]="prod.color"
+          (click)="selectProduct(prod.id)"
+          [id]="'prod-' + prod.id">
+          <span class="product-item__icon">{{ prod.icon }}</span>
+          <div class="product-item__info">
+            <span class="product-item__name">{{ prod.name }}</span>
+            <span class="product-item__tag">{{ prod.tagline }}</span>
+          </div>
+          <span class="product-item__active-dot" *ngIf="activeProduct === prod.id"></span>
+        </button>
+      </div>
+
+      <!-- Info tokens baja -->
+      <div class="token-warning" *ngIf="remainingTokens < 100">
+        ⚠️ Tokens bajos. Actualiza a plan premium para continuar.
+      </div>
+    </aside>
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="dash-main">
+
+      <!-- ============================================================ -->
+      <!-- PRODUCTO: SysGen IA — Preview Rocket.new Style               -->
+      <!-- ============================================================ -->
+      <div class="demo-panel" *ngIf="activeProduct === 'sysgen'">
+        <div class="demo-panel__header">
+          <div class="demo-panel__title">
+            <span class="demo-icon">🤖</span>
+            <div>
+              <h1 class="demo-title">SysGen IA</h1>
+              <p class="demo-subtitle">Describe tu negocio — generamos la vista de tu sistema en segundos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Split layout: Input + Preview en tiempo real -->
+        <div class="sysgen-split">
+
+          <!-- Panel izquierdo: Editor -->
+          <div class="sysgen-editor">
+            <div class="editor-header">
+              <span class="editor-dot red"></span>
+              <span class="editor-dot yellow"></span>
+              <span class="editor-dot green"></span>
+              <span class="editor-label">prompt.txt</span>
+            </div>
+
+            <div class="editor-body">
+              <textarea
+                class="editor-textarea"
+                [(ngModel)]="sysgenPrompt"
+                placeholder="Ej: Necesito un sistema para gestionar mi restaurante italiano, con control de mesas, pedidos en cocina y caja..."
+                rows="6"
+                id="sysgen-prompt-input">
+              </textarea>
+
+              <!-- Prompts rápidos -->
+              <div class="quick-prompts">
+                <div class="quick-prompts__label">⚡ Prompts rápidos:</div>
+                <button
+                  *ngFor="let qp of quickPrompts"
+                  class="quick-prompt-btn"
+                  (click)="useQuickPrompt(qp)"
+                  [disabled]="sysgenGenerating">
+                  {{ qp }}
+                </button>
+              </div>
+
+              <!-- Botón generar -->
+              <button
+                class="btn-generate"
+                (click)="generatePreview()"
+                [disabled]="sysgenGenerating || !sysgenPrompt.trim() || remainingTokens <= 0"
+                id="btn-generate-preview">
+                <span *ngIf="!sysgenGenerating">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  Generar vista previa
+                </span>
+                <span *ngIf="sysgenGenerating" class="gen-loader">
+                  <span></span><span></span><span></span>
+                  Generando...
+                </span>
+              </button>
+
+              <!-- Reset -->
+              <button class="btn-reset" *ngIf="sysgenGenerated" (click)="resetPreview()">
+                ↺ Nueva generación
+              </button>
+
+              <!-- Token usage -->
+              <div class="tokens-remaining">
+                <span class="token-pill" [class.low]="remainingTokens < 100">
+                  🔋 {{ remainingTokens }} tokens restantes
+                </span>
+                <div class="token-mini-bar">
+                  <div class="token-mini-fill" [style.width.%]="100 - tokenPercent" [class.low]="remainingTokens < 100"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stream log -->
+            <div class="stream-log" *ngIf="sysgenLog.length > 0">
+              <div class="stream-log__title">📡 Proceso de generación</div>
+              <div
+                *ngFor="let line of sysgenLog; let i = index"
+                class="stream-log__line"
+                [class.last]="i === sysgenLog.length - 1">
+                {{ line }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel derecho: Preview en vivo -->
+          <div class="sysgen-preview">
+            <div class="preview-header">
+              <div class="preview-header__dots">
+                <span class="dot dot--red"></span>
+                <span class="dot dot--yellow"></span>
+                <span class="dot dot--green"></span>
+              </div>
+              <div class="preview-url">
+                <span>🔒 demo.{{ currentConfig ? currentConfig.name.toLowerCase() + '.app' : 'tu-sistema.app' }}</span>
+              </div>
+              <div class="preview-status" [class.active]="sysgenGenerated">
+                {{ sysgenGenerated ? '✅ Generado' : sysgenGenerating ? '⚙️ Generando...' : '⏳ Esperando prompt' }}
+              </div>
+            </div>
+
+            <!-- Estado vacío -->
+            <div class="preview-empty" *ngIf="!sysgenGenerating && !currentConfig">
+              <div class="preview-empty__icon">🤖</div>
+              <p>Tu sistema aparecerá aquí en tiempo real</p>
+              <small>Escribe un prompt y presiona "Generar vista previa"</small>
+            </div>
+
+            <!-- Mockup del CRM generado (aparece mientras genera) -->
+            <div class="crm-preview" *ngIf="currentConfig" [style.--dom-color]="currentConfig.domainColor">
+              <!-- Sidebar del CRM -->
+              <div class="crm-sidebar">
+                <div class="crm-sidebar__brand">
+                  <span>{{ currentConfig.icon }}</span>
+                  <span class="crm-sys-name">{{ currentConfig.name }}</span>
+                </div>
+                <div
+                  *ngFor="let item of currentConfig.sidebarItems; let i = index"
+                  class="crm-nav-item"
+                  [class.active]="item.label === currentConfig.activeModule"
+                  [style.animation-delay]="(i * 0.08) + 's'">
+                  <span>{{ item.icon }}</span>
+                  <span>{{ item.label }}</span>
+                </div>
+              </div>
+
+              <!-- Main del CRM -->
+              <div class="crm-content">
+                <!-- Header del módulo activo -->
+                <div class="crm-content__header">
+                  <h3>{{ currentConfig.activeModule }}</h3>
+                  <div class="crm-header-actions">
+                    <div class="crm-btn-mini">+ Nuevo</div>
+                    <div class="crm-btn-mini secondary">Exportar</div>
+                  </div>
+                </div>
+
+                <!-- Stats tiles -->
+                <div class="crm-stats">
+                  <div
+                    *ngFor="let stat of currentConfig.stats; let i = index"
+                    class="crm-stat-card"
+                    [style.animation-delay]="(i * 0.12) + 's'">
+                    <div class="crm-stat-card__value">{{ stat.value }}</div>
+                    <div class="crm-stat-card__label">{{ stat.label }}</div>
+                    <div class="crm-stat-card__sub" *ngIf="stat.sub">{{ stat.sub }}</div>
+                  </div>
+                </div>
+
+                <!-- Gráfico simulado -->
+                <div class="crm-chart">
+                  <div class="crm-chart__title">Actividad reciente</div>
+                  <div class="crm-chart__bars">
+                    <div
+                      *ngFor="let h of [65, 80, 45, 92, 70, 88, 55]; let i = index"
+                      class="crm-bar"
+                      [style.height.%]="h"
+                      [style.animation-delay]="(i * 0.07) + 's'">
+                    </div>
+                  </div>
+                  <div class="crm-chart__labels">
+                    <span *ngFor="let d of ['L','M','X','J','V','S','D']">{{ d }}</span>
+                  </div>
+                </div>
+
+                <!-- Lista simulada -->
+                <div class="crm-list">
+                  <div class="crm-list__header">
+                    <span>Registro</span>
+                    <span>Estado</span>
+                    <span>Valor</span>
+                  </div>
+                  <div class="crm-list__row" *ngFor="let row of [1,2,3,4]; let i = index" [style.animation-delay]="(i * 0.1) + 's'">
+                    <span class="crm-row-shimmer"></span>
+                    <span class="crm-status-dot"></span>
+                    <span class="crm-row-val"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div><!-- /sysgen-split -->
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- PRODUCTO: ProxiPush                                          -->
+      <!-- ============================================================ -->
+      <div class="demo-panel" *ngIf="activeProduct === 'proxipush'">
+        <div class="demo-panel__header">
+          <div class="demo-panel__title">
+            <span class="demo-icon">📡</span>
+            <div>
+              <h1 class="demo-title">ProxiPush</h1>
+              <p class="demo-subtitle">Demo de marketing de proximidad — notificaciones geolocalizadas</p>
+            </div>
+          </div>
+        </div>
+        <div class="proxipush-demo">
+          <div class="proxy-map-card glass-demo-card">
+            <div class="proxy-map-header">
+              <span>🗺️ Zona de cobertura</span>
+              <span class="proxy-status-live"><span class="live-dot"></span> Live</span>
+            </div>
+            <div class="proxy-map">
+              <div class="proxy-center">📍</div>
+              <div class="proxy-ring r1"></div>
+              <div class="proxy-ring r2"></div>
+              <div class="proxy-ring r3"></div>
+              <div class="proxy-user u1">👤</div>
+              <div class="proxy-user u2">👤</div>
+              <div class="proxy-user u3">👤</div>
+            </div>
+            <div class="proxy-radius-label">Radio: 100m · 3 usuarios detectados</div>
+          </div>
+          <div class="proxy-panel glass-demo-card">
+            <div class="proxy-panel-title">📤 Campaña activa</div>
+            <div class="proxy-notif">
+              <div class="proxy-notif__icon">📡</div>
+              <div>
+                <div class="proxy-notif__app">Tu Negocio · ProxiPush</div>
+                <div class="proxy-notif__title">🎉 ¡Oferta especial hoy!</div>
+                <div class="proxy-notif__body">2x1 hasta las 22:00. ¡Estás a solo 80m!</div>
+              </div>
+            </div>
+            <div class="proxy-stats">
+              <div class="proxy-stat"><span>847</span><small>Enviados</small></div>
+              <div class="proxy-stat"><span>23%</span><small>Click-rate</small></div>
+              <div class="proxy-stat"><span>$85k</span><small>Revenue</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- PRODUCTO: QueueFlow                                          -->
+      <!-- ============================================================ -->
+      <div class="demo-panel" *ngIf="activeProduct === 'queueflow'">
+        <div class="demo-panel__header">
+          <div class="demo-panel__title">
+            <span class="demo-icon">🍽️</span>
+            <div>
+              <h1 class="demo-title">QueueFlow</h1>
+              <p class="demo-subtitle">Demo de carta digital y gestión de mesas en tiempo real</p>
+            </div>
+          </div>
+        </div>
+        <div class="queueflow-demo">
+          <div class="qf-carta glass-demo-card">
+            <div class="qf-carta-header">🍽️ Carta Digital — Mesa #4</div>
+            <div class="qf-item" *ngFor="let item of [
+              {emoji:'🍔', name:'Hamburguesa Clásica', price:'$6.990'},
+              {emoji:'🍕', name:'Pizza Napolitana', price:'$9.490'},
+              {emoji:'🍺', name:'Cerveza Artesanal', price:'$3.990'}
+            ]">
+              <span>{{ item.emoji }}</span>
+              <span class="qf-item-name">{{ item.name }}</span>
+              <span class="qf-item-price">{{ item.price }}</span>
+              <button class="qf-add-btn">+</button>
+            </div>
+            <div class="qf-cart-bar">
+              🛒 3 items · <strong>$20.470</strong>
+              <button class="qf-order-btn">Enviar pedido →</button>
+            </div>
+          </div>
+          <div class="qf-kitchen glass-demo-card">
+            <div class="qf-kitchen-header">👨‍🍳 Vista Cocina</div>
+            <div class="qf-order" *ngFor="let ord of [
+              {id:'#47', status:'🔄 Preparando', time:'8 min'},
+              {id:'#46', status:'✅ Listo', time:'0 min'},
+              {id:'#48', status:'⏳ En espera', time:'15 min'}
+            ]">
+              <span class="qf-ord-id">{{ ord.id }}</span>
+              <span class="qf-ord-status">{{ ord.status }}</span>
+              <span class="qf-ord-time">{{ ord.time }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- PRODUCTO: WebCrafts                                          -->
+      <!-- ============================================================ -->
+      <div class="demo-panel" *ngIf="activeProduct === 'webcrafts'">
+        <div class="demo-panel__header">
+          <div class="demo-panel__title">
+            <span class="demo-icon">🌐</span>
+            <div>
+              <h1 class="demo-title">WebCrafts</h1>
+              <p class="demo-subtitle">Demo de sitio web premium — diseño personalizado para tu negocio</p>
+            </div>
+          </div>
+        </div>
+        <div class="webcrafts-demo">
+          <div class="wc-browser-frame glass-demo-card">
+            <div class="wc-bar">
+              <span class="wc-dot red"></span>
+              <span class="wc-dot yellow"></span>
+              <span class="wc-dot green"></span>
+              <span class="wc-url-bar">https://tu-empresa.cl</span>
+            </div>
+            <div class="wc-screen">
+              <div class="wc-hero">
+                <div class="wc-hero-gradient"></div>
+                <div class="wc-hero-content">
+                  <div class="wc-skeleton title"></div>
+                  <div class="wc-skeleton subtitle"></div>
+                  <div class="wc-skeleton btn"></div>
+                </div>
+              </div>
+              <div class="wc-cards">
+                <div class="wc-mini-card" *ngFor="let c of [1,2,3]">
+                  <div class="wc-card-img"></div>
+                  <div class="wc-skeleton sm"></div>
+                  <div class="wc-skeleton xs"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wc-tech-tags glass-demo-card">
+            <div class="wc-tech-title">🛠️ Stack tecnológico</div>
+            <div class="wc-tags-grid">
+              <span class="wc-tag" *ngFor="let t of ['Angular','React','Next.js','SEO','Mobile First','Dark Mode','Animaciones','CMS','TypeScript','SCSS']">{{ t }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- PRODUCTO: AutoFlow                                           -->
+      <!-- ============================================================ -->
+      <div class="demo-panel" *ngIf="activeProduct === 'autoflow'">
+        <div class="demo-panel__header">
+          <div class="demo-panel__title">
+            <span class="demo-icon">⚡</span>
+            <div>
+              <h1 class="demo-title">AutoFlow</h1>
+              <p class="demo-subtitle">Demo de automatización inteligente — flujos visuales sin código</p>
+            </div>
+          </div>
+        </div>
+        <div class="autoflow-demo">
+          <div class="af-diagram glass-demo-card">
+            <div class="af-title">🔄 Flujo de ejemplo: Lead → Notificación</div>
+            <div class="af-flow">
+              <div class="af-node trigger">⚡ Nuevo Lead</div>
+              <div class="af-connector">↓</div>
+              <div class="af-node process">⚙️ Procesar datos</div>
+              <div class="af-connector">↓</div>
+              <div class="af-node condition">🔀 ¿Calificado?</div>
+              <div class="af-branches">
+                <div class="af-branch">
+                  <div class="af-connector">↙</div>
+                  <div class="af-node yes">✅ Email automático</div>
+                </div>
+                <div class="af-branch">
+                  <div class="af-connector">↘</div>
+                  <div class="af-node no">📋 Lista de espera</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="af-features glass-demo-card">
+            <div class="af-feat-title">🚀 Automatizaciones disponibles</div>
+            <div class="af-feat-list">
+              <div class="af-feat" *ngFor="let feat of [
+                '📋 Digitalización de formularios',
+                '🔗 Integración entre sistemas',
+                '📊 Reportes automáticos',
+                '🤖 Chatbots y asistentes',
+                '📧 Emails personalizados',
+                '🔔 Alertas inteligentes'
+              ]">{{ feat }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main><!-- /dash-main -->
+  </div><!-- /dash-layout -->
+
+</div>

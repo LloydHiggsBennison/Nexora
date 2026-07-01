@@ -1,0 +1,247 @@
+@use '../../../styles/variables' as *;
+
+.footer {
+  position: relative;
+  background: $bg-elevated;
+  border-top: $border-glass;
+  overflow: hidden;
+
+  &__glow {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+
+    &--left {
+      bottom: -100px;
+      left: -100px;
+      background: radial-gradient(circle, rgba(124, 109, 250, 0.08) 0%, transparent 70%);
+    }
+
+    &--right {
+      bottom: -100px;
+      right: -100px;
+      background: radial-gradient(circle, rgba(250, 109, 139, 0.06) 0%, transparent 70%);
+    }
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: $space-4xl $space-3xl $space-2xl;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: $space-4xl;
+    margin-bottom: $space-3xl;
+  }
+
+  // ---- Brand Column ----
+  &__brand {}
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    margin-bottom: $space-lg;
+  }
+
+  &__logo-mark {
+    width: 32px;
+    height: 32px;
+    background: $gradient-hero;
+    border-radius: $border-radius-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  &__logo-text {
+    font-family: $font-display;
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    display: flex;
+    gap: 5px;
+  }
+
+  &__brand-desc {
+    font-size: 0.875rem;
+    color: $text-secondary;
+    line-height: 1.65;
+    margin-bottom: $space-lg;
+    max-width: 280px;
+  }
+
+  &__socials {
+    display: flex;
+    gap: $space-sm;
+    margin-bottom: $space-lg;
+  }
+
+  &__contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__contact-item {
+    font-size: 0.8125rem;
+    color: $text-muted;
+    letter-spacing: 0.01em;
+  }
+
+  // ---- Links Column ----
+  &__col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__col-title {
+    font-family: $font-display;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $text-primary;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: $space-lg;
+    position: relative;
+    padding-bottom: $space-sm;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 24px;
+      height: 2px;
+      background: $gradient-hero;
+      border-radius: 2px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+
+    li a {
+      font-size: 0.875rem;
+      color: $text-secondary;
+      transition: color 0.2s, padding-left 0.2s;
+
+      &:hover {
+        color: $text-primary;
+        padding-left: 4px;
+      }
+    }
+  }
+
+  // ---- Bottom ----
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: $space-xl;
+  }
+
+  &__copyright {
+    font-size: 0.8125rem;
+    color: $text-muted;
+  }
+
+  &__made-in {
+    font-size: 0.8125rem;
+    color: $text-muted;
+
+    // Hace el corazón rojo
+    font-family: $font-body;
+  }
+}
+
+// ---- Social Button ----
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: $border-radius-sm;
+  background: $bg-glass;
+  border: $border-glass;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: $text-secondary;
+  transition: $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(124, 109, 250, 0.15);
+    border-color: rgba(124, 109, 250, 0.3);
+    color: $color-primary;
+    transform: translateY(-2px);
+  }
+}
+
+// ---- MOBILE ----
+@media screen and (max-width: 1023px) {
+  .footer {
+    &__inner {
+      padding: $space-3xl $space-lg $space-xl;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: $space-2xl;
+      margin-bottom: $space-2xl;
+    }
+
+    &__brand {
+      text-align: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__logo { justify-content: center; }
+
+    &__brand-desc {
+      max-width: 100%;
+      text-align: center;
+    }
+
+    &__col {
+      align-items: center;
+      text-align: center;
+    }
+
+    &__col-title::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &__links li a {
+      &:hover { padding-left: 0; }
+    }
+
+    &__bottom {
+      flex-direction: column;
+      gap: $space-sm;
+      text-align: center;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .footer__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

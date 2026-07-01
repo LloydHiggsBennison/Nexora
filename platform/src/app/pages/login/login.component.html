@@ -1,0 +1,261 @@
+<!-- ============================================================ -->
+<!-- LOGIN PAGE — Acceso y Registro al Panel Demo               -->
+<!-- ============================================================ -->
+
+<div class="login-page">
+  <!-- Orbs de fondo -->
+  <div class="login-orb login-orb--purple"></div>
+  <div class="login-orb login-orb--pink"></div>
+  <div class="login-orb login-orb--cyan"></div>
+
+  <!-- Grid decorativo -->
+  <div class="login-grid"></div>
+
+  <div class="login-wrapper">
+
+    <!-- ── Logo / Header ── -->
+    <div class="login-brand">
+      <button class="login-back" (click)="goHome()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Volver al inicio
+      </button>
+
+      <div class="login-logo">
+        <div class="logo-icon">⬡</div>
+        <span class="logo-text">Digital<span class="logo-accent">Agency</span></span>
+      </div>
+
+      <div class="login-badge" *ngIf="targetProduct">
+        <span class="badge-dot-pulse"></span>
+        Accediendo a demo de <strong>{{ targetProduct }}</strong>
+      </div>
+    </div>
+
+    <!-- ── Card principal ── -->
+    <div class="login-card">
+
+      <!-- Token info banner -->
+      <div class="token-banner">
+        <span class="token-icon">🔋</span>
+        <span>Demo gratuito</span>
+        <span class="token-sep">·</span>
+        <span class="token-count">500 tokens incluidos</span>
+      </div>
+
+      <!-- ── Tabs ── -->
+      <div class="login-tabs">
+        <button
+          class="login-tab"
+          [class.active]="activeTab === 'login'"
+          (click)="setTab('login')"
+          id="tab-login">
+          Iniciar sesión
+        </button>
+        <button
+          class="login-tab"
+          [class.active]="activeTab === 'register'"
+          (click)="setTab('register')"
+          id="tab-register">
+          Crear cuenta
+        </button>
+        <div class="tab-indicator" [class.right]="activeTab === 'register'"></div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB: INICIAR SESIÓN                                          -->
+      <!-- ============================================================ -->
+      <div class="tab-content" *ngIf="activeTab === 'login'">
+
+        <!-- Botón oficial de Google (renderizado por GIS) -->
+        <div id="google-btn-container" class="google-btn-wrap"></div>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span></span>
+          <p>o continúa con tu email</p>
+          <span></span>
+        </div>
+
+        <!-- Formulario login -->
+        <form class="auth-form" (ngSubmit)="submitLogin()">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Correo electrónico</label>
+            <div class="input-wrap">
+              <svg class="input-icon" viewBox="0 0 20 20" fill="none" width="16" height="16">
+                <path d="M2 4h16v13H2V4zm0 0l8 7 8-7" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <input
+                id="login-email"
+                type="email"
+                class="form-input"
+                [(ngModel)]="loginForm.email"
+                name="email"
+                placeholder="hola@empresa.cl"
+                autocomplete="email"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Contraseña</label>
+            <div class="input-wrap">
+              <svg class="input-icon" viewBox="0 0 20 20" fill="none" width="16" height="16">
+                <rect x="3" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M7 9V6a3 3 0 016 0v3" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <input
+                id="login-password"
+                type="password"
+                class="form-input"
+                [(ngModel)]="loginForm.password"
+                name="password"
+                placeholder="••••••••"
+                autocomplete="current-password"/>
+            </div>
+          </div>
+
+          <div class="form-error" *ngIf="loginError">
+            ⚠️ {{ loginError }}
+          </div>
+
+          <button type="submit" class="btn-submit" [disabled]="loginLoading" id="btn-login-submit">
+            <span *ngIf="!loginLoading">Iniciar sesión →</span>
+            <span *ngIf="loginLoading" class="btn-loading">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+        </form>
+
+        <p class="auth-switch">
+          ¿No tienes cuenta?
+          <button (click)="setTab('register')" class="link-btn">Crear cuenta gratis</button>
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB: CREAR CUENTA                                            -->
+      <!-- ============================================================ -->
+      <div class="tab-content" *ngIf="activeTab === 'register'">
+
+        <!-- Botón oficial de Google (mismo contenedor reciclado) -->
+        <div id="google-btn-container-reg" class="google-btn-wrap"></div>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span></span>
+          <p>o completa el formulario</p>
+          <span></span>
+        </div>
+
+        <!-- Formulario registro -->
+        <form class="auth-form" (ngSubmit)="submitRegister()">
+          <!-- Nombre + Apellido -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="reg-nombre">Nombre</label>
+              <div class="input-wrap">
+                <input
+                  id="reg-nombre"
+                  type="text"
+                  class="form-input"
+                  [(ngModel)]="registerForm.nombre"
+                  name="nombre"
+                  placeholder="Juan"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-apellido">Apellido</label>
+              <div class="input-wrap">
+                <input
+                  id="reg-apellido"
+                  type="text"
+                  class="form-input"
+                  [(ngModel)]="registerForm.apellido"
+                  name="apellido"
+                  placeholder="Pérez"/>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Correo electrónico</label>
+            <div class="input-wrap">
+              <svg class="input-icon" viewBox="0 0 20 20" fill="none" width="16" height="16">
+                <path d="M2 4h16v13H2V4zm0 0l8 7 8-7" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <input
+                id="reg-email"
+                type="email"
+                class="form-input"
+                [(ngModel)]="registerForm.email"
+                name="regemail"
+                placeholder="hola@empresa.cl"/>
+            </div>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="form-group">
+            <label class="form-label" for="reg-tel">Teléfono</label>
+            <div class="input-wrap phone-wrap">
+              <div class="phone-prefix">🇨🇱 +56</div>
+              <input
+                id="reg-tel"
+                type="tel"
+                class="form-input form-input--phone"
+                [(ngModel)]="registerForm.telefono"
+                name="telefono"
+                placeholder="9 1234 5678"
+                maxlength="12"/>
+            </div>
+          </div>
+
+          <!-- Términos y condiciones -->
+          <label class="checkbox-label" for="reg-terminos">
+            <input
+              id="reg-terminos"
+              type="checkbox"
+              class="checkbox-input"
+              [(ngModel)]="registerForm.aceptaTerminos"
+              name="terminos"/>
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-text">
+              Acepto los
+              <a href="#" class="link-terms" (click)="$event.preventDefault()">Términos y Condiciones</a>
+              y la
+              <a href="#" class="link-terms" (click)="$event.preventDefault()">Política de Privacidad</a>
+            </span>
+          </label>
+
+          <div class="form-error" *ngIf="registerError">
+            ⚠️ {{ registerError }}
+          </div>
+
+          <button
+            type="submit"
+            class="btn-submit"
+            [disabled]="registerLoading || !registerValid"
+            id="btn-register-submit">
+            <span *ngIf="!registerLoading">Crear cuenta gratuita →</span>
+            <span *ngIf="registerLoading" class="btn-loading">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+        </form>
+
+        <p class="auth-switch">
+          ¿Ya tienes cuenta?
+          <button (click)="setTab('login')" class="link-btn">Iniciar sesión</button>
+        </p>
+      </div>
+
+    </div><!-- /login-card -->
+
+    <!-- Footer note -->
+    <p class="login-footer-note">
+      🔒 Esta es una vista demo. Los datos no se almacenan permanentemente.
+    </p>
+
+  </div><!-- /login-wrapper -->
+</div>

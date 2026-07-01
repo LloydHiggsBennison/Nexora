@@ -1,0 +1,643 @@
+<!-- ============================================================ -->
+<!-- HOME PAGE — LANDING COMPLETA                               -->
+<!-- ============================================================ -->
+
+<!-- ======= 1. HERO ======= -->
+<section class="hero" id="hero">
+  <!-- Orbs de fondo -->
+  <div class="hero__orb hero__orb--purple"></div>
+  <div class="hero__orb hero__orb--pink"></div>
+  <div class="hero__orb hero__orb--cyan"></div>
+
+  <!-- Partículas decorativas -->
+  <div class="hero__particles">
+    <span class="particle" *ngFor="let p of [1,2,3,4,5,6,7,8]"></span>
+  </div>
+
+  <div class="hero__container">
+    <div class="hero__content anim-hidden">
+      <!-- Badge -->
+      <div class="badge-pill hero__badge">
+        <span class="badge-dot"></span>
+        {{ 'HERO.BADGE' | translate }}
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-hero hero__headline">
+        {{ 'HERO.HEADLINE_1' | translate }}<br>
+        <span class="text-gradient">{{ 'HERO.HEADLINE_2' | translate }}</span><br>
+        {{ 'HERO.HEADLINE_3' | translate }}
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-body-lg hero__sub">
+        {{ 'HERO.SUBTITLE' | translate }}
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero__cta-group">
+        <button class="btn btn--primary btn--lg" (click)="goToDemo('sysgen')" id="hero-cta-primary">
+          {{ 'HERO.CTA_PRIMARY' | translate }}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <a href="#how-it-works" class="btn btn--outline btn--lg">
+          {{ 'HERO.CTA_SECONDARY' | translate }}
+        </a>
+      </div>
+    </div>
+
+    <!-- Visual decorativo -->
+    <div class="hero__visual anim-hidden delay-300">
+      <div class="hero__visual-card glass-card">
+        <div class="hero__visual-inner">
+          <div class="vis-icon vis-icon--main">⬡</div>
+          <div class="vis-ring vis-ring--1"></div>
+          <div class="vis-ring vis-ring--2"></div>
+          <div class="vis-ring vis-ring--3"></div>
+          <!-- Floating badges -->
+          <div class="vis-badge vis-badge--1">
+            <span>📡</span> Push enviado
+          </div>
+          <div class="vis-badge vis-badge--2">
+            <span>🤖</span> IA generando...
+          </div>
+          <div class="vis-badge vis-badge--3">
+            <span>🍽️</span> Mesa #4 lista
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero__scroll">
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+    <p>{{ 'HERO.SCROLL_HINT' | translate }}</p>
+  </div>
+</section>
+
+<!-- ======= 2. STATS BAR ======= -->
+<section class="stats-section">
+  <div class="stats-bar anim-hidden">
+    <div class="stats-bar__item" *ngFor="let stat of stats">
+      <div class="stat-number stats-bar__number">{{ stat.value }}</div>
+      <div class="stats-bar__label">{{ stat.labelKey | translate }}</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 3. SERVICIOS OVERVIEW ======= -->
+<section class="section services-overview" id="services">
+  <div class="container">
+    <div class="section-header centered anim-hidden">
+      <div class="badge-pill">🚀 {{ 'NAV.SERVICES' | translate }}</div>
+      <h2 class="text-h1 section-header__title">{{ 'SERVICES.TITLE' | translate }}</h2>
+      <p class="text-body-lg section-header__desc">{{ 'SERVICES.SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="services-cards-grid">
+      <a
+        *ngFor="let svc of services; let i = index"
+        [href]="svc.href"
+        class="service-card glass-card gradient-border anim-hidden"
+        [class.delay-100]="i === 0"
+        [class.delay-200]="i === 1"
+        [class.delay-300]="i === 2"
+        [class.delay-400]="i === 3"
+        [class.delay-500]="i === 4"
+        [style.--svc-color]="svc.color">
+
+        <div class="service-card__icon-wrap">
+          <span class="service-card__icon">{{ svc.icon }}</span>
+        </div>
+        <span class="service-card__tag">{{ svc.tagKey | translate }}</span>
+        <h3 class="service-card__name">{{ svc.nameKey | translate }}</h3>
+        <p class="service-card__desc">{{ svc.shortKey | translate }}</p>
+        <div class="service-card__arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 4. PROXIPUSH ======= -->
+<section class="section service-section" id="proxipush">
+  <div class="container">
+    <div class="service-section__layout">
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-left">
+        <div class="badge-pill badge-pill--purple">
+          {{ 'PROXIPUSH.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'PROXIPUSH.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'PROXIPUSH.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'PROXIPUSH.DESC' | translate }}</p>
+
+        <div class="feature-list">
+          <div class="feature-item" *ngFor="let f of proxiFeatures">
+            <div class="feature-item__icon">{{ f.icon }}</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">{{ f.titleKey | translate }}</div>
+              <div class="feature-item__desc">{{ f.descKey | translate }}</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="goToDemo('proxipush')" id="cta-proxipush">{{ 'PROXIPUSH.CTA' | translate }} →</button>
+      </div>
+
+      <!-- Visual Mockup -->
+      <div class="service-section__visual anim-hidden from-right">
+        <div class="proxipush-mockup">
+          <div class="mockup-phone glass-card">
+            <div class="phone-header">
+              <div class="phone-notch"></div>
+            </div>
+            <div class="phone-notif">
+              <div class="notif-icon">📡</div>
+              <div class="notif-content">
+                <div class="notif-app">Digital Agency · ProxiPush</div>
+                <div class="notif-title">🎉 ¡Promoción especial hoy!</div>
+                <div class="notif-body">2x1 en cócteles hasta las 22:00. ¡Estás a solo 80m!</div>
+              </div>
+            </div>
+            <div class="phone-map">
+              <div class="map-bg">
+                <div class="map-pulse">
+                  <div class="map-center">📍</div>
+                  <div class="map-ring r1"></div>
+                  <div class="map-ring r2"></div>
+                  <div class="map-ring r3"></div>
+                </div>
+                <div class="map-label">100m radius</div>
+              </div>
+            </div>
+          </div>
+          <!-- Admin panel mini -->
+          <div class="proxipush-panel glass-card">
+            <div class="panel-header">Admin Panel</div>
+            <div class="panel-row">
+              <span class="panel-dot active"></span>
+              <span>Campaña activa</span>
+              <span class="panel-badge">847 enviados</span>
+            </div>
+            <div class="panel-row">
+              <span class="panel-dot"></span>
+              <span>Email masivo</span>
+              <span class="panel-badge secondary">300/día</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 5. QUEUEFLOW ======= -->
+<section class="section service-section service-section--alt" id="queueflow">
+  <div class="container">
+    <div class="service-section__layout service-section__layout--reverse">
+      <!-- Visual Mockup -->
+      <div class="service-section__visual anim-hidden from-left">
+        <div class="queueflow-mockup">
+          <!-- Carta digital -->
+          <div class="qf-card glass-card">
+            <div class="qf-card-header">🍽️ Carta Digital</div>
+            <div class="qf-item">
+              <div class="qf-item-emoji">🍔</div>
+              <div class="qf-item-info">
+                <div class="qf-item-name">Hamburguesa Clásica</div>
+                <div class="qf-item-price">$6.990</div>
+              </div>
+              <button class="qf-add">+</button>
+            </div>
+            <div class="qf-item">
+              <div class="qf-item-emoji">🍕</div>
+              <div class="qf-item-info">
+                <div class="qf-item-name">Pizza Napolitana</div>
+                <div class="qf-item-price">$9.490</div>
+              </div>
+              <button class="qf-add">+</button>
+            </div>
+            <div class="qf-cart">
+              <span>🛒 2 items</span>
+              <span class="qf-total">$16.480</span>
+            </div>
+          </div>
+
+          <!-- Estado del pedido -->
+          <div class="qf-status glass-card">
+            <div class="qf-card-header">📊 Estado pedido #47</div>
+            <div class="qf-step active">✅ Pedido recibido</div>
+            <div class="qf-step active">🔄 En preparación</div>
+            <div class="qf-step pending">🛎️ Listo para entrega</div>
+            <div class="qf-step pending">📦 Entregado</div>
+            <div class="qf-update">Actualiza en 10s...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-right">
+        <div class="badge-pill badge-pill--pink">
+          {{ 'QUEUEFLOW.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'QUEUEFLOW.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'QUEUEFLOW.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'QUEUEFLOW.DESC' | translate }}</p>
+
+        <div class="feature-list">
+          <div class="feature-item" *ngFor="let f of queueFeatures">
+            <div class="feature-item__icon">{{ f.icon }}</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">{{ f.titleKey | translate }}</div>
+              <div class="feature-item__desc">{{ f.descKey | translate }}</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="goToDemo('queueflow')" id="cta-queueflow">{{ 'QUEUEFLOW.CTA' | translate }} →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 6. WEBCRAFTS ======= -->
+<section class="section service-section" id="webcrafts">
+  <div class="container">
+    <div class="service-section__layout">
+      <div class="service-section__content anim-hidden from-left">
+        <div class="badge-pill badge-pill--accent">
+          {{ 'WEBCRAFTS.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'WEBCRAFTS.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'WEBCRAFTS.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'WEBCRAFTS.DESC' | translate }}</p>
+
+        <div class="webcrafts-tags">
+          <span class="wc-tag">React</span>
+          <span class="wc-tag">Angular</span>
+          <span class="wc-tag">Next.js</span>
+          <span class="wc-tag">SEO Optimizado</span>
+          <span class="wc-tag">Mobile First</span>
+          <span class="wc-tag">Dark Mode</span>
+          <span class="wc-tag">Animaciones</span>
+          <span class="wc-tag">CMS</span>
+        </div>
+
+        <button class="btn btn--primary" (click)="goToDemo('webcrafts')" id="cta-webcrafts">{{ 'WEBCRAFTS.CTA' | translate }} →</button>
+      </div>
+
+      <div class="service-section__visual anim-hidden from-right">
+        <div class="webcrafts-mockup">
+          <div class="wc-browser glass-card">
+            <div class="wc-browser-bar">
+              <span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-dot"></span>
+              <div class="wc-url">https://tu-empresa.cl</div>
+            </div>
+            <div class="wc-screen">
+              <div class="wc-hero-mock">
+                <div class="wc-hero-text"></div>
+                <div class="wc-hero-sub"></div>
+                <div class="wc-hero-btn"></div>
+              </div>
+              <div class="wc-cards-mock">
+                <div class="wc-card-mini" *ngFor="let c of [1,2,3]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 7. SYSGEN AI ======= -->
+<section class="section service-section service-section--alt" id="sysgen">
+  <div class="container">
+    <div class="section-header centered anim-hidden">
+      <div class="badge-pill badge-pill--warn">
+        {{ 'SYSGEN.BADGE' | translate }}
+      </div>
+      <h2 class="text-h1">
+        {{ 'SYSGEN.TITLE' | translate }}<br>
+        <span class="text-gradient">{{ 'SYSGEN.TITLE_HL' | translate }}</span>
+      </h2>
+      <p class="text-body-lg text-secondary">{{ 'SYSGEN.DESC' | translate }}</p>
+    </div>
+
+    <!-- Demo interactivo estilo Rocket.new -->
+    <div class="sysgen-demo anim-hidden">
+
+      <!-- Editor / Input lado izquierdo -->
+      <div class="sysgen-editor-panel">
+        <div class="sysgen-editor-header">
+          <span class="sed-dot sed-dot--red"></span>
+          <span class="sed-dot sed-dot--yellow"></span>
+          <span class="sed-dot sed-dot--green"></span>
+          <span class="sed-label">prompt.txt</span>
+        </div>
+        <div class="sysgen-editor-body">
+          <div class="sysgen-input-header">
+            <span>🤖</span>
+            <span>Describe tu sistema</span>
+          </div>
+          <textarea
+            id="sysgen-home-textarea"
+            class="sysgen-textarea"
+            [(ngModel)]="sysgenPrompt"
+            [placeholder]="'SYSGEN.PROMPT_PLACEHOLDER' | translate"
+            rows="5">
+          </textarea>
+          <div class="sysgen-example">
+            <span class="sysgen-example-label">Ejemplo:</span>
+            <span class="sysgen-example-text">{{ 'SYSGEN.PROMPT_EXAMPLE' | translate }}</span>
+          </div>
+          <button
+            class="btn btn--primary w-full"
+            (click)="generatePreview()"
+            id="btn-sysgen-generate"
+            [disabled]="sysgenGenerating || !sysgenPrompt.trim()">
+            <span *ngIf="!sysgenGenerating">🚀 {{ 'SYSGEN.GENERATE_BTN' | translate }}</span>
+            <span *ngIf="sysgenGenerating" class="sysgen-loading">
+              <span></span><span></span><span></span> Generando...
+            </span>
+          </button>
+
+          <!-- Stream log -->
+          <div class="sysgen-stream-log" *ngIf="sysgenLog.length > 0">
+            <div *ngFor="let line of sysgenLog; let i = index"
+                 class="sysgen-log-line"
+                 [class.sysgen-log-line--last]="i === sysgenLog.length - 1">
+              {{ line }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview lado derecho -->
+      <div class="sysgen-preview-panel glass-card">
+        <div class="sysgen-preview-header">
+          <div class="sysgen-browser-dots">
+            <span class="br-dot br-dot--r"></span>
+            <span class="br-dot br-dot--y"></span>
+            <span class="br-dot br-dot--g"></span>
+          </div>
+          <div class="sysgen-preview-url">
+            🔒 {{ currentConfig ? 'demo.' + currentConfig.name.toLowerCase() + '.app' : 'tu-sistema.app' }}
+          </div>
+          <div class="sysgen-status" [class.active]="sysgenGenerated">
+            {{ sysgenGenerated ? '✅ Listo' : sysgenGenerating ? '⚙️ Generando...' : '⏳ Esperando...' }}
+          </div>
+        </div>
+
+        @if (!sysgenGenerating && !currentConfig) {
+          <div class="sysgen-placeholder">
+            <div class="sysgen-placeholder-icon">🤖</div>
+            <p>Tu CRM/ERP aparecerá aquí en tiempo real</p>
+            <small>Describe tu negocio y pulsa el botón</small>
+          </div>
+        }
+
+        @if (currentConfig) {
+          <div class="sysgen-result">
+            <div class="crm-mock" [style.--dom-color]="currentConfig.domainColor">
+              <div class="crm-sidebar">
+                <div class="crm-sidebar-brand">
+                  <span>{{ currentConfig.icon }}</span>
+                  <span class="crm-sys-name-sm">{{ currentConfig.name }}</span>
+                </div>
+                <div *ngFor="let item of currentConfig.sidebarItems; let i = index"
+                     class="crm-nav-item"
+                     [class.active]="item.label === currentConfig.activeModule"
+                     [style.animation-delay]="(i * 0.08) + 's'">
+                  <span>{{ item.icon }}</span>
+                  <span>{{ item.label }}</span>
+                </div>
+              </div>
+              <div class="crm-main">
+                <div class="crm-main-header">
+                  <span>{{ currentConfig.activeModule }}</span>
+                  <div class="crm-hdr-btn">+ Nuevo</div>
+                </div>
+                <div class="crm-stat-row">
+                  <div class="crm-stat"
+                       *ngFor="let s of currentConfig.stats; let i = index"
+                       [style.animation-delay]="(i * 0.1) + 's'">
+                    <span>{{ s.value }}</span>
+                    <small>{{ s.label }}</small>
+                  </div>
+                </div>
+                <div class="crm-chart-mock"></div>
+                <div class="crm-rows-mock">
+                  <div class="crm-row-mock" *ngFor="let r of [1,2,3]; let i = index"
+                       [style.animation-delay]="(i * 0.1) + 's'">
+                    <span class="crm-shimmer"></span>
+                    <span class="crm-dot"></span>
+                    <span class="crm-shimmer sm"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="sysgen-cta-wrap anim-hidden">
+      <p class="text-secondary" style="margin-bottom:1.5rem; font-size:0.9rem;">🔑 Inicia sesión para acceder al demo completo con 500 tokens gratuitos</p>
+      <button class="btn btn--primary btn--lg" (click)="goToDemo('sysgen')" id="cta-sysgen">{{ 'SYSGEN.CTA' | translate }} 🤖</button>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 8. AUTOFLOW ======= -->
+<section class="section service-section" id="autoflow">
+  <div class="container">
+    <div class="service-section__layout">
+      <div class="service-section__content anim-hidden from-left">
+        <div class="badge-pill badge-pill--purple2">
+          {{ 'AUTOFLOW.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'AUTOFLOW.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'AUTOFLOW.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'AUTOFLOW.DESC' | translate }}</p>
+
+        <div class="automation-grid">
+          <div class="auto-item" *ngFor="let item of [
+            {icon:'📋', text:'Digitalización de formularios'},
+            {icon:'🔗', text:'Integración entre sistemas'},
+            {icon:'📊', text:'Reportes automáticos'},
+            {icon:'🤖', text:'Chatbots y asistentes'},
+            {icon:'📧', text:'Emails automáticos'},
+            {icon:'🔔', text:'Alertas y notificaciones'}
+          ]">
+            <span class="auto-icon">{{ item.icon }}</span>
+            <span class="auto-text">{{ item.text }}</span>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="goToDemo('autoflow')" id="cta-autoflow">{{ 'AUTOFLOW.CTA' | translate }} →</button>
+      </div>
+
+      <div class="service-section__visual anim-hidden from-right">
+        <div class="autoflow-visual">
+          <div class="flow-diagram glass-card">
+            <div class="flow-node flow-node--trigger">
+              <span>⚡</span> Trigger
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node flow-node--process">
+              <span>⚙️</span> Procesar
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node flow-node--condition">
+              <span>🔀</span> Condición
+            </div>
+            <div class="flow-branches">
+              <div class="flow-branch">
+                <div class="flow-arrow">↙</div>
+                <div class="flow-node flow-node--yes">✅ Sí</div>
+              </div>
+              <div class="flow-branch">
+                <div class="flow-arrow">↘</div>
+                <div class="flow-node flow-node--no">❌ No</div>
+              </div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node flow-node--output">
+              <span>📤</span> Resultado
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 9. CÓMO FUNCIONA ======= -->
+<section class="section how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="section-header centered anim-hidden">
+      <h2 class="text-h1">{{ 'HOW_IT_WORKS.TITLE' | translate }}</h2>
+      <p class="text-body-lg text-secondary">{{ 'HOW_IT_WORKS.SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="steps-timeline anim-hidden">
+      <div class="steps-timeline__step" *ngFor="let step of steps; let i = index">
+        <div class="step-num">{{ step.num }}</div>
+        <div class="step-icon">{{ step.icon }}</div>
+        <h3 class="text-h3 step-title">{{ step.titleKey | translate }}</h3>
+        <p class="step-desc text-secondary">{{ step.descKey | translate }}</p>
+        <!-- Conector (excepto último) -->
+        <div class="step-connector" *ngIf="i < steps.length - 1">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 10. TECH STACK ======= -->
+<section class="section tech-section">
+  <div class="container">
+    <div class="section-header centered anim-hidden">
+      <h2 class="text-h2">{{ 'TECH.TITLE' | translate }}</h2>
+      <p class="text-body text-secondary">{{ 'TECH.SUBTITLE' | translate }}</p>
+    </div>
+  </div>
+
+  <!-- Marquee full-width (fuera del container para sangrar) -->
+  <div class="tech-marquee-wrap anim-hidden">
+    <!-- Fade izquierdo / derecho -->
+    <div class="tech-fade tech-fade--l"></div>
+    <div class="tech-fade tech-fade--r"></div>
+
+    <!-- Fila 1 → izquierda -->
+    <div class="tech-marquee">
+      <div class="tech-marquee__track">
+        <div class="tech-logo-card"
+             *ngFor="let t of techMarqueeRow1"
+             [style.--tc]="t.color">
+          <span class="tech-logo-card__badge">{{ t.logo }}</span>
+          <div class="tech-logo-card__info">
+            <span class="tech-logo-card__name">{{ t.name }}</span>
+            <span class="tech-logo-card__sub">{{ t.sub }}</span>
+          </div>
+        </div>
+        <!-- Duplicado para loop infinito -->
+        <div class="tech-logo-card"
+             *ngFor="let t of techMarqueeRow1"
+             [style.--tc]="t.color"
+             aria-hidden="true">
+          <span class="tech-logo-card__badge">{{ t.logo }}</span>
+          <div class="tech-logo-card__info">
+            <span class="tech-logo-card__name">{{ t.name }}</span>
+            <span class="tech-logo-card__sub">{{ t.sub }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila 2 → derecha -->
+    <div class="tech-marquee tech-marquee--reverse">
+      <div class="tech-marquee__track">
+        <div class="tech-logo-card"
+             *ngFor="let t of techMarqueeRow2"
+             [style.--tc]="t.color">
+          <span class="tech-logo-card__badge">{{ t.logo }}</span>
+          <div class="tech-logo-card__info">
+            <span class="tech-logo-card__name">{{ t.name }}</span>
+            <span class="tech-logo-card__sub">{{ t.sub }}</span>
+          </div>
+        </div>
+        <div class="tech-logo-card"
+             *ngFor="let t of techMarqueeRow2"
+             [style.--tc]="t.color"
+             aria-hidden="true">
+          <span class="tech-logo-card__badge">{{ t.logo }}</span>
+          <div class="tech-logo-card__info">
+            <span class="tech-logo-card__name">{{ t.name }}</span>
+            <span class="tech-logo-card__sub">{{ t.sub }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======= 11. CTA FINAL ======= -->
+<section class="cta-final" id="contact">
+  <div class="cta-final__orb cta-final__orb--left"></div>
+  <div class="cta-final__orb cta-final__orb--right"></div>
+
+  <div class="cta-final__inner anim-hidden">
+    <div class="badge-pill" style="margin: 0 auto 2rem;">🚀 Chile</div>
+    <h2 class="text-h1 cta-final__title">
+      {{ 'CTA_FINAL.TITLE' | translate }}<br>
+      <span class="text-gradient">{{ 'CTA_FINAL.TITLE_HL' | translate }}</span>
+    </h2>
+    <p class="text-body-lg cta-final__desc text-secondary">{{ 'CTA_FINAL.DESC' | translate }}</p>
+    <div class="cta-final__btn-group">
+      <button class="btn btn--primary btn--lg" (click)="goToDemo('sysgen')" id="cta-final-primary">
+        {{ 'CTA_FINAL.BTN_PRIMARY' | translate }}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a href="#contact" class="btn btn--outline btn--lg">
+        {{ 'CTA_FINAL.BTN_SECONDARY' | translate }}
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,244 @@
+// ============================================================
+// ESTILOS RESPONSIVE — ESCRITORIO Y LAPTOP (>= 1024px)
+// ============================================================
+@use 'variables' as *;
+
+// ---- LAYOUT DESKTOP ----
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $space-3xl;
+}
+
+.section {
+  padding: $space-5xl 0;
+}
+
+// ---- GRID SYSTEMS DESKTOP ----
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-2xl;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-xl;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-xl;
+}
+
+.grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: $space-lg;
+}
+
+// ---- TIPOGRAFÍA DESKTOP ----
+.text-hero {
+  font-family: $font-display;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.text-h1 {
+  font-family: $font-display;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-h2 {
+  font-family: $font-display;
+  font-size: clamp(1.75rem, 2.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.text-h3 {
+  font-family: $font-display;
+  font-size: clamp(1.25rem, 1.75vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-body-lg {
+  font-family: $font-body;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.text-body {
+  font-family: $font-body;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+// ---- NAVBAR DESKTOP ----
+.navbar {
+  height: 72px;
+  padding: 0 $space-3xl;
+
+  &__logo { font-size: 1.5rem; }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: $space-xl;
+  }
+
+  &__link {
+    font-size: 0.925rem;
+    letter-spacing: 0.02em;
+  }
+
+  &__hamburger { display: none; }
+  &__mobile-menu { display: none; }
+}
+
+// ---- HERO DESKTOP ----
+.hero {
+  min-height: 100vh;
+  padding: 0 $space-3xl;
+
+  &__content {
+    max-width: 720px;
+  }
+
+  &__visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+  }
+
+  &__headline { margin-bottom: $space-xl; }
+  &__sub      { margin-bottom: $space-2xl; }
+
+  &__cta-group {
+    flex-direction: row;
+    gap: $space-md;
+  }
+}
+
+// ---- SERVICES GRID DESKTOP ----
+.services-grid {
+  grid-template-columns: repeat(5, 1fr);
+  gap: $space-lg;
+}
+
+.service-card {
+  padding: $space-2xl $space-xl;
+  min-height: 280px;
+
+  &__icon  { font-size: 2.5rem; margin-bottom: $space-lg; }
+  &__title { font-size: 1.125rem; }
+  &__desc  { font-size: 0.875rem; }
+}
+
+// ---- SERVICE SECTIONS DESKTOP ----
+.service-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4xl;
+  align-items: center;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-lg;
+}
+
+// ---- STATS BAR DESKTOP ----
+.stats-bar {
+  grid-template-columns: repeat(4, 1fr);
+  padding: $space-2xl $space-3xl;
+
+  &__item {
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    padding: $space-lg $space-2xl;
+
+    &:last-child { border-right: none; }
+  }
+
+  &__number { font-size: 3rem; }
+  &__label  { font-size: 0.875rem; }
+}
+
+// ---- HOW IT WORKS DESKTOP ----
+.steps-timeline {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+
+  &__step {
+    flex: 1;
+    padding: $space-2xl;
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      width: 2px;
+      height: 60%;
+      transform: translateY(-50%);
+      background: linear-gradient(180deg, transparent, rgba(124,109,250,0.5), transparent);
+    }
+  }
+}
+
+// ---- TECH STACK DESKTOP ----
+.tech-grid {
+  grid-template-columns: repeat(6, 1fr);
+  gap: $space-lg;
+}
+
+// ---- CTA FINAL DESKTOP ----
+.cta-final {
+  padding: $space-5xl $space-3xl;
+
+  &__title  { font-size: clamp(2rem, 3.5vw, 3.5rem); }
+  &__btn-group { flex-direction: row; gap: $space-md; }
+}
+
+// ---- FOOTER DESKTOP ----
+.footer {
+  padding: $space-4xl $space-3xl $space-2xl;
+
+  &__grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: $space-4xl;
+    margin-bottom: $space-4xl;
+  }
+}
+
+// ---- SYSGEN DEMO DESKTOP ----
+.sysgen-demo {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: $space-3xl;
+  align-items: start;
+}
+
+// ---- QUEUEFLOW MOCKUP DESKTOP ----
+.queueflow-mockup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-xl;
+}

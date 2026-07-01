@@ -1,0 +1,313 @@
+// ============================================================
+// ESTILOS RESPONSIVE — MÓVIL Y TABLET (<= 1023px)
+// ============================================================
+@use 'variables' as *;
+
+// ---- LAYOUT MOBILE ----
+@media screen and (max-width: 1023px) {
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 $space-lg;
+  }
+
+  .section {
+    padding: $space-4xl 0;
+  }
+
+  // ---- GRID SYSTEMS MOBILE ----
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-5 {
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+  }
+
+  // Tablet: 2 columnas para grids de 4+
+  @media screen and (min-width: 600px) {
+    .grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // ---- TIPOGRAFÍA MOBILE ----
+  .text-hero {
+    font-family: $font-display;
+    font-size: clamp(2rem, 8vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  .text-h1 {
+    font-family: $font-display;
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  .text-h2 {
+    font-family: $font-display;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+
+  .text-h3 {
+    font-family: $font-display;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .text-body-lg {
+    font-size: 1rem;
+    line-height: 1.65;
+    text-align: center;
+  }
+
+  .text-body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  // ---- NAVBAR MOBILE ----
+  .navbar {
+    height: 64px;
+    padding: 0 $space-lg;
+
+    &__logo { font-size: 1.25rem; }
+
+    &__menu {
+      display: none;
+
+      &.is-open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(5, 5, 8, 0.98);
+        backdrop-filter: blur(24px);
+        z-index: 999;
+        padding: $space-3xl $space-xl;
+        gap: $space-xl;
+        align-items: center;
+        justify-content: flex-start;
+      }
+    }
+
+    &__link {
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    &__cta { display: none; }
+    &__hamburger  { display: flex; cursor: pointer; }
+  }
+
+  // ---- HERO MOBILE ----
+  .hero {
+    min-height: 100vh;
+    padding: 80px $space-lg $space-4xl;
+    flex-direction: column;
+    text-align: center;
+
+    &__content {
+      max-width: 100%;
+      text-align: center;
+    }
+
+    &__visual {
+      display: none; // Oculto en mobile para mayor impacto del texto
+    }
+
+    &__headline { margin-bottom: $space-lg; }
+
+    &__sub {
+      margin-bottom: $space-2xl;
+      font-size: 1rem;
+    }
+
+    &__cta-group {
+      flex-direction: column;
+      align-items: center;
+      gap: $space-md;
+      width: 100%;
+
+      .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+    }
+  }
+
+  // ---- SERVICES GRID MOBILE ----
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: $space-md;
+
+    @media screen and (min-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .service-card {
+    padding: $space-xl $space-lg;
+    min-height: unset;
+    text-align: center;
+    align-items: center;
+
+    &__icon { margin-bottom: $space-md; }
+    &__title { font-size: 1rem; }
+    &__desc  { font-size: 0.875rem; }
+  }
+
+  // ---- SERVICE SECTIONS MOBILE ----
+  .service-detail {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2xl;
+    text-align: center;
+
+    &.reverse-mobile { flex-direction: column; }
+  }
+
+  .feature-list {
+    grid-template-columns: 1fr;
+    gap: $space-md;
+
+    @media screen and (min-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // ---- STATS BAR MOBILE ----
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+    padding: $space-xl $space-lg;
+    gap: 0;
+
+    &__item {
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: $space-lg;
+      text-align: center;
+
+      &:nth-child(odd) {
+        border-right: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      &:nth-last-child(-n+2) {
+        border-bottom: none;
+      }
+    }
+
+    &__number { font-size: 2rem; }
+    &__label  { font-size: 0.8125rem; }
+  }
+
+  // ---- HOW IT WORKS MOBILE ----
+  .steps-timeline {
+    flex-direction: column;
+    gap: $space-sm;
+
+    &__step {
+      padding: $space-xl $space-lg;
+      text-align: center;
+
+      &::after { display: none; }
+    }
+  }
+
+  // ---- TECH STACK MOBILE ----
+  .tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-md;
+  }
+
+  // ---- CTA FINAL MOBILE ----
+  .cta-final {
+    padding: $space-4xl $space-lg;
+    text-align: center;
+
+    &__title { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+
+    &__btn-group {
+      flex-direction: column;
+      align-items: center;
+      gap: $space-md;
+
+      .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+    }
+  }
+
+  // ---- FOOTER MOBILE ----
+  .footer {
+    padding: $space-3xl $space-lg $space-xl;
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: $space-2xl;
+      margin-bottom: $space-2xl;
+    }
+
+    &__brand { text-align: center; }
+
+    &__links-col {
+      text-align: center;
+
+      h4::after {
+        margin: $space-sm auto 0;
+      }
+    }
+  }
+
+  // ---- SYSGEN DEMO MOBILE ----
+  .sysgen-demo {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2xl;
+  }
+
+  // ---- QUEUEFLOW MOCKUP MOBILE ----
+  .queueflow-mockup {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+  }
+
+  // ---- SECTION HEADERS MOBILE ----
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-3xl;
+  }
+
+  // ---- PILL / BADGE MOBILE ----
+  .badge-pill {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+  }
+
+  // ---- LANGUAGE SWITCHER MOBILE ----
+  .lang-switcher {
+    font-size: 0.875rem;
+  }
+}

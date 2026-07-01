@@ -1,0 +1,159 @@
+{
+  "NAV": {
+    "SERVICES": "Servicios",
+    "PROXIPUSH": "ProxiPush",
+    "QUEUEFLOW": "QueueFlow",
+    "WEBCRAFTS": "Desarrollo Web",
+    "SYSGEN": "CRM/ERP IA",
+    "AUTOFLOW": "Automatización",
+    "HOW_IT_WORKS": "Cómo funciona",
+    "CONTACT": "Contacto",
+    "LOGIN": "Iniciar sesión",
+    "GET_STARTED": "Comenzar gratis"
+  },
+  "HERO": {
+    "BADGE": "Tecnología para negocios chilenos",
+    "HEADLINE_1": "Transforma tu negocio",
+    "HEADLINE_2": "con tecnología",
+    "HEADLINE_3": "de clase mundial",
+    "SUBTITLE": "Desde notificaciones push geolocalizadas hasta sistemas CRM/ERP generados con IA. Todo lo que tu empresa necesita para liderar la transformación digital.",
+    "CTA_PRIMARY": "Comenzar ahora",
+    "CTA_SECONDARY": "Ver servicios",
+    "SCROLL_HINT": "Descubre más"
+  },
+  "STATS": {
+    "CLIENTS": "Clientes activos",
+    "SERVICES": "Servicios disponibles",
+    "COUNTRIES": "Países de alcance",
+    "UPTIME": "Disponibilidad"
+  },
+  "SERVICES": {
+    "TITLE": "Nuestros servicios",
+    "SUBTITLE": "Cinco soluciones integradas para llevar tu negocio al siguiente nivel",
+    "PROXIPUSH": {
+      "NAME": "ProxiPush",
+      "SHORT": "Notificaciones push geolocalizadas y mensajería masiva inteligente para tu negocio.",
+      "TAG": "Mensajería inteligente"
+    },
+    "QUEUEFLOW": {
+      "NAME": "QueueFlow",
+      "SHORT": "Carta digital, gestión de pedidos y cola de atención en tiempo real.",
+      "TAG": "Gestión de local"
+    },
+    "WEBCRAFTS": {
+      "NAME": "WebCrafts",
+      "SHORT": "Páginas web modernas, profesionales y personalizadas según tu marca.",
+      "TAG": "Desarrollo web"
+    },
+    "SYSGEN": {
+      "NAME": "SysGen AI",
+      "SHORT": "Genera tu CRM o ERP personalizado con inteligencia artificial en minutos.",
+      "TAG": "IA empresarial"
+    },
+    "AUTOFLOW": {
+      "NAME": "AutoFlow",
+      "SHORT": "Automatización de procesos y transformación digital para tu empresa.",
+      "TAG": "Automatización"
+    }
+  },
+  "PROXIPUSH": {
+    "BADGE": "Servicio 01 · ProxiPush",
+    "TITLE": "Llega a tus clientes",
+    "TITLE_HL": "en el momento exacto",
+    "DESC": "Envía notificaciones push personalizadas a todos los usuarios dentro de un radio de 100 metros de tu local. Complementa con campañas de email masivo segmentadas y sin riesgo de spam.",
+    "FEATURES": {
+      "GEO": { "TITLE": "Radio geolocalizado", "DESC": "Alcanza clientes a 100m de tu local automáticamente" },
+      "PERSONALIZED": { "TITLE": "Mensajes personalizados", "DESC": "Cada empresa tiene su propio panel y mensajes únicos" },
+      "PANEL": { "TITLE": "Panel de administración", "DESC": "Edita notificaciones, segmenta y programa envíos" },
+      "EMAIL": { "TITLE": "Email masivo anti-spam", "DESC": "Campañas masivas con doble opt-in y entrega garantizada" },
+      "REALTIME": { "TITLE": "Métricas en tiempo real", "DESC": "Tasas de apertura, clics y conversiones en vivo" },
+      "MULTISITE": { "TITLE": "Multi-local", "DESC": "Gestiona múltiples sucursales desde un solo panel" }
+    },
+    "CTA": "Activar ProxiPush"
+  },
+  "QUEUEFLOW": {
+    "BADGE": "Servicio 02 · QueueFlow",
+    "TITLE": "Tu local digital,",
+    "TITLE_HL": "sin complicaciones",
+    "DESC": "Sistema completo de carta digital, carrito de pedidos y gestión de cola. Tus clientes piden desde su teléfono, y tu equipo ve los pedidos en tiempo real.",
+    "FEATURES": {
+      "MENU": { "TITLE": "Carta digital", "DESC": "Menú interactivo con categorías, fotos y descripciones" },
+      "CART": { "TITLE": "Carrito de pedidos", "DESC": "El cliente arma su pedido sin necesidad de llamar al garzón" },
+      "QUEUE": { "TITLE": "Cola de atención", "DESC": "Sistema de turnos digitales para ser atendido en orden" },
+      "STAFF": { "TITLE": "Panel del personal", "DESC": "Cambia estados de pedidos en tiempo real" },
+      "REALTIME": { "TITLE": "Actualización en vivo", "DESC": "El cliente ve el estado de su pedido cada 10 segundos" },
+      "NOPAY": { "TITLE": "Sin integración de pagos", "DESC": "La comanda va directo al personal, sin fricción digital" }
+    },
+    "CTA": "Activar QueueFlow"
+  },
+  "WEBCRAFTS": {
+    "BADGE": "Servicio 03 · WebCrafts",
+    "TITLE": "Tu presencia digital,",
+    "TITLE_HL": "rediseñada desde cero",
+    "DESC": "Diseñamos y desarrollamos páginas web modernas, rápidas y con identidad de marca única. Cada sitio es pensado desde la experiencia del usuario hasta el último pixel.",
+    "CTA": "Solicitar cotización"
+  },
+  "SYSGEN": {
+    "BADGE": "Servicio 04 · SysGen AI",
+    "TITLE": "Tu CRM o ERP,",
+    "TITLE_HL": "generado por IA",
+    "DESC": "Describe el sistema que necesitas y nuestra IA genera una vista previa funcional de tu CRM o ERP personalizado. Sin ver código, solo resultados.",
+    "PROMPT_PLACEHOLDER": "Describe el CRM/ERP que necesitas para tu empresa...",
+    "PROMPT_EXAMPLE": "Necesito un CRM para una empresa de ventas con seguimiento de leads, historial de contactos, pipeline de ventas y reportes mensuales.",
+    "GENERATE_BTN": "Generar vista previa",
+    "CTA": "Probar gratis"
+  },
+  "AUTOFLOW": {
+    "BADGE": "Servicio 05 · AutoFlow",
+    "TITLE": "Automatiza lo repetitivo,",
+    "TITLE_HL": "enfócate en crecer",
+    "DESC": "Transformamos procesos manuales en flujos automáticos inteligentes. Desde integraciones entre sistemas hasta la digitalización completa de tu operación.",
+    "CTA": "Agendar diagnóstico"
+  },
+  "HOW_IT_WORKS": {
+    "TITLE": "¿Cómo funciona?",
+    "SUBTITLE": "En 4 pasos tienes tu solución activa",
+    "STEPS": {
+      "1": { "NUM": "01", "TITLE": "Regístrate", "DESC": "Crea tu cuenta en minutos y elige los servicios que necesitas" },
+      "2": { "NUM": "02", "TITLE": "Configura", "DESC": "Personaliza cada herramienta con la identidad de tu negocio" },
+      "3": { "NUM": "03", "TITLE": "Activa", "DESC": "Pon en marcha tus servicios con un clic" },
+      "4": { "NUM": "04", "TITLE": "Crece", "DESC": "Mide resultados y escala según tus necesidades" }
+    }
+  },
+  "TECH": {
+    "TITLE": "Tecnología de confianza",
+    "SUBTITLE": "Construido sobre las plataformas más robustas del mundo"
+  },
+  "CTA_FINAL": {
+    "TITLE": "¿Listo para",
+    "TITLE_HL": "transformar tu negocio?",
+    "DESC": "Únete a los negocios que ya están un paso adelante. Comienza hoy, sin costo.",
+    "BTN_PRIMARY": "Comenzar gratis",
+    "BTN_SECONDARY": "Hablar con un asesor"
+  },
+  "FOOTER": {
+    "BRAND_DESC": "Tecnología de clase mundial para negocios chilenos. Transformación digital accesible y efectiva.",
+    "SERVICES_TITLE": "Servicios",
+    "COMPANY_TITLE": "Empresa",
+    "LEGAL_TITLE": "Legal",
+    "COMPANY": {
+      "ABOUT": "Nosotros",
+      "BLOG": "Blog",
+      "CAREERS": "Trabaja con nosotros",
+      "CONTACT": "Contacto"
+    },
+    "LEGAL": {
+      "PRIVACY": "Política de privacidad",
+      "TERMS": "Términos y condiciones",
+      "COOKIES": "Cookies"
+    },
+    "CONTACT_PLACEHOLDER": "contacto@empresa.cl",
+    "WHATSAPP_PLACEHOLDER": "+56 9 XXXX XXXX",
+    "COPYRIGHT": "Todos los derechos reservados.",
+    "MADE_IN": "Hecho con ♥ en Chile"
+  },
+  "LANG": {
+    "ES": "Español",
+    "EN": "English"
+  }
+}
