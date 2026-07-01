@@ -18,7 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
             <div class="footer__logo">
               <div class="footer__logo-mark">⬡</div>
               <span class="footer__logo-text">
-                <span>Digital</span><span class="text-purple">Agency</span>
+                <span>Nex</span><span class="text-purple">ora</span>
               </span>
             </div>
             <p class="footer__brand-desc">{{ 'FOOTER.BRAND_DESC' | translate }}</p>
@@ -41,11 +41,11 @@ import { TranslateModule } from '@ngx-translate/core';
           <div class="footer__col">
             <h4 class="footer__col-title">{{ 'FOOTER.SERVICES_TITLE' | translate }}</h4>
             <ul class="footer__links">
-              <li><a href="#proxipush">ProxiPush</a></li>
-              <li><a href="#queueflow">QueueFlow</a></li>
-              <li><a href="#webcrafts">WebCrafts</a></li>
-              <li><a href="#sysgen">SysGen AI</a></li>
-              <li><a href="#autoflow">AutoFlow</a></li>
+              <li><a href="#proxipush">{{ 'NAV.PROXIPUSH' | translate }}</a></li>
+              <li><a href="#queueflow">{{ 'NAV.QUEUEFLOW' | translate }}</a></li>
+              <li><a href="#webcrafts">{{ 'NAV.WEBCRAFTS' | translate }}</a></li>
+              <li><a href="#sysgen">{{ 'NAV.SYSGEN' | translate }}</a></li>
+              <li><a href="#autoflow">{{ 'NAV.AUTOFLOW' | translate }}</a></li>
             </ul>
           </div>
 
@@ -75,7 +75,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
         <div class="footer__bottom">
           <span class="footer__copyright">
-            © {{ currentYear }} Digital Agency. {{ 'FOOTER.COPYRIGHT' | translate }}
+            © {{ currentYear }} Nexora. {{ 'FOOTER.COPYRIGHT' | translate }}
           </span>
           <span class="footer__made-in">{{ 'FOOTER.MADE_IN' | translate }}</span>
         </div>

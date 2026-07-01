@@ -17,8 +17,8 @@ import { AuthService } from '../../../app/services/auth.service';
             <span class="logo-icon">⬡</span>
           </div>
           <span class="logo-text">
-            <span class="logo-text--main">Digital</span>
-            <span class="logo-text--accent">Agency</span>
+            <span class="logo-text--main">Nex</span>
+            <span class="logo-text--accent">ora</span>
           </span>
         </div>
 
@@ -27,10 +27,18 @@ import { AuthService } from '../../../app/services/auth.service';
           <a class="navbar__link" [routerLink]="['/']" fragment="services" (click)="closeMenu()">
             {{ 'NAV.SERVICES' | translate }}
           </a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="proxipush" (click)="closeMenu()">ProxiPush</a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="queueflow" (click)="closeMenu()">QueueFlow</a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="webcrafts" (click)="closeMenu()">WebCrafts</a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="sysgen" (click)="closeMenu()">SysGen AI</a>
+          <a class="navbar__link" [routerLink]="['/']" fragment="proxipush" (click)="closeMenu()">
+            {{ 'NAV.PROXIPUSH' | translate }}
+          </a>
+          <a class="navbar__link" [routerLink]="['/']" fragment="queueflow" (click)="closeMenu()">
+            {{ 'NAV.QUEUEFLOW' | translate }}
+          </a>
+          <a class="navbar__link" [routerLink]="['/']" fragment="webcrafts" (click)="closeMenu()">
+            {{ 'NAV.WEBCRAFTS' | translate }}
+          </a>
+          <a class="navbar__link" [routerLink]="['/']" fragment="sysgen" (click)="closeMenu()">
+            {{ 'NAV.SYSGEN' | translate }}
+          </a>
           <a class="navbar__link" [routerLink]="['/']" fragment="how-it-works" (click)="closeMenu()">
             {{ 'NAV.HOW_IT_WORKS' | translate }}
           </a>
