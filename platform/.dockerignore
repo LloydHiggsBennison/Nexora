@@ -1,0 +1,9 @@
+node_modules
+dist
+.git
+.vscode
+.editorconfig
+.prettierrc
+README.md
+build_errors.txt
+npm-debug.log
