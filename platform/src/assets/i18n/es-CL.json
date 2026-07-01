@@ -1,11 +1,11 @@
 {
   "NAV": {
     "SERVICES": "Servicios",
-    "PROXIPUSH": "ProxiPush",
-    "QUEUEFLOW": "QueueFlow",
-    "WEBCRAFTS": "Desarrollo Web",
-    "SYSGEN": "CRM/ERP IA",
-    "AUTOFLOW": "Automatización",
+    "PROXIPUSH": "NexPulse",
+    "QUEUEFLOW": "NexOrder",
+    "WEBCRAFTS": "NexSite",
+    "SYSGEN": "NexCore / NexBI",
+    "AUTOFLOW": "NexFlow",
     "HOW_IT_WORKS": "Cómo funciona",
     "CONTACT": "Contacto",
     "LOGIN": "Iniciar sesión",
@@ -31,33 +31,33 @@
     "TITLE": "Nuestros servicios",
     "SUBTITLE": "Cinco soluciones integradas para llevar tu negocio al siguiente nivel",
     "PROXIPUSH": {
-      "NAME": "ProxiPush",
+      "NAME": "NexPulse",
       "SHORT": "Notificaciones push geolocalizadas y mensajería masiva inteligente para tu negocio.",
       "TAG": "Mensajería inteligente"
     },
     "QUEUEFLOW": {
-      "NAME": "QueueFlow",
+      "NAME": "NexOrder / NexQueue",
       "SHORT": "Carta digital, gestión de pedidos y cola de atención en tiempo real.",
       "TAG": "Gestión de local"
     },
     "WEBCRAFTS": {
-      "NAME": "WebCrafts",
+      "NAME": "NexSite",
       "SHORT": "Páginas web modernas, profesionales y personalizadas según tu marca.",
       "TAG": "Desarrollo web"
     },
     "SYSGEN": {
-      "NAME": "SysGen AI",
+      "NAME": "NexCore & NexBI",
       "SHORT": "Genera tu CRM o ERP personalizado con inteligencia artificial en minutos.",
       "TAG": "IA empresarial"
     },
     "AUTOFLOW": {
-      "NAME": "AutoFlow",
+      "NAME": "NexFlow",
       "SHORT": "Automatización de procesos y transformación digital para tu empresa.",
       "TAG": "Automatización"
     }
   },
   "PROXIPUSH": {
-    "BADGE": "Servicio 01 · ProxiPush",
+    "BADGE": "Servicio 01 · NexPulse",
     "TITLE": "Llega a tus clientes",
     "TITLE_HL": "en el momento exacto",
     "DESC": "Envía notificaciones push personalizadas a todos los usuarios dentro de un radio de 100 metros de tu local. Complementa con campañas de email masivo segmentadas y sin riesgo de spam.",
@@ -69,10 +69,10 @@
       "REALTIME": { "TITLE": "Métricas en tiempo real", "DESC": "Tasas de apertura, clics y conversiones en vivo" },
       "MULTISITE": { "TITLE": "Multi-local", "DESC": "Gestiona múltiples sucursales desde un solo panel" }
     },
-    "CTA": "Activar ProxiPush"
+    "CTA": "Activar NexPulse"
   },
   "QUEUEFLOW": {
-    "BADGE": "Servicio 02 · QueueFlow",
+    "BADGE": "Servicio 02 · NexOrder / NexQueue",
     "TITLE": "Tu local digital,",
     "TITLE_HL": "sin complicaciones",
     "DESC": "Sistema completo de carta digital, carrito de pedidos y gestión de cola. Tus clientes piden desde su teléfono, y tu equipo ve los pedidos en tiempo real.",
@@ -84,27 +84,27 @@
       "REALTIME": { "TITLE": "Actualización en vivo", "DESC": "El cliente ve el estado de su pedido cada 10 segundos" },
       "NOPAY": { "TITLE": "Sin integración de pagos", "DESC": "La comanda va directo al personal, sin fricción digital" }
     },
-    "CTA": "Activar QueueFlow"
+    "CTA": "Activar NexOrder / NexQueue"
   },
   "WEBCRAFTS": {
-    "BADGE": "Servicio 03 · WebCrafts",
+    "BADGE": "Servicio 03 · NexSite",
     "TITLE": "Tu presencia digital,",
     "TITLE_HL": "rediseñada desde cero",
     "DESC": "Diseñamos y desarrollamos páginas web modernas, rápidas y con identidad de marca única. Cada sitio es pensado desde la experiencia del usuario hasta el último pixel.",
     "CTA": "Solicitar cotización"
   },
   "SYSGEN": {
-    "BADGE": "Servicio 04 · SysGen AI",
-    "TITLE": "Tu CRM o ERP,",
-    "TITLE_HL": "generado por IA",
-    "DESC": "Describe el sistema que necesitas y nuestra IA genera una vista previa funcional de tu CRM o ERP personalizado. Sin ver código, solo resultados.",
+    "BADGE": "Servicio 04 · NexCore & NexBI",
+    "TITLE": "Tu CRM / ERP,",
+    "TITLE_HL": "generado e integrado",
+    "DESC": "Sistemas empresariales personalizados a la medida de tu operación, conectados con inteligencia de negocios en tiempo real.",
     "PROMPT_PLACEHOLDER": "Describe el CRM/ERP que necesitas para tu empresa...",
     "PROMPT_EXAMPLE": "Necesito un CRM para una empresa de ventas con seguimiento de leads, historial de contactos, pipeline de ventas y reportes mensuales.",
     "GENERATE_BTN": "Generar vista previa",
     "CTA": "Probar gratis"
   },
   "AUTOFLOW": {
-    "BADGE": "Servicio 05 · AutoFlow",
+    "BADGE": "Servicio 05 · NexFlow",
     "TITLE": "Automatiza lo repetitivo,",
     "TITLE_HL": "enfócate en crecer",
     "DESC": "Transformamos procesos manuales en flujos automáticos inteligentes. Desde integraciones entre sistemas hasta la digitalización completa de tu operación.",

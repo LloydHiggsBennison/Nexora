@@ -56,42 +56,42 @@ export class DashboardComponent implements OnInit {
     {
       id: 'sysgen',
       icon: '🤖',
-      name: 'SysGen IA',
-      tagline: 'CRM/ERP generado por IA',
+      name: 'NexCore / NexBI',
+      tagline: 'CRM/ERP e Inteligencia de negocios',
       color: '#FFB347',
-      description: 'Describe tu negocio y genera una vista de tu sistema de gestión personalizado.'
+      description: 'Sistemas empresariales personalizados y análisis de datos en tiempo real.'
     },
     {
       id: 'proxipush',
       icon: '📡',
-      name: 'ProxiPush',
+      name: 'NexPulse',
       tagline: 'Marketing de proximidad',
       color: '#7C6DFA',
-      description: 'Envía notificaciones push geolocalizadas a clientes cerca de tu negocio.'
+      description: 'Notificaciones geolocalizadas y campañas masivas inteligentes.'
     },
     {
       id: 'queueflow',
       icon: '🍽️',
-      name: 'QueueFlow',
-      tagline: 'Gestión de pedidos y mesas',
+      name: 'NexOrder / NexQueue',
+      tagline: 'Gestión de pedidos y colas en tiempo real',
       color: '#FA6D8B',
-      description: 'Carta digital, gestión de pedidos en tiempo real y control de mesas.'
+      description: 'Carta digital, comandas y fila virtual para clientes.'
     },
     {
       id: 'webcrafts',
       icon: '🌐',
-      name: 'WebCrafts',
-      tagline: 'Sitios web premium',
+      name: 'NexSite',
+      tagline: 'Desarrollo web y personalizado',
       color: '#00E5CC',
-      description: 'Desarrollo de sitios web modernos, SEO optimizados y mobile-first.'
+      description: 'Sitios web modernos, rápidos y optimizados para SEO.'
     },
     {
       id: 'autoflow',
       icon: '⚡',
-      name: 'AutoFlow',
-      tagline: 'Automatización inteligente',
+      name: 'NexFlow',
+      tagline: 'Automatización y transformación digital',
       color: '#A855F7',
-      description: 'Automatiza procesos, conecta sistemas e integra chatbots IA.'
+      description: 'Flujos automáticos de procesos sin código e integraciones inteligentes.'
     }
   ];
 

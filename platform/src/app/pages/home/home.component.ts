@@ -20,48 +20,66 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   services = [
     {
-      id: 'proxipush',
-      icon: '📡',
-      nameKey: 'SERVICES.PROXIPUSH.NAME',
-      shortKey: 'SERVICES.PROXIPUSH.SHORT',
-      tagKey: 'SERVICES.PROXIPUSH.TAG',
+      id: 'nexcore',
+      icon: '💼',
+      name: 'NexCore',
+      shortDesc: 'CRM/ERP empresarial',
+      tag: 'Gestión',
       color: '#7C6DFA',
-      href: '#proxipush'
-    },
-    {
-      id: 'queueflow',
-      icon: '🍽️',
-      nameKey: 'SERVICES.QUEUEFLOW.NAME',
-      shortKey: 'SERVICES.QUEUEFLOW.SHORT',
-      tagKey: 'SERVICES.QUEUEFLOW.TAG',
-      color: '#FA6D8B',
-      href: '#queueflow'
-    },
-    {
-      id: 'webcrafts',
-      icon: '🌐',
-      nameKey: 'SERVICES.WEBCRAFTS.NAME',
-      shortKey: 'SERVICES.WEBCRAFTS.SHORT',
-      tagKey: 'SERVICES.WEBCRAFTS.TAG',
-      color: '#00E5CC',
-      href: '#webcrafts'
-    },
-    {
-      id: 'sysgen',
-      icon: '🤖',
-      nameKey: 'SERVICES.SYSGEN.NAME',
-      shortKey: 'SERVICES.SYSGEN.SHORT',
-      tagKey: 'SERVICES.SYSGEN.TAG',
-      color: '#FFB347',
       href: '#sysgen'
     },
     {
-      id: 'autoflow',
-      icon: '⚡',
-      nameKey: 'SERVICES.AUTOFLOW.NAME',
-      shortKey: 'SERVICES.AUTOFLOW.SHORT',
-      tagKey: 'SERVICES.AUTOFLOW.TAG',
+      id: 'nexbi',
+      icon: '📊',
+      name: 'NexBI',
+      shortDesc: 'Inteligencia de negocios',
+      tag: 'Analítica',
+      color: '#FA6D8B',
+      href: '#sysgen'
+    },
+    {
+      id: 'nexpulse',
+      icon: '📡',
+      name: 'NexPulse',
+      shortDesc: 'Marketing de proximidad',
+      tag: 'Marketing',
+      color: '#00E5CC',
+      href: '#proxipush'
+    },
+    {
+      id: 'nexsite',
+      icon: '🌐',
+      name: 'NexSite',
+      shortDesc: 'Desarrollo web y sistemas personalizados',
+      tag: 'Desarrollo',
+      color: '#FFB347',
+      href: '#webcrafts'
+    },
+    {
+      id: 'nexorder',
+      icon: '🛎️',
+      name: 'NexOrder',
+      shortDesc: 'Gestión de pedidos',
+      tag: 'Operaciones',
       color: '#A855F7',
+      href: '#queueflow'
+    },
+    {
+      id: 'nexqueue',
+      icon: '🔢',
+      name: 'NexQueue',
+      shortDesc: 'Cola de atención en tiempo real',
+      tag: 'Atención',
+      color: '#FF5722',
+      href: '#queueflow'
+    },
+    {
+      id: 'nexflow',
+      icon: '⚡',
+      name: 'NexFlow',
+      shortDesc: 'Automatización de procesos y transformación digital',
+      tag: 'Procesos',
+      color: '#00DC82',
       href: '#autoflow'
     }
   ];
