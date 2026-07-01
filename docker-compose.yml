@@ -1,0 +1,13 @@
+services:
+  platform:
+    build:
+      context: ./platform
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./platform:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
