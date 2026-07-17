@@ -282,10 +282,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   // ── Team members (About Us) ──
   teamMembers = [
-    { nameKey: 'ABOUT_US.TEAM.1.NAME', roleKey: 'ABOUT_US.TEAM.1.ROLE', descKey: 'ABOUT_US.TEAM.1.DESC', photo: 'https://ui-avatars.com/api/?name=Lloyd+Higgs&size=200&background=7C6DFA&color=fff&bold=true' },
-    { nameKey: 'ABOUT_US.TEAM.2.NAME', roleKey: 'ABOUT_US.TEAM.2.ROLE', descKey: 'ABOUT_US.TEAM.2.DESC', photo: 'https://ui-avatars.com/api/?name=Sergio+Briones&size=200&background=FA6D8B&color=fff&bold=true' },
-    { nameKey: 'ABOUT_US.TEAM.3.NAME', roleKey: 'ABOUT_US.TEAM.3.ROLE', descKey: 'ABOUT_US.TEAM.3.DESC', photo: 'https://ui-avatars.com/api/?name=Eduardo+Torrejon&size=200&background=00E5CC&color=fff&bold=true' },
-    { nameKey: 'ABOUT_US.TEAM.4.NAME', roleKey: 'ABOUT_US.TEAM.4.ROLE', descKey: 'ABOUT_US.TEAM.4.DESC', photo: 'https://ui-avatars.com/api/?name=Jalhef+Alfaro&size=200&background=FFB347&color=fff&bold=true' }
+    { nameKey: 'ABOUT_US.TEAM.1.NAME', roleKey: 'ABOUT_US.TEAM.1.ROLE', badgeKey: 'ABOUT_US.TEAM.1.BADGE', descKey: 'ABOUT_US.TEAM.1.DESC', initials: 'LH', color: '#7C6DFA', linkedin: 'https://linkedin.com/' },
+    { nameKey: 'ABOUT_US.TEAM.2.NAME', roleKey: 'ABOUT_US.TEAM.2.ROLE', badgeKey: 'ABOUT_US.TEAM.2.BADGE', descKey: 'ABOUT_US.TEAM.2.DESC', initials: 'SB', color: '#FA6D8B', linkedin: 'https://linkedin.com/' },
+    { nameKey: 'ABOUT_US.TEAM.3.NAME', roleKey: 'ABOUT_US.TEAM.3.ROLE', badgeKey: 'ABOUT_US.TEAM.3.BADGE', descKey: 'ABOUT_US.TEAM.3.DESC', initials: 'ET', color: '#00E5CC', linkedin: 'https://linkedin.com/' },
+    { nameKey: 'ABOUT_US.TEAM.4.NAME', roleKey: 'ABOUT_US.TEAM.4.ROLE', badgeKey: 'ABOUT_US.TEAM.4.BADGE', descKey: 'ABOUT_US.TEAM.4.DESC', initials: 'JA', color: '#FFB347', linkedin: 'https://linkedin.com/' }
   ];
 
   ngOnInit(): void {
