@@ -332,8 +332,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.availableSlots = [];
     this.schedulerOpen = true;
     document.body.style.overflow = 'hidden';
-    // Precargar SDK de Google mientras el usuario llena el formulario
-    this.calendarService.preload();
   }
 
   closeScheduler(): void {
