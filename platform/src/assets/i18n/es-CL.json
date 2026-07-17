@@ -163,10 +163,10 @@
     "TITLE_HL": "Nexora",
     "DESC": "Un equipo apasionado por la tecnología y comprometido con el éxito de tu negocio.",
     "TEAM": {
-      "1": { "NAME": "Lloyd Higgs", "ROLE": "Principal Cloud Engineer", "DESC": "Ingeniero Informático con amplia trayectoria. Especialista experto en Cloud Engineering con profunda experiencia liderando transformaciones digitales y arquitecturas de alto nivel." },
-      "2": { "NAME": "Sergio Briones", "ROLE": "Cloud Engineer", "DESC": "Ingeniero Informático con alta experiencia en Cloud Engineering y despliegue de infraestructuras escalables." },
-      "3": { "NAME": "Eduardo Torrejón", "ROLE": "Backend Engineer", "DESC": "Ingeniero Informático experto en desarrollo Backend, bases de datos y creación de APIs robustas de alto rendimiento." },
-      "4": { "NAME": "Jalhef Alfaro", "ROLE": "Frontend & UI Engineer", "DESC": "Ingeniero Informático con alta experiencia en Frontend y UI, especializado en crear interfaces modernas y experiencias de usuario excepcionales." }
+      "1": { "NAME": "Lloyd Higgs", "ROLE": "CEO & Founder | Principal Cloud Architect", "DESC": "Ingeniero Informático con excepcional trayectoria liderando estrategias de transformación digital. Máximo referente en Cloud Engineering y diseño de arquitecturas de clase mundial para entornos empresariales de alta criticidad." },
+      "2": { "NAME": "Sergio Briones", "ROLE": "CTO & Co-Founder | Head of Cloud Infrastructure", "DESC": "Ingeniero Informático y líder tecnológico especializado en Cloud Engineering. Dirige el diseño y despliegue de infraestructuras escalables, seguras y de alto rendimiento para garantizar la continuidad operativa." },
+      "3": { "NAME": "Eduardo Torrejón", "ROLE": "VP of Engineering | Principal Backend Architect", "DESC": "Ingeniero Informático experto en el núcleo tecnológico corporativo. Especialista en arquitecturas Backend, bases de datos distribuidas y desarrollo de APIs robustas de alto rendimiento y resiliencia." },
+      "4": { "NAME": "Jalhef Alfaro", "ROLE": "Head of Product & UI | Frontend Tech Lead", "DESC": "Ingeniero Informático con visión estratégica para el desarrollo de productos digitales. Experto en tecnologías Frontend y UI/UX, creando interfaces modernas, intuitivas y de máximo impacto visual." }
     }
   },
   "SCHEDULER": {

@@ -163,10 +163,10 @@
     "TITLE_HL": "Nexora",
     "DESC": "A team passionate about technology and committed to your business success.",
     "TEAM": {
-      "1": { "NAME": "Lloyd Higgs", "ROLE": "Principal Cloud Engineer", "DESC": "Computer Engineer with an extensive background. Expert specialist in Cloud Engineering with deep experience leading digital transformations and high-level architectures." },
-      "2": { "NAME": "Sergio Briones", "ROLE": "Cloud Engineer", "DESC": "Computer Engineer with high experience in Cloud Engineering and deploying scalable infrastructures." },
-      "3": { "NAME": "Eduardo Torrejón", "ROLE": "Backend Engineer", "DESC": "Computer Engineer expert in Backend development, databases, and creating robust high-performance APIs." },
-      "4": { "NAME": "Jalhef Alfaro", "ROLE": "Frontend & UI Engineer", "DESC": "Computer Engineer with high experience in Frontend and UI, specialized in creating modern interfaces and exceptional user experiences." }
+      "1": { "NAME": "Lloyd Higgs", "ROLE": "CEO & Founder | Principal Cloud Architect", "DESC": "Computer Engineer with an exceptional track record leading digital transformation strategies. Maximum authority in Cloud Engineering and world-class architecture design for mission-critical enterprise environments." },
+      "2": { "NAME": "Sergio Briones", "ROLE": "CTO & Co-Founder | Head of Cloud Infrastructure", "DESC": "Computer Engineer and technology leader specialized in Cloud Engineering. Directs the design and deployment of scalable, secure, and high-performance infrastructures to ensure operational continuity." },
+      "3": { "NAME": "Eduardo Torrejón", "ROLE": "VP of Engineering | Principal Backend Architect", "DESC": "Computer Engineer expert in the corporate technological core. Specialist in Backend architectures, distributed databases, and the development of robust, high-performance, and resilient APIs." },
+      "4": { "NAME": "Jalhef Alfaro", "ROLE": "Head of Product & UI | Frontend Tech Lead", "DESC": "Computer Engineer with a strategic vision for digital product development. Expert in Frontend and UI/UX technologies, creating modern, intuitive, and visually high-impact interfaces." }
     }
   },
   "SCHEDULER": {
