@@ -1940,14 +1940,14 @@
 }
 
 /* Staggered animation classes (Optional) */
-.team-container.is-visible .team-card {
+.team-container.visible .team-card {
   animation: fadeInUp 0.6s ease forwards;
   opacity: 0;
 }
-.team-container.is-visible .team-card:nth-child(1) { animation-delay: 0.1s; }
-.team-container.is-visible .team-card:nth-child(2) { animation-delay: 0.2s; }
-.team-container.is-visible .team-card:nth-child(3) { animation-delay: 0.3s; }
-.team-container.is-visible .team-card:nth-child(4) { animation-delay: 0.4s; }
+.team-container.visible .team-card:nth-child(1) { animation-delay: 0.1s; }
+.team-container.visible .team-card:nth-child(2) { animation-delay: 0.2s; }
+.team-container.visible .team-card:nth-child(3) { animation-delay: 0.3s; }
+.team-container.visible .team-card:nth-child(4) { animation-delay: 0.4s; }
 
 /* ==========================================
    SCHEDULER MODAL
