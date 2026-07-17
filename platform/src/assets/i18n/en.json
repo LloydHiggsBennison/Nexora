@@ -163,10 +163,10 @@
     "TITLE_HL": "Nexora",
     "DESC": "A team passionate about technology and committed to your business success.",
     "TEAM": {
-      "1": { "NAME": "Carlos Méndez", "ROLE": "CEO & Co-Founder", "DESC": "Computer engineer with over 10 years of experience in digital transformation for SMEs in Latin America." },
-      "2": { "NAME": "Valentina Rojas", "ROLE": "CTO & Co-Founder", "DESC": "Specialist in cloud-native software architecture and high-performance distributed systems." },
-      "3": { "NAME": "Diego Fuentes", "ROLE": "Commercial Director", "DESC": "Expert in B2B commercial strategy focused on technology solutions for emerging markets." },
-      "4": { "NAME": "Catalina Vera", "ROLE": "Operations Director", "DESC": "Leader in technology project management and business process optimization." }
+      "1": { "NAME": "Lloyd Higgs", "ROLE": "Principal Cloud Engineer", "DESC": "Computer Engineer with an extensive background. Expert specialist in Cloud Engineering with deep experience leading digital transformations and high-level architectures." },
+      "2": { "NAME": "Sergio Briones", "ROLE": "Cloud Engineer", "DESC": "Computer Engineer with high experience in Cloud Engineering and deploying scalable infrastructures." },
+      "3": { "NAME": "Eduardo Torrejón", "ROLE": "Backend Engineer", "DESC": "Computer Engineer expert in Backend development, databases, and creating robust high-performance APIs." },
+      "4": { "NAME": "Jalhef Alfaro", "ROLE": "Frontend & UI Engineer", "DESC": "Computer Engineer with high experience in Frontend and UI, specialized in creating modern interfaces and exceptional user experiences." }
     }
   },
   "SCHEDULER": {

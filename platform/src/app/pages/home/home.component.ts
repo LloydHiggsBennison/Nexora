@@ -282,10 +282,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   // ── Team members (About Us) ──
   teamMembers = [
-    { nameKey: 'ABOUT_US.TEAM.1.NAME', roleKey: 'ABOUT_US.TEAM.1.ROLE', descKey: 'ABOUT_US.TEAM.1.DESC', photo: 'https://ui-avatars.com/api/?name=Carlos+Mendez&size=200&background=7C6DFA&color=fff&bold=true' },
-    { nameKey: 'ABOUT_US.TEAM.2.NAME', roleKey: 'ABOUT_US.TEAM.2.ROLE', descKey: 'ABOUT_US.TEAM.2.DESC', photo: 'https://ui-avatars.com/api/?name=Valentina+Rojas&size=200&background=FA6D8B&color=fff&bold=true' },
-    { nameKey: 'ABOUT_US.TEAM.3.NAME', roleKey: 'ABOUT_US.TEAM.3.ROLE', descKey: 'ABOUT_US.TEAM.3.DESC', photo: 'https://ui-avatars.com/api/?name=Diego+Fuentes&size=200&background=00E5CC&color=fff&bold=true' },
-    { nameKey: 'ABOUT_US.TEAM.4.NAME', roleKey: 'ABOUT_US.TEAM.4.ROLE', descKey: 'ABOUT_US.TEAM.4.DESC', photo: 'https://ui-avatars.com/api/?name=Catalina+Vera&size=200&background=FFB347&color=fff&bold=true' }
+    { nameKey: 'ABOUT_US.TEAM.1.NAME', roleKey: 'ABOUT_US.TEAM.1.ROLE', descKey: 'ABOUT_US.TEAM.1.DESC', photo: 'https://ui-avatars.com/api/?name=Lloyd+Higgs&size=200&background=7C6DFA&color=fff&bold=true' },
+    { nameKey: 'ABOUT_US.TEAM.2.NAME', roleKey: 'ABOUT_US.TEAM.2.ROLE', descKey: 'ABOUT_US.TEAM.2.DESC', photo: 'https://ui-avatars.com/api/?name=Sergio+Briones&size=200&background=FA6D8B&color=fff&bold=true' },
+    { nameKey: 'ABOUT_US.TEAM.3.NAME', roleKey: 'ABOUT_US.TEAM.3.ROLE', descKey: 'ABOUT_US.TEAM.3.DESC', photo: 'https://ui-avatars.com/api/?name=Eduardo+Torrejon&size=200&background=00E5CC&color=fff&bold=true' },
+    { nameKey: 'ABOUT_US.TEAM.4.NAME', roleKey: 'ABOUT_US.TEAM.4.ROLE', descKey: 'ABOUT_US.TEAM.4.DESC', photo: 'https://ui-avatars.com/api/?name=Jalhef+Alfaro&size=200&background=FFB347&color=fff&bold=true' }
   ];
 
   ngOnInit(): void {
