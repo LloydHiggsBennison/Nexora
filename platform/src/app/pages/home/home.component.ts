@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
@@ -14,7 +14,10 @@ import { CalendarService } from '../../services/calendar.service';
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChildren('animTarget') animTargets!: QueryList<ElementRef>;
 
-  constructor(private calendarService: CalendarService) {}
+  constructor(
+    private calendarService: CalendarService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   currentYear = new Date().getFullYear();
 
@@ -402,6 +405,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
       } else {
         throw new Error(result?.error || 'No se pudo generar el enlace');
       }
+
+      // Forzar a Angular a actualizar la interfaz inmediatamente
+      this.cdr.detectChanges();
+
     } catch (error: any) {
       console.error('[Frontend] Error agendando:', error);
       this.schedulerConfirming = false;
@@ -411,6 +418,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       // Si falla después de haber mostrado la pantalla success, regresamos a error
       this.schedulerStep = 'error';
       this.meetLink = '';
+      
+      this.cdr.detectChanges();
     }
   }
 
