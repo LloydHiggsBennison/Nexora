@@ -32,14 +32,43 @@ export class AuthService {
 
   constructor(private router: Router) {}
 
-  // ── Inicializar GIS (llamar desde AppComponent o LoginComponent) ──
+  // ── Inicializar GIS con soporte de traducción dinámica (hl) ──
   initGoogle(callback?: (user: AuthUser) => void): void {
+    const savedLang = localStorage.getItem('app_lang') || 'es-CL';
+    const langCode = savedLang === 'en' ? 'en' : 'es';
+    const expectedSrcBase = 'https://accounts.google.com/gsi/client';
+    const expectedSrc = `${expectedSrcBase}?hl=${langCode}`;
+
+    // 1. Verificar si el script ya existe en el DOM
+    const scriptId = 'google-gis-script';
+    let script = document.getElementById(scriptId) as HTMLScriptElement;
+
+    if (script) {
+      const currentSrc = script.src;
+      // Si el script actual no tiene el idioma esperado en su URL, limpiar y forzar recarga
+      if (!currentSrc.includes(`hl=${langCode}`)) {
+        this.cleanGoogleIdentityServices();
+        script = null as any;
+      }
+    }
+
+    if (!script) {
+      // Inyectar el script con la query param hl y timestamp de cache-busting
+      script = document.createElement('script');
+      script.id = scriptId;
+      script.src = `${expectedSrcBase}?hl=${langCode}&ts=${new Date().getTime()}`;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    // 2. Esperar a que el script del SDK esté disponible
     if (typeof google === 'undefined') {
-      // GIS no cargó aún — reintenta en 500ms
-      setTimeout(() => this.initGoogle(callback), 500);
+      setTimeout(() => this.initGoogle(callback), 100);
       return;
     }
 
+    // 3. Inicializar GIS
     google.accounts.id.initialize({
       client_id: this.CLIENT_ID,
       callback: (response: any) => {
@@ -49,6 +78,45 @@ export class AuthService {
       },
       auto_select: false,
       cancel_on_tap_outside: true,
+    });
+  }
+
+  // ── Limpieza agresiva de residuos del SDK de Google Identity Services ──
+  private cleanGoogleIdentityServices(): void {
+    // 1. Eliminar script del DOM
+    const script = document.getElementById('google-gis-script');
+    if (script) {
+      script.remove();
+    }
+
+    // 2. Eliminar objeto global en window
+    if (typeof (window as any).google !== 'undefined') {
+      delete (window as any).google;
+    }
+
+    // 3. Eliminar todos los iframes de Google ( One Tap, canal de mensajes, etc. )
+    const googleIframes = document.querySelectorAll('iframe');
+    googleIframes.forEach(iframe => {
+      const src = iframe.src || '';
+      if (src.includes('accounts.google.com') || src.includes('gsi')) {
+        iframe.remove();
+      }
+    });
+
+    // 4. Eliminar divs contenedores inyectados al final del body por Google
+    const googleDivs = document.querySelectorAll('div');
+    googleDivs.forEach(div => {
+      const id = div.id || '';
+      const className = div.className || '';
+      if (
+        id.includes('google') || id.includes('gsi') || id.includes('credential_picker') ||
+        className.includes('google') || className.includes('gsi')
+      ) {
+        // No eliminar nuestros propios contenedores de login
+        if (id !== 'google-btn-container' && id !== 'google-btn-container-reg') {
+          div.remove();
+        }
+      }
     });
   }
 
@@ -68,6 +136,13 @@ export class AuthService {
     const el = document.getElementById(elementId);
     if (!el) return;
 
+    // Vaciar el contenedor para remover el iframe del idioma anterior
+    el.innerHTML = '';
+
+    // Detectar idioma actual desde localStorage
+    const savedLang = localStorage.getItem('app_lang') || 'es-CL';
+    const localeVal = savedLang === 'en' ? 'en' : 'es';
+
     google.accounts.id.renderButton(el, {
       theme: 'filled_black',
       size: 'large',
@@ -75,6 +150,7 @@ export class AuthService {
       width: el.offsetWidth || 400,
       text: 'continue_with',
       logo_alignment: 'left',
+      locale: localeVal,
     });
   }
 

@@ -19,17 +19,20 @@
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
-        Volver al inicio
+        {{ 'LOGIN.BACK' | translate }}
       </button>
 
-      <div class="login-logo">
-        <div class="logo-icon">⬡</div>
-        <span class="logo-text">Digital<span class="logo-accent">Agency</span></span>
+      <div class="login-logo" (click)="goHome()" style="cursor: pointer; display: flex; align-items: center;">
+        <!-- Isotipo N oficial (PNG con transparencia real) -->
+        <img src="assets/Short Nexora.png" alt="N" style="height: 30px; width: auto; margin-right: -5px;">
+        <span class="nexora-brand-text" style="font-size: 1.55rem;">
+          E<span class="char-x">X</span>ORA
+        </span>
       </div>
 
       <div class="login-badge" *ngIf="targetProduct">
         <span class="badge-dot-pulse"></span>
-        Accediendo a demo de <strong>{{ targetProduct }}</strong>
+        {{ 'LOGIN.ACCESS_DEMO' | translate }} <strong>{{ targetProduct }}</strong>
       </div>
     </div>
 
@@ -39,9 +42,9 @@
       <!-- Token info banner -->
       <div class="token-banner">
         <span class="token-icon">🔋</span>
-        <span>Demo gratuito</span>
+        <span>{{ 'LOGIN.FREE_DEMO' | translate }}</span>
         <span class="token-sep">·</span>
-        <span class="token-count">500 tokens incluidos</span>
+        <span class="token-count">{{ 'LOGIN.TOKENS_INCLUDED' | translate }}</span>
       </div>
 
       <!-- ── Tabs ── -->
@@ -51,14 +54,14 @@
           [class.active]="activeTab === 'login'"
           (click)="setTab('login')"
           id="tab-login">
-          Iniciar sesión
+          {{ 'LOGIN.SIGN_IN' | translate }}
         </button>
         <button
           class="login-tab"
           [class.active]="activeTab === 'register'"
           (click)="setTab('register')"
           id="tab-register">
-          Crear cuenta
+          {{ 'LOGIN.CREATE_ACCOUNT' | translate }}
         </button>
         <div class="tab-indicator" [class.right]="activeTab === 'register'"></div>
       </div>
@@ -74,14 +77,14 @@
         <!-- Divider -->
         <div class="auth-divider">
           <span></span>
-          <p>o continúa con tu email</p>
+          <p>{{ 'LOGIN.OR_EMAIL' | translate }}</p>
           <span></span>
         </div>
 
         <!-- Formulario login -->
         <form class="auth-form" (ngSubmit)="submitLogin()">
           <div class="form-group">
-            <label class="form-label" for="login-email">Correo electrónico</label>
+            <label class="form-label" for="login-email">{{ 'LOGIN.EMAIL' | translate }}</label>
             <div class="input-wrap">
               <svg class="input-icon" viewBox="0 0 20 20" fill="none" width="16" height="16">
                 <path d="M2 4h16v13H2V4zm0 0l8 7 8-7" stroke="currentColor" stroke-width="1.5"/>
@@ -98,7 +101,7 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="login-password">Contraseña</label>
+            <label class="form-label" for="login-password">{{ 'LOGIN.PASSWORD' | translate }}</label>
             <div class="input-wrap">
               <svg class="input-icon" viewBox="0 0 20 20" fill="none" width="16" height="16">
                 <rect x="3" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -120,7 +123,7 @@
           </div>
 
           <button type="submit" class="btn-submit" [disabled]="loginLoading" id="btn-login-submit">
-            <span *ngIf="!loginLoading">Iniciar sesión →</span>
+            <span *ngIf="!loginLoading">{{ 'LOGIN.SIGN_IN_BTN' | translate }}</span>
             <span *ngIf="loginLoading" class="btn-loading">
               <span></span><span></span><span></span>
             </span>
@@ -128,8 +131,8 @@
         </form>
 
         <p class="auth-switch">
-          ¿No tienes cuenta?
-          <button (click)="setTab('register')" class="link-btn">Crear cuenta gratis</button>
+          {{ 'LOGIN.NO_ACCOUNT' | translate }}
+          <button (click)="setTab('register')" class="link-btn">{{ 'LOGIN.CREATE_FREE' | translate }}</button>
         </p>
       </div>
 
@@ -144,7 +147,7 @@
         <!-- Divider -->
         <div class="auth-divider">
           <span></span>
-          <p>o completa el formulario</p>
+          <p>{{ 'LOGIN.OR_FORM' | translate }}</p>
           <span></span>
         </div>
 
@@ -153,7 +156,7 @@
           <!-- Nombre + Apellido -->
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" for="reg-nombre">Nombre</label>
+              <label class="form-label" for="reg-nombre">{{ 'LOGIN.FIRST_NAME' | translate }}</label>
               <div class="input-wrap">
                 <input
                   id="reg-nombre"
@@ -165,7 +168,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="form-label" for="reg-apellido">Apellido</label>
+              <label class="form-label" for="reg-apellido">{{ 'LOGIN.LAST_NAME' | translate }}</label>
               <div class="input-wrap">
                 <input
                   id="reg-apellido"
@@ -180,7 +183,7 @@
 
           <!-- Email -->
           <div class="form-group">
-            <label class="form-label" for="reg-email">Correo electrónico</label>
+            <label class="form-label" for="reg-email">{{ 'LOGIN.EMAIL' | translate }}</label>
             <div class="input-wrap">
               <svg class="input-icon" viewBox="0 0 20 20" fill="none" width="16" height="16">
                 <path d="M2 4h16v13H2V4zm0 0l8 7 8-7" stroke="currentColor" stroke-width="1.5"/>
@@ -197,7 +200,7 @@
 
           <!-- Teléfono -->
           <div class="form-group">
-            <label class="form-label" for="reg-tel">Teléfono</label>
+            <label class="form-label" for="reg-tel">{{ 'LOGIN.PHONE' | translate }}</label>
             <div class="input-wrap phone-wrap">
               <div class="phone-prefix">🇨🇱 +56</div>
               <input
@@ -221,10 +224,10 @@
               name="terminos"/>
             <span class="checkbox-custom"></span>
             <span class="checkbox-text">
-              Acepto los
-              <a href="#" class="link-terms" (click)="$event.preventDefault()">Términos y Condiciones</a>
-              y la
-              <a href="#" class="link-terms" (click)="$event.preventDefault()">Política de Privacidad</a>
+              {{ 'LOGIN.ACCEPT_TERMS' | translate }}
+              <a href="#" class="link-terms" (click)="$event.preventDefault()">{{ 'LOGIN.TERMS' | translate }}</a>
+              {{ 'LOGIN.AND' | translate }}
+              <a href="#" class="link-terms" (click)="$event.preventDefault()">{{ 'LOGIN.PRIVACY' | translate }}</a>
             </span>
           </label>
 
@@ -237,7 +240,7 @@
             class="btn-submit"
             [disabled]="registerLoading || !registerValid"
             id="btn-register-submit">
-            <span *ngIf="!registerLoading">Crear cuenta gratuita →</span>
+            <span *ngIf="!registerLoading">{{ 'LOGIN.CREATE_ACCOUNT_BTN' | translate }}</span>
             <span *ngIf="registerLoading" class="btn-loading">
               <span></span><span></span><span></span>
             </span>
@@ -245,8 +248,8 @@
         </form>
 
         <p class="auth-switch">
-          ¿Ya tienes cuenta?
-          <button (click)="setTab('login')" class="link-btn">Iniciar sesión</button>
+          {{ 'LOGIN.ALREADY_ACCOUNT' | translate }}
+          <button (click)="setTab('login')" class="link-btn">{{ 'LOGIN.SIGN_IN' | translate }}</button>
         </p>
       </div>
 
@@ -254,7 +257,7 @@
 
     <!-- Footer note -->
     <p class="login-footer-note">
-      🔒 Esta es una vista demo. Los datos no se almacenan permanentemente.
+      {{ 'LOGIN.FOOTER_NOTE' | translate }}
     </p>
 
   </div><!-- /login-wrapper -->
