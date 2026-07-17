@@ -39,14 +39,14 @@ async function sendConfirmationEmail({ toEmail, date, time, meetLink, service })
         .header h1 { color: #ffffff; font-size: 24px; margin: 0; font-weight: 600; }
         .content { padding: 40px 30px; }
         .content p { font-size: 16px; line-height: 1.6; margin-bottom: 20px; color: #555; }
-        .details-box { background-color: #f9f9fb; border: 1px solid #eef0f4; border-radius: 8px; padding: 25px; margin-bottom: 30px; }
+        .details-box { background-color: #fafafc; border-left: 4px solid #7C6DFA; border-radius: 8px; padding: 25px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
         .details-row { display: flex; margin-bottom: 15px; }
         .details-row:last-child { margin-bottom: 0; }
         .details-label { font-weight: 600; width: 100px; color: #333; }
-        .details-value { color: #666; }
-        .btn-wrapper { text-align: center; margin-top: 30px; }
-        .btn { display: inline-block; background-color: #7C6DFA; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 16px; }
-        .btn:hover { background-color: #6957fa; }
+        .details-value { color: #666; font-weight: 500; }
+        .btn-wrapper { text-align: center; margin-top: 35px; margin-bottom: 15px; }
+        .btn { display: inline-block; background-color: #7C6DFA; background-image: linear-gradient(135deg, #7C6DFA 0%, #A855F7 100%); color: #ffffff !important; text-decoration: none; padding: 16px 40px; border-radius: 50px; font-weight: 700; font-size: 16px; box-shadow: 0 6px 20px rgba(124, 109, 250, 0.35); letter-spacing: 0.5px; }
+        .btn:hover { opacity: 0.9; }
         .footer { text-align: center; padding: 30px; background-color: #f9f9fb; font-size: 14px; color: #888; border-top: 1px solid #eef0f4; }
       </style>
     </head>

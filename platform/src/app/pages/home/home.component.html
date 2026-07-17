@@ -156,17 +156,7 @@
           </div>
         </div>
 
-        <p class="scheduler-subtitle">Recibirás un correo de confirmación con los detalles y el enlace.</p>
-        
-        <div class="scheduler-success-actions">
-          <div *ngIf="meetLink" class="meet-link-box">
-            <span class="link-label"><i class="fa-solid fa-video"></i> Link de reunión:</span>
-            <a [href]="meetLink" target="_blank" class="raw-link">{{ meetLink }}</a>
-          </div>
-          <p *ngIf="meetLinkLoading" class="loading-text">
-            <i class="fa-solid fa-hourglass-half"></i> Generando enlace de reunión...
-          </p>
-        </div>
+        <button class="btn btn--primary" (click)="openScheduler('nexpulse')" id="cta-nexpulse">{{ 'NEXPULSE.CTA' | translate }} →</button>
       </div>
 
       <!-- Visual Mockup -->
