@@ -1,5 +1,9 @@
 const { Resend } = require('resend');
 const nodemailer = require('nodemailer');
+const dns = require('dns');
+
+// Forzar la resolución DNS por IPv4 para evitar errores ENETUNREACH en la red de Render
+dns.setDefaultResultOrder('ipv4first');
 
 const hasResendApiKey = !!process.env.RESEND_API_KEY;
 const resend = hasResendApiKey ? new Resend(process.env.RESEND_API_KEY) : null;
