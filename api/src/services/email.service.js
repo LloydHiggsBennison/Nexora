@@ -24,6 +24,12 @@ const transporter = nodemailer.createTransport({
 async function sendConfirmationEmail({ toEmail, date, time, meetLink, service }) {
   const subject = `Reserva de Reunión Confirmada - Nexora`;
   
+  // Generar link para Google Calendar
+  const start = new Date(`${date}T${time}:00-04:00`);
+  const end = new Date(start.getTime() + 30 * 60000);
+  const formatDate = (d) => d.toISOString().replace(/-|:|\.\d\d\d/g, "");
+  const calLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Consultoría Nexora' + (service && service !== 'general' ? ' - ' + service.toUpperCase() : ''))}&dates=${formatDate(start)}/${formatDate(end)}&details=${encodeURIComponent('Únete a la videollamada aquí:\n' + meetLink)}&location=${encodeURIComponent('Videollamada')}`;
+  
   const htmlContent = `
     <!DOCTYPE html>
     <html lang="es">
@@ -44,8 +50,9 @@ async function sendConfirmationEmail({ toEmail, date, time, meetLink, service })
         .details-row:last-child { margin-bottom: 0; }
         .details-label { font-weight: 600; width: 100px; color: #333; }
         .details-value { color: #666; font-weight: 500; }
-        .btn-wrapper { text-align: center; margin-top: 35px; margin-bottom: 15px; }
-        .btn { display: inline-block; background-color: #7C6DFA; background-image: linear-gradient(135deg, #7C6DFA 0%, #A855F7 100%); color: #ffffff !important; text-decoration: none; padding: 16px 40px; border-radius: 50px; font-weight: 700; font-size: 16px; box-shadow: 0 6px 20px rgba(124, 109, 250, 0.35); letter-spacing: 0.5px; }
+        .btn-wrapper { text-align: center; margin-top: 35px; margin-bottom: 15px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .btn { display: inline-block; background-color: #7C6DFA; background-image: linear-gradient(135deg, #7C6DFA 0%, #A855F7 100%); color: #ffffff !important; text-decoration: none; padding: 14px 30px; border-radius: 50px; font-weight: 700; font-size: 15px; box-shadow: 0 6px 20px rgba(124, 109, 250, 0.35); letter-spacing: 0.5px; width: 250px; box-sizing: border-box; }
+        .btn-secondary { background: transparent; background-image: none; color: #7C6DFA !important; border: 2px solid #7C6DFA; box-shadow: none; }
         .btn:hover { opacity: 0.9; }
         .footer { text-align: center; padding: 30px; background-color: #f9f9fb; font-size: 14px; color: #888; border-top: 1px solid #eef0f4; }
       </style>
@@ -80,10 +87,11 @@ async function sendConfirmationEmail({ toEmail, date, time, meetLink, service })
           
           <div class="btn-wrapper">
             <a href="${meetLink}" class="btn">Entrar a la Reunión</a>
+            <a href="${calLink}" class="btn btn-secondary" target="_blank">Añadir a mi Calendar</a>
           </div>
           
           <p style="margin-top: 30px; text-align: center; font-size: 14px; color: #888;">
-            El evento también ha sido añadido a tu calendario junto con los recordatorios. Si necesitas reagendar, por favor responde a este correo.
+            Si necesitas reagendar o tienes alguna consulta, por favor responde a este correo.
           </p>
         </div>
         
