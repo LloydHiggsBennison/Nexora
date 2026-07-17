@@ -16,14 +16,15 @@ router.post('/', async (req, res) => {
     // 1. Crear evento en Google Calendar y obtener el link de Meet
     const event = await calendarService.createMeeting({ date, time, email, service });
 
-    // 2. Enviar correo HTML profesional usando Resend
-    await emailService.sendConfirmationEmail({
+    // 2. Enviar correo HTML profesional usando Resend/Nodemailer
+    // NO usamos "await" para que no bloquee la respuesta al cliente si el correo tarda o falla la red
+    emailService.sendConfirmationEmail({
       toEmail: email,
       date,
       time,
       meetLink: event.meetLink,
       service
-    });
+    }).catch(e => console.error('[API] Error silencioso enviando correo:', e));
 
     res.status(200).json({
       success: true,
