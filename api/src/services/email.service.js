@@ -85,17 +85,22 @@ async function sendConfirmationEmail({ toEmail, date, time, meetLink, service })
   }
 
   try {
-    const data = await resend.emails.send({
-      from: 'Nexora <hola@nexora.cl>', // Esto requiere dominio verificado en Resend
+    const response = await resend.emails.send({
+      from: 'Nexora <hola@nexora.cl>', // IMPORTANTE: nexora.cl debe estar verificado en Resend
       to: [toEmail],
       subject: subject,
       html: htmlContent,
     });
     
-    console.log(`[Email] Correo enviado exitosamente a ${toEmail} con ID: ${data.id}`);
-    return data;
+    if (response.error) {
+      console.error('[Email Error] Resend rechazó el correo:', response.error);
+      return null;
+    }
+
+    console.log(`[Email] Correo enviado exitosamente a ${toEmail} con ID: ${response.data.id}`);
+    return response.data;
   } catch (error) {
-    console.error('[Email Error] Error enviando correo con Resend:', error);
+    console.error('[Email Error] Error crítico enviando correo con Resend:', error);
     // No lanzamos el error para no romper el flujo principal si solo falla el correo
     return null;
   }
