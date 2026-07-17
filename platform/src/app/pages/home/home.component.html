@@ -156,7 +156,17 @@
           </div>
         </div>
 
-        <button class="btn btn--primary" (click)="openScheduler('nexpulse')" id="cta-nexpulse">{{ 'NEXPULSE.CTA' | translate }} →</button>
+        <p class="scheduler-subtitle">Recibirás un correo de confirmación con los detalles y el enlace.</p>
+        
+        <div class="scheduler-success-actions">
+          <div *ngIf="meetLink" class="meet-link-box">
+            <span class="link-label"><i class="fa-solid fa-video"></i> Link de reunión:</span>
+            <a [href]="meetLink" target="_blank" class="raw-link">{{ meetLink }}</a>
+          </div>
+          <p *ngIf="meetLinkLoading" class="loading-text">
+            <i class="fa-solid fa-hourglass-half"></i> Generando enlace de reunión...
+          </p>
+        </div>
       </div>
 
       <!-- Visual Mockup -->
@@ -811,12 +821,12 @@
           </div>
           <div class="scheduler-summary-row" *ngIf="meetLinkLoading">
             <span>⏳</span>
-            <span style="color: var(--text-secondary); font-style: italic;">Generando enlace de Google Meet...</span>
+            <span style="color: var(--text-secondary); font-style: italic;">Generando enlace de reunión...</span>
           </div>
           <div class="scheduler-summary-row" *ngIf="!meetLinkLoading && meetLink">
             <span>🔗</span>
-            <a [href]="meetLink" target="_blank" style="color: #7C6DFA; text-decoration: underline; font-weight: 600;">
-              Abrir Google Meet
+            <a [href]="meetLink" target="_blank" style="color: #7C6DFA; text-decoration: underline; font-weight: 600; word-break: break-all;">
+              {{ meetLink }}
             </a>
           </div>
           <div class="scheduler-summary-row" *ngIf="!meetLinkLoading && !meetLink && schedulerError">
