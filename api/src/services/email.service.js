@@ -79,7 +79,7 @@ async function sendConfirmationEmail({ toEmail, date, time, meetLink, service })
           </div>
           
           <div class="btn-wrapper">
-            <a href="${meetLink}" class="btn">Entrar a Google Meet</a>
+            <a href="${meetLink}" class="btn">Entrar a la Reunión</a>
           </div>
           
           <p style="margin-top: 30px; text-align: center; font-size: 14px; color: #888;">

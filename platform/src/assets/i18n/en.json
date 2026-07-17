@@ -179,11 +179,12 @@
     "EMAIL_PLACEHOLDER": "email@company.com",
     "CONFIRM_BTN": "Confirm meeting",
     "CONFIRMING": "Scheduling...",
-    "SUCCESS_TITLE": "Meeting scheduled!",
-    "SUCCESS_DESC": "You will receive a Google Calendar invitation with the Google Meet link.",
+    "SUCCESS_TITLE": "Meeting Scheduled!",
+    "SUCCESS_DESC": "You will receive a confirmation email with the meeting link.",
     "CLOSE": "Close",
+    "ERROR": "There was an error scheduling the meeting. Please try again.",
     "NO_SLOTS": "No available times for this date",
-    "DURATION": "30 min · Google Meet"
+    "DURATION": "30 min · Video Call"
   },
   "FOOTER": {
     "BRAND_DESC": "World-class technology for Chilean businesses. Management, analytics and automation ecosystem.",

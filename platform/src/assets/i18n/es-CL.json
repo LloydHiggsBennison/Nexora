@@ -180,10 +180,11 @@
     "CONFIRM_BTN": "Confirmar reunión",
     "CONFIRMING": "Agendando...",
     "SUCCESS_TITLE": "¡Reunión agendada!",
-    "SUCCESS_DESC": "Recibirás una invitación de Google Calendar con el enlace de Google Meet.",
+    "SUCCESS_DESC": "Recibirás un correo de confirmación con el link de la reunión.",
     "CLOSE": "Cerrar",
+    "ERROR": "Hubo un error al agendar la reunión. Intenta nuevamente.",
     "NO_SLOTS": "No hay horarios disponibles para esta fecha",
-    "DURATION": "30 min · Google Meet"
+    "DURATION": "30 min · Videollamada"
   },
   "FOOTER": {
     "BRAND_DESC": "Tecnología de clase mundial para negocios chilenos. Ecosistema de gestión, analítica y automatización.",
