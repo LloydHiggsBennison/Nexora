@@ -1,6 +1,7 @@
 const { google } = require('googleapis');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 
 // Verifica si existe el archivo de credenciales de la Service Account
 const credentialsPath = path.join(__dirname, '../../credentials.json');
@@ -36,10 +37,15 @@ async function createMeeting({ date, time, email, service }) {
 
   try {
     const adminEmail = process.env.ADMIN_EMAIL || 'admin@nexora.cl';
+    // 1. Generar enlace dinámico de Jitsi Meet
+    const randomString = crypto.randomBytes(4).toString('hex');
+    const jitsiLink = `https://meet.jit.si/NexoraConsultoria-${randomString}`;
 
+    // 2. Definir el evento
     const event = {
       summary: `Nexora Consultoría - ${service === 'general' ? 'General' : service.toUpperCase()}`,
-      description: `Reunión agendada desde la web de Nexora.\nCliente: ${email}\nProducto: ${service}`,
+      location: jitsiLink,
+      description: `Reunión agendada desde la web de Nexora.\nCliente: ${email}\nProducto: ${service}\n\nEnlace de la videollamada: ${jitsiLink}`,
       start: {
         dateTime: startDateTime.toISOString(),
         timeZone: 'America/Santiago',
@@ -47,10 +53,7 @@ async function createMeeting({ date, time, email, service }) {
       end: {
         dateTime: endDateTime.toISOString(),
         timeZone: 'America/Santiago',
-      }
-      // NOTA: 'conferenceData' fue removido.
-      // Las Cuentas de Servicio en cuentas @gmail.com gratuitas NO tienen permisos 
-      // para generar enlaces de Google Meet dinámicamente mediante la API.
+      },
       reminders: {
         useDefault: false,
         overrides: [
@@ -73,8 +76,7 @@ async function createMeeting({ date, time, email, service }) {
     
     return {
       success: true,
-      // Si la API no genera el link (como en cuentas gratuitas), usamos un link estático o mensaje
-      meetLink: response.data.hangoutLink || process.env.STATIC_MEET_LINK || 'El link será enviado por tu consultor pronto.'
+      meetLink: jitsiLink
     };
 
   } catch (error) {
