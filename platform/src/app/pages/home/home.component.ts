@@ -377,40 +377,41 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   async confirmBooking(): Promise<void> {
     if (!this.schedulerDate || !this.schedulerTime || !this.schedulerEmail) return;
+    
+    // Mostramos estado de carga
     this.schedulerConfirming = true;
     this.schedulerError = '';
     this.meetLink = '';
     this.meetLinkLoading = true;
 
     try {
-      // Solo esperar la autorización OAuth (el popup)
-      await this.calendarService.ensureAuthorized();
-
-      // Mostrar éxito inmediatamente después de autorizar
-      this.schedulerConfirming = false;
+      // 1. Mostrar pantalla de éxito optimista con estado "Generando enlace..."
       this.schedulerStep = 'success';
+      this.schedulerConfirming = false;
 
-      // Crear evento en segundo plano
+      // 2. Llamar al Backend en segundo plano
       const result = await this.calendarService.createMeeting({
         date: this.schedulerDate,
         time: this.schedulerTime,
         email: this.schedulerEmail,
-        product: this.getProductName(this.schedulerProduct)
+        service: this.schedulerProduct
       });
 
       this.meetLinkLoading = false;
 
-      if (result.success) {
-        this.meetLink = result.meetLink || '';
+      if (result && result.meetLink) {
+        this.meetLink = result.meetLink;
       } else {
-        this.meetLink = '';
-        console.error('Error creando evento:', result.error);
+        throw new Error(result?.error || 'No se pudo generar el enlace');
       }
     } catch (error: any) {
+      console.error('[Frontend] Error agendando:', error);
       this.schedulerConfirming = false;
       this.meetLinkLoading = false;
-      this.schedulerError = error.message || 'Error al autorizar con Google';
-      this.schedulerStep = 'error';
+      this.schedulerError = error.message || 'Error al agendar la reunión';
+      
+      // Si falla después de haber mostrado la pantalla success, mostramos error
+      this.meetLink = '';
     }
   }
 
