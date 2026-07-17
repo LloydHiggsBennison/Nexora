@@ -408,7 +408,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.meetLinkLoading = false;
       this.schedulerError = error.message || 'Error al agendar la reunión';
       
-      // Si falla después de haber mostrado la pantalla success, mostramos error
+      // Si falla después de haber mostrado la pantalla success, regresamos a error
+      this.schedulerStep = 'error';
       this.meetLink = '';
     }
   }
