@@ -13,6 +13,7 @@ const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
   secure: true,
+  family: 4, // Fuerza IPv4 estrictamente a nivel de socket
   auth: {
     user: process.env.GMAIL_USER || process.env.ADMIN_EMAIL,
     pass: process.env.GMAIL_PASS
