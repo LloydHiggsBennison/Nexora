@@ -324,38 +324,126 @@ input, textarea, select {
   display: flex;
   gap: $space-md;
   padding: $space-lg;
-  background: $bg-glass;
-  border: $border-glass;
-  border-radius: $border-radius-md;
-  transition: $transition-base;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: $border-radius-lg;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    background: $bg-glass-hover;
-    border-color: rgba(124, 109, 250, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+    .feature-item__icon {
+      background: rgba(124, 109, 250, 0.15);
+      border-color: rgba(124, 109, 250, 0.3);
+      color: #ffffff;
+    }
   }
 
   &__icon {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
-    border-radius: $border-radius-sm;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
-    background: rgba(124, 109, 250, 0.15);
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s ease;
   }
 
   &__title {
-    font-weight: 600;
-    font-size: 0.9375rem;
-    margin-bottom: 4px;
-    color: $text-primary;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    color: #ffffff;
   }
 
   &__desc {
     font-size: 0.8125rem;
     color: $text-secondary;
-    line-height: 1.5;
+    line-height: 1.55;
+    opacity: 0.85;
   }
 }
+
+// ============================================================
+// NEXORA BRAND — ESTILOS COMPONENTIZADOS EN CÓDIGO (HTML/CSS)
+// ============================================================
+.nexora-logo-svg {
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  overflow: visible;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.nexora-brand-text {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  line-height: 1;
+  user-select: none;
+  margin-left: 0;
+
+  .char-x {
+    color: #FF3E3E;
+    text-shadow: 0 0 10px rgba(255, 62, 62, 0.2);
+  }
+}
+
+// Logotipo B2B completo
+.nexora-b2b-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+
+  &__main {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  &__brand {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 3.2rem;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    line-height: 1;
+    margin-left: 0;
+
+    .char-x {
+      color: #FF3E3E;
+      text-shadow: 0 0 12px rgba(255, 62, 62, 0.25);
+    }
+  }
+
+  &__sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.6875rem;
+    letter-spacing: 0.52em;
+    color: #9090A8;
+    text-transform: uppercase;
+    text-indent: 0.52em;
+    margin-top: 2px;
+    opacity: 0.85;
+  }
+}
+

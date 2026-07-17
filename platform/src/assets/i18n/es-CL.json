@@ -1,24 +1,25 @@
 {
   "NAV": {
     "SERVICES": "Servicios",
-    "PROXIPUSH": "NexPulse",
-    "QUEUEFLOW": "NexOrder",
-    "WEBCRAFTS": "NexSite",
-    "SYSGEN": "NexCore / NexBI",
-    "AUTOFLOW": "NexFlow",
+    "NEXPULSE": "NexPulse",
+    "NEXORDER": "NexOrder",
+    "NEXQUEUE": "NexQueue",
+    "NEXSITE": "NexSite",
+    "NEXBI": "NexBI",
+    "NEXCORE": "NexCore",
     "HOW_IT_WORKS": "Cómo funciona",
     "CONTACT": "Contacto",
     "LOGIN": "Iniciar sesión",
-    "GET_STARTED": "Comenzar gratis"
+    "GET_STARTED": "Agendar reunión"
   },
   "HERO": {
-    "BADGE": "Tecnología para negocios chilenos",
-    "HEADLINE_1": "Transforma tu negocio",
-    "HEADLINE_2": "con tecnología",
-    "HEADLINE_3": "de clase mundial",
-    "SUBTITLE": "Desde notificaciones push geolocalizadas hasta sistemas CRM/ERP generados con IA. Todo lo que tu empresa necesita para liderar la transformación digital.",
-    "CTA_PRIMARY": "Comenzar ahora",
-    "CTA_SECONDARY": "Ver servicios",
+    "BADGE": "Soluciones digitales para PYMES chilenas",
+    "HEADLINE_1": "Digitaliza,",
+    "HEADLINE_2": "automatiza",
+    "HEADLINE_3": "y haz crecer tu negocio.",
+    "SUBTITLE": "Centraliza tus ventas, automatiza procesos, mide tus resultados y conecta con tus clientes desde una sola suite tecnológica diseñada para PYMES chilenas.",
+    "CTA_PRIMARY": "Solicitar demo",
+    "CTA_SECONDARY": "Conocer Nexora Suite",
     "SCROLL_HINT": "Descubre más"
   },
   "STATS": {
@@ -29,95 +30,120 @@
   },
   "SERVICES": {
     "TITLE": "Nuestros servicios",
-    "SUBTITLE": "Cinco soluciones integradas para llevar tu negocio al siguiente nivel",
-    "PROXIPUSH": {
+    "SUBTITLE": "Seis soluciones integradas para llevar tu negocio al siguiente nivel",
+    "NEXCORE": {
+      "NAME": "NexCore",
+      "SHORT": "Plataforma CRM/ERP inteligente generada a la medida de tu operación.",
+      "TAG": "Gestión"
+    },
+    "NEXBI": {
+      "NAME": "NexBI",
+      "SHORT": "Módulo de inteligencia de negocios para indicadores y tableros dinámicos.",
+      "TAG": "Analítica"
+    },
+    "NEXPULSE": {
       "NAME": "NexPulse",
-      "SHORT": "Notificaciones push geolocalizadas y mensajería masiva inteligente para tu negocio.",
-      "TAG": "Mensajería inteligente"
+      "SHORT": "Marketing de proximidad geolocalizado y notificaciones push automáticas.",
+      "TAG": "Marketing"
     },
-    "QUEUEFLOW": {
-      "NAME": "NexOrder / NexQueue",
-      "SHORT": "Carta digital, gestión de pedidos y cola de atención en tiempo real.",
-      "TAG": "Gestión de local"
-    },
-    "WEBCRAFTS": {
+    "NEXSITE": {
       "NAME": "NexSite",
-      "SHORT": "Páginas web modernas, profesionales y personalizadas según tu marca.",
-      "TAG": "Desarrollo web"
+      "SHORT": "Sitios web modernos corporativos y automatización inteligente de procesos.",
+      "TAG": "Desarrollo & Automatización"
     },
-    "SYSGEN": {
-      "NAME": "NexCore & NexBI",
-      "SHORT": "Genera tu CRM o ERP personalizado con inteligencia artificial en minutos.",
-      "TAG": "IA empresarial"
+    "NEXORDER": {
+      "NAME": "NexOrder",
+      "SHORT": "Carta digital interactiva y carrito de pedidos directo al personal sin fricción.",
+      "TAG": "Operaciones"
     },
-    "AUTOFLOW": {
-      "NAME": "NexFlow",
-      "SHORT": "Automatización de procesos y transformación digital para tu empresa.",
-      "TAG": "Automatización"
+    "NEXQUEUE": {
+      "NAME": "NexQueue",
+      "SHORT": "Sistema inteligente de colas y turnos de atención digital en tiempo real.",
+      "TAG": "Atención"
     }
   },
-  "PROXIPUSH": {
+  "NEXPULSE": {
     "BADGE": "Servicio 01 · NexPulse",
     "TITLE": "Llega a tus clientes",
     "TITLE_HL": "en el momento exacto",
-    "DESC": "Envía notificaciones push personalizadas a todos los usuarios dentro de un radio de 100 metros de tu local. Complementa con campañas de email masivo segmentadas y sin riesgo de spam.",
+    "DESC": "Envía notificaciones push personalizadas a todos los usuarios dentro de un radio de 100 metros de tu local. Mide tasas de apertura y conversiones en vivo desde un único panel administrativo.",
     "FEATURES": {
       "GEO": { "TITLE": "Radio geolocalizado", "DESC": "Alcanza clientes a 100m de tu local automáticamente" },
-      "PERSONALIZED": { "TITLE": "Mensajes personalizados", "DESC": "Cada empresa tiene su propio panel y mensajes únicos" },
-      "PANEL": { "TITLE": "Panel de administración", "DESC": "Edita notificaciones, segmenta y programa envíos" },
+      "PERSONALIZED": { "TITLE": "Mensajes personalizados", "DESC": "Mensajes y ofertas contextuales únicas de tu marca" },
+      "PANEL": { "TITLE": "Panel de administración", "DESC": "Configura geocercas, campañas y programa envíos" },
       "EMAIL": { "TITLE": "Email masivo anti-spam", "DESC": "Campañas masivas con doble opt-in y entrega garantizada" },
-      "REALTIME": { "TITLE": "Métricas en tiempo real", "DESC": "Tasas de apertura, clics y conversiones en vivo" },
-      "MULTISITE": { "TITLE": "Multi-local", "DESC": "Gestiona múltiples sucursales desde un solo panel" }
+      "REALTIME": { "TITLE": "Métricas en tiempo real", "DESC": "Tasas de apertura, clics y visitas en tiempo real" },
+      "MULTISITE": { "TITLE": "Multi-local", "DESC": "Gestiona múltiples sucursales geocercadas de forma centralizada" }
     },
     "CTA": "Activar NexPulse"
   },
-  "QUEUEFLOW": {
-    "BADGE": "Servicio 02 · NexOrder / NexQueue",
+  "NEXORDER": {
+    "BADGE": "Servicio 02 · NexOrder",
     "TITLE": "Tu local digital,",
-    "TITLE_HL": "sin complicaciones",
-    "DESC": "Sistema completo de carta digital, carrito de pedidos y gestión de cola. Tus clientes piden desde su teléfono, y tu equipo ve los pedidos en tiempo real.",
+    "TITLE_HL": "sin fricciones comerciales",
+    "DESC": "Implementa una carta digital moderna con carrito de compras integrado. Tus clientes escanean, ordenan desde sus teléfonos y la comanda llega al instante al personal, sin necesidad de pasarelas de pago obligatorias.",
     "FEATURES": {
-      "MENU": { "TITLE": "Carta digital", "DESC": "Menú interactivo con categorías, fotos y descripciones" },
-      "CART": { "TITLE": "Carrito de pedidos", "DESC": "El cliente arma su pedido sin necesidad de llamar al garzón" },
-      "QUEUE": { "TITLE": "Cola de atención", "DESC": "Sistema de turnos digitales para ser atendido en orden" },
-      "STAFF": { "TITLE": "Panel del personal", "DESC": "Cambia estados de pedidos en tiempo real" },
-      "REALTIME": { "TITLE": "Actualización en vivo", "DESC": "El cliente ve el estado de su pedido cada 10 segundos" },
-      "NOPAY": { "TITLE": "Sin integración de pagos", "DESC": "La comanda va directo al personal, sin fricción digital" }
+      "MENU": { "TITLE": "Carta interactiva", "DESC": "Menú dinámico con fotos de platos, categorías y descripciones" },
+      "CART": { "TITLE": "Carrito de pedidos", "DESC": "Permite al cliente armar su orden de forma intuitiva" },
+      "STAFF": { "TITLE": "Panel para garzones", "DESC": "Recibe y procesa pedidos en orden de llegada" },
+      "REALTIME": { "TITLE": "Actualizaciones rápidas", "DESC": "Cambia precios y platos del menú en tiempo real" }
     },
-    "CTA": "Activar NexOrder / NexQueue"
+    "CTA": "Activar NexOrder"
   },
-  "WEBCRAFTS": {
-    "BADGE": "Servicio 03 · NexSite",
-    "TITLE": "Tu presencia digital,",
-    "TITLE_HL": "rediseñada desde cero",
-    "DESC": "Diseñamos y desarrollamos páginas web modernas, rápidas y con identidad de marca única. Cada sitio es pensado desde la experiencia del usuario hasta el último pixel.",
-    "CTA": "Solicitar cotización"
+  "NEXQUEUE": {
+    "BADGE": "Servicio 03 · NexQueue",
+    "TITLE": "Colas de atención",
+    "TITLE_HL": "digitales en vivo",
+    "DESC": "Reduce los tiempos de espera y optimiza la satisfacción del cliente. Permite a los usuarios tomar un turno digitalmente y monitorear su estado a través de pantallas o sus propios dispositivos móviles.",
+    "FEATURES": {
+      "TURNS": { "TITLE": "Turnos virtuales", "DESC": "Los clientes toman turnos desde su celular escaneando un código QR" },
+      "SCREEN": { "TITLE": "Pantalla de llamadas", "DESC": "Visualización para sala de espera que indica el turno actual" },
+      "NOTIF": { "TITLE": "Alertas SMS/WhatsApp", "DESC": "Notifica automáticamente cuando sea el turno del cliente" },
+      "METRICS": { "TITLE": "Métricas de atención", "DESC": "Monitorea tiempos promedios de atención y cuellos de botella" }
+    },
+    "CTA": "Activar NexQueue"
   },
-  "SYSGEN": {
-    "BADGE": "Servicio 04 · NexCore & NexBI",
+  "NEXSITE": {
+    "BADGE": "Servicio 04 · NexSite",
+    "TITLE": "Desarrollo digital",
+    "TITLE_HL": "y automatización integrada",
+    "DESC": "Diseñamos y desarrollamos sitios web corporativos de alto rendimiento que no solo son vitrinas, sino que automatizan tus flujos de trabajo internos conectando tus formularios con sistemas ERP/CRM.",
+    "FEATURES": {
+      "WEB": { "TITLE": "Sitios web y landing pages", "DESC": "Presencia digital optimizada para SEO y completamente responsive" },
+      "AUTO": { "TITLE": "Flujos automatizados", "DESC": "Digitalización de formularios e integración de procesos entre sistemas" },
+      "INTEGRATION": { "TITLE": "Conexión de apps", "DESC": "Conecta tu web con herramientas de terceros, email y notificaciones" },
+      "PERFORMANCE": { "TITLE": "Rendimiento óptimo", "DESC": "Sitios rápidos, seguros y diseñados para captar clientes potenciales" }
+    },
+    "CTA": "Solicitar cotización de NexSite"
+  },
+  "NEXBI": {
+    "BADGE": "Servicio 05 · NexBI",
+    "TITLE": "Inteligencia de negocios",
+    "TITLE_HL": "para decisiones inteligentes",
+    "DESC": "Transforma los datos operativos de tu empresa en indicadores estratégicos en tiempo real. NexBI consolida tu información y genera tableros interactivos automatizados para gerencia y operaciones.",
+    "FEATURES": {
+      "KPI": { "TITLE": "Métricas en tiempo real", "DESC": "Visualiza KPIs de ventas, finanzas y operaciones al instante" },
+      "DASHBOARD": { "TITLE": "Tableros interactivos", "DESC": "Filtra y cruza datos de diferentes departamentos dinámicamente" },
+      "REPORTS": { "TITLE": "Reportes automatizados", "DESC": "Envío programado de resúmenes operativos a tu correo" },
+      "DECISION": { "TITLE": "Basado en datos", "DESC": "Reduce la incertidumbre comercial con analíticas claras y consolidadas" }
+    },
+    "CTA": "Activar NexBI"
+  },
+  "NEXCORE": {
+    "BADGE": "Servicio 06 · NexCore",
     "TITLE": "Tu CRM / ERP,",
-    "TITLE_HL": "generado e integrado",
-    "DESC": "Sistemas empresariales personalizados a la medida de tu operación, conectados con inteligencia de negocios en tiempo real.",
-    "PROMPT_PLACEHOLDER": "Describe el CRM/ERP que necesitas para tu empresa...",
-    "PROMPT_EXAMPLE": "Necesito un CRM para una empresa de ventas con seguimiento de leads, historial de contactos, pipeline de ventas y reportes mensuales.",
-    "GENERATE_BTN": "Generar vista previa",
-    "CTA": "Probar gratis"
-  },
-  "AUTOFLOW": {
-    "BADGE": "Servicio 05 · NexFlow",
-    "TITLE": "Automatiza lo repetitivo,",
-    "TITLE_HL": "enfócate en crecer",
-    "DESC": "Transformamos procesos manuales en flujos automáticos inteligentes. Desde integraciones entre sistemas hasta la digitalización completa de tu operación.",
-    "CTA": "Agendar diagnóstico"
+    "TITLE_HL": "a tu medida",
+    "DESC": "NexCore es el núcleo operativo de Nexora Suite. Un CRM/ERP personalizable que centraliza ventas, clientes, inventario y operaciones en una sola plataforma diseñada para tu industria.",
+    "CTA": "Solicitar demo"
   },
   "HOW_IT_WORKS": {
-    "TITLE": "¿Cómo funciona?",
-    "SUBTITLE": "En 4 pasos tienes tu solución activa",
+    "TITLE": "¿Cómo trabajamos?",
+    "SUBTITLE": "Un proceso claro para digitalizar tu negocio",
     "STEPS": {
-      "1": { "NUM": "01", "TITLE": "Regístrate", "DESC": "Crea tu cuenta en minutos y elige los servicios que necesitas" },
-      "2": { "NUM": "02", "TITLE": "Configura", "DESC": "Personaliza cada herramienta con la identidad de tu negocio" },
-      "3": { "NUM": "03", "TITLE": "Activa", "DESC": "Pon en marcha tus servicios con un clic" },
-      "4": { "NUM": "04", "TITLE": "Crece", "DESC": "Mide resultados y escala según tus necesidades" }
+      "1": { "TITLE": "Contacto", "DESC": "Agenda una reunión con nuestro equipo para conocer tus necesidades" },
+      "2": { "TITLE": "Diagnóstico", "DESC": "Analizamos tu operación y diseñamos la solución ideal para tu PYME" },
+      "3": { "TITLE": "Implementación", "DESC": "Configuramos e integramos tu suite Nexora en tu negocio" },
+      "4": { "TITLE": "Crecimiento", "DESC": "Mide resultados, escala servicios y crece con soporte continuo" }
     }
   },
   "TECH": {
@@ -126,13 +152,41 @@
   },
   "CTA_FINAL": {
     "TITLE": "¿Listo para",
-    "TITLE_HL": "transformar tu negocio?",
-    "DESC": "Únete a los negocios que ya están un paso adelante. Comienza hoy, sin costo.",
-    "BTN_PRIMARY": "Comenzar gratis",
-    "BTN_SECONDARY": "Hablar con un asesor"
+    "TITLE_HL": "digitalizar tu negocio?",
+    "DESC": "Agenda una reunión con nuestro equipo y descubre cómo Nexora Suite puede transformar tu empresa.",
+    "BTN_PRIMARY": "Agendar reunión",
+    "BTN_SECONDARY": "Escríbenos por WhatsApp"
+  },
+  "ABOUT_US": {
+    "BADGE": "Nuestro equipo",
+    "TITLE": "Las personas detrás de",
+    "TITLE_HL": "Nexora",
+    "DESC": "Un equipo apasionado por la tecnología y comprometido con el éxito de tu negocio.",
+    "TEAM": {
+      "1": { "NAME": "Carlos Méndez", "ROLE": "CEO & Co-Founder", "DESC": "Ingeniero informático con más de 10 años de experiencia en transformación digital para PYMES en Latinoamérica." },
+      "2": { "NAME": "Valentina Rojas", "ROLE": "CTO & Co-Founder", "DESC": "Especialista en arquitectura de software cloud-native y sistemas distribuidos de alto rendimiento." },
+      "3": { "NAME": "Diego Fuentes", "ROLE": "Director Comercial", "DESC": "Experto en estrategia comercial B2B con enfoque en soluciones tecnológicas para mercados emergentes." },
+      "4": { "NAME": "Catalina Vera", "ROLE": "Directora de Operaciones", "DESC": "Líder en gestión de proyectos tecnológicos y optimización de procesos operativos empresariales." }
+    }
+  },
+  "SCHEDULER": {
+    "TITLE": "Agendar reunión",
+    "SUBTITLE": "Selecciona un día y hora para reunirte con nuestro equipo",
+    "PRODUCT_LABEL": "Producto de interés",
+    "DATE_LABEL": "Selecciona una fecha",
+    "TIME_LABEL": "Horarios disponibles",
+    "EMAIL_LABEL": "Tu correo electrónico",
+    "EMAIL_PLACEHOLDER": "correo@empresa.cl",
+    "CONFIRM_BTN": "Confirmar reunión",
+    "CONFIRMING": "Agendando...",
+    "SUCCESS_TITLE": "¡Reunión agendada!",
+    "SUCCESS_DESC": "Recibirás una invitación de Google Calendar con el enlace de Google Meet.",
+    "CLOSE": "Cerrar",
+    "NO_SLOTS": "No hay horarios disponibles para esta fecha",
+    "DURATION": "30 min · Google Meet"
   },
   "FOOTER": {
-    "BRAND_DESC": "Tecnología de clase mundial para negocios chilenos. Transformación digital accesible y efectiva.",
+    "BRAND_DESC": "Tecnología de clase mundial para negocios chilenos. Ecosistema de gestión, analítica y automatización.",
     "SERVICES_TITLE": "Servicios",
     "COMPANY_TITLE": "Empresa",
     "LEGAL_TITLE": "Legal",
@@ -147,7 +201,7 @@
       "TERMS": "Términos y condiciones",
       "COOKIES": "Cookies"
     },
-    "CONTACT_PLACEHOLDER": "contacto@empresa.cl",
+    "CONTACT_PLACEHOLDER": "contacto@nexora.cl",
     "WHATSAPP_PLACEHOLDER": "+56 9 XXXX XXXX",
     "COPYRIGHT": "Todos los derechos reservados.",
     "MADE_IN": "Hecho con ♥ en Chile"
@@ -155,5 +209,138 @@
   "LANG": {
     "ES": "Español",
     "EN": "English"
+  },
+  "LOGIN": {
+    "BACK": "Volver al inicio",
+    "ACCESS_DEMO": "Accediendo a demo de",
+    "FREE_DEMO": "Demo gratuito",
+    "TOKENS_INCLUDED": "",
+    "SIGN_IN": "Iniciar sesión",
+    "CREATE_ACCOUNT": "Crear cuenta",
+    "OR_EMAIL": "o continúa con tu email",
+    "OR_FORM": "o completa el formulario",
+    "EMAIL": "Correo electrónico",
+    "PASSWORD": "Contraseña",
+    "SIGN_IN_BTN": "Iniciar sesión →",
+    "CREATE_ACCOUNT_BTN": "Crear cuenta gratuita →",
+    "NO_ACCOUNT": "¿No tienes cuenta?",
+    "CREATE_FREE": "Crear cuenta gratis",
+    "FIRST_NAME": "Nombre",
+    "LAST_NAME": "Apellido",
+    "PHONE": "Teléfono",
+    "ACCEPT_TERMS": "Acepto los",
+    "AND": "y la",
+    "TERMS": "Términos y Condiciones",
+    "PRIVACY": "Política de Privacidad",
+    "ALREADY_ACCOUNT": "¿Ya tienes cuenta?",
+    "FOOTER_NOTE": "🔒 Esta es una vista demo. Los datos no se almacenan permanentemente.",
+    "ERR_FIELDS": "Por favor completa todos los campos.",
+    "ERR_TERMS": "Por favor completa todos los campos y acepta los términos."
+  },
+  "USER_MENU": {
+    "PANEL": "🎮 Panel de demos",
+    "LOGOUT": "← Cerrar sesión"
+  },
+  "MOCKUPS": {
+    "HERO": {
+      "PULSE": "NexPulse: Marketing geolocalizado",
+      "CORE": "NexCore: CRM/ERP inteligente",
+      "BI": "NexBI: Indicadores en tiempo real",
+      "SITE": "NexSite: Webs y automatizaciones"
+    },
+    "NEXPULSE": {
+      "NOTIF_APP": "Nexora Suite · NexPulse",
+      "TITLE": "🎉 ¡Promoción especial hoy!",
+      "BODY": "2x1 en cócteles hasta las 22:00. ¡Estás a solo 80m!",
+      "RADIUS": "Radio de 100m",
+      "HEADER": "Admin Panel",
+      "ACTIVE": "Campaña activa",
+      "SENT": "847 enviados",
+      "MASS": "Email masivo",
+      "LIMIT": "300/día"
+    },
+    "NEXORDER": {
+      "TITLE": "🍽️ Carta Digital",
+      "BURGER": "Hamburguesa Clásica",
+      "PIZZA": "Pizza Napolitana",
+      "CART": "🛒 {{ count }} items"
+    },
+    "NEXQUEUE": {
+      "TITLE": "📊 Estado Turno / Cola",
+      "STEP1": "✅ Turno solicitado (#89)",
+      "STEP2": "🔄 Turno actual: #87",
+      "STEP3": "🛎️ Tu turno está por llegar",
+      "STEP4": "🚪 Pasa al módulo 2",
+      "UPDATE": "Actualiza en 10s..."
+    },
+    "NEXSITE": {
+      "TRIGGER": "⚡ Contacto",
+      "PROCESS": "⚙️ CRM AutoSync",
+      "OUTPUT": "📨 Alerta Email"
+    },
+    "NEXBI": {
+      "TITLE": "📈 NexBI Dashboard",
+      "SALES": "Ventas Mensuales",
+      "RETENTION": "Retención Clientes",
+      "MARGIN": "📊 Margen Operativo: +18.4% este mes",
+      "NEW": "📈 Clientes Nuevos: +48 vs mes anterior",
+      "UPDATE": "Reporte actualizado hoy a las 18:00"
+    },
+    "NEXCORE": {
+      "HEADER": "Describe tu CRM o ERP ideal",
+      "EXAMPLE": "Ejemplo:",
+      "GENERATING": "Generando...",
+      "READY": "✅ Listo",
+      "WAITING": "⏳ Esperando...",
+      "PLACEHOLDER": "Tu CRM/ERP aparecerá aquí en tiempo real",
+      "PLACEHOLDER_SUB": "Describe tu negocio y pulsa el botón",
+      "NEW": "+ Nuevo",
+      "BANNER": "",
+      "SIDEBAR": {
+        "DASHBOARD": "Dashboard",
+        "MESAS": "Mesas",
+        "PEDIDOS": "Pedidos",
+        "COCINA": "Cocina",
+        "CAJA": "Caja",
+        "REPORTES": "Reportes",
+        "PACIENTES": "Pacientes",
+        "AGENDA": "Agenda",
+        "RECETAS": "Recetas",
+        "PAGOS": "Pagos",
+        "VENTAS": "Ventas",
+        "INVENTARIO": "Inventario",
+        "CLIENTES": "Clientes",
+        "RESERVAS": "Reservas",
+        "HABITACIONES": "Habitaciones",
+        "CHECK-IN": "Check-in",
+        "FACTURACIÓN": "Facturación",
+        "SERVICIOS": "Servicios",
+        "CONTACTOS": "Contactos",
+        "PIPELINE": "Pipeline",
+        "CAMPAÑAS": "Campañas",
+        "CALENDARIO": "Calendario",
+        "CONFIG.": "Config."
+      },
+      "STATS": {
+        "MESAS_ACTIVAS": "Mesas activas",
+        "PEDIDOS_HOY": "Pedidos hoy",
+        "TICKET_PROM.": "Ticket prom.",
+        "PACIENTES": "Pacientes",
+        "CITAS_HOY": "Citas hoy",
+        "ATENDIDOS": "Atendidos",
+        "VENTAS_HOY": "Ventas hoy",
+        "STOCK_TOTAL": "Stock total",
+        "INGRESOS": "Ingresos",
+        "OCUPACIÓN": "Ocupación",
+        "CHECK-IN_HOY": "Check-in hoy",
+        "REVPAR": "RevPAR",
+        "CLIENTES": "Clientes",
+        "CONTACTOS": "Contactos",
+        "NEGOCIOS": "Negocios",
+        "CONVERSIÓN": "Conversión",
+        "VENTAS_MENSUALES": "Ventas Mensuales",
+        "RETENCIÓN_CLIENTES": "Retención Clientes"
+      }
+    }
   }
 }

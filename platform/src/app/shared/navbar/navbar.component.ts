@@ -2,7 +2,6 @@ import { Component, HostListener, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../../app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,13 +11,12 @@ import { AuthService } from '../../../app/services/auth.service';
     <nav class="navbar" [class.scrolled]="isScrolled()">
       <div class="navbar__inner">
         <!-- Logo -->
-        <div class="navbar__logo">
-          <div class="logo-mark">
-            <span class="logo-icon">⬡</span>
-          </div>
-          <span class="logo-text">
-            <span class="logo-text--main">Nex</span>
-            <span class="logo-text--accent">ora</span>
+        <div class="navbar__logo" [routerLink]="['/']" style="cursor: pointer; display: flex; align-items: center;">
+          <!-- Isotipo N oficial (PNG con transparencia real) -->
+          <img src="assets/Short Nexora.png" alt="N" style="height: 34px; width: auto; margin-right: -11px;">
+          <!-- Resto del texto -->
+          <span class="nexora-brand-text">
+            E<span class="char-x">X</span>ORA
           </span>
         </div>
 
@@ -27,17 +25,17 @@ import { AuthService } from '../../../app/services/auth.service';
           <a class="navbar__link" [routerLink]="['/']" fragment="services" (click)="closeMenu()">
             {{ 'NAV.SERVICES' | translate }}
           </a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="proxipush" (click)="closeMenu()">
-            {{ 'NAV.PROXIPUSH' | translate }}
+          <a class="navbar__link" [routerLink]="['/']" fragment="nexcore" (click)="closeMenu()">
+            {{ 'NAV.NEXCORE' | translate }}
           </a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="queueflow" (click)="closeMenu()">
-            {{ 'NAV.QUEUEFLOW' | translate }}
+          <a class="navbar__link" [routerLink]="['/']" fragment="nexbi" (click)="closeMenu()">
+            {{ 'NAV.NEXBI' | translate }}
           </a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="webcrafts" (click)="closeMenu()">
-            {{ 'NAV.WEBCRAFTS' | translate }}
+          <a class="navbar__link" [routerLink]="['/']" fragment="nexpulse" (click)="closeMenu()">
+            {{ 'NAV.NEXPULSE' | translate }}
           </a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="sysgen" (click)="closeMenu()">
-            {{ 'NAV.SYSGEN' | translate }}
+          <a class="navbar__link" [routerLink]="['/']" fragment="nexsite" (click)="closeMenu()">
+            {{ 'NAV.NEXSITE' | translate }}
           </a>
           <a class="navbar__link" [routerLink]="['/']" fragment="how-it-works" (click)="closeMenu()">
             {{ 'NAV.HOW_IT_WORKS' | translate }}
@@ -57,7 +55,7 @@ import { AuthService } from '../../../app/services/auth.service';
           </div>
 
           <!-- CTA Mobile -->
-          <button class="btn btn--primary btn--mobile-cta" (click)="goToLogin()" id="nav-cta-mobile">
+          <button class="btn btn--primary btn--mobile-cta" (click)="scrollToContact()">
             {{ 'NAV.GET_STARTED' | translate }}
           </button>
         </div>
@@ -77,38 +75,11 @@ import { AuthService } from '../../../app/services/auth.service';
               (click)="setLang('en')">EN</button>
           </div>
 
-          <!-- Usuario logueado -->
-          <div class="navbar__user" *ngIf="auth.isLoggedIn()">
-            <img
-              [src]="auth.currentUser()!.picture"
-              [alt]="auth.currentUser()!.name"
-              class="navbar__avatar"
-              (click)="toggleUserMenu()"/>
-            <div class="navbar__user-info" (click)="toggleUserMenu()">
-              <span class="navbar__user-name">{{ auth.currentUser()!.givenName }}</span>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <!-- Dropdown del usuario -->
-            <div class="navbar__user-dropdown" *ngIf="userMenuOpen()">
-              <div class="user-drop-header">
-                <img [src]="auth.currentUser()!.picture" class="user-drop-avatar"/>
-                <div>
-                  <div class="user-drop-name">{{ auth.currentUser()!.name }}</div>
-                  <div class="user-drop-email">{{ auth.currentUser()!.email }}</div>
-                </div>
-              </div>
-              <hr class="user-drop-divider"/>
-              <button class="user-drop-item" (click)="goToDashboard()">🎮 Panel de demos</button>
-              <button class="user-drop-item user-drop-item--danger" (click)="auth.logout()">← Cerrar sesión</button>
-            </div>
-          </div>
+          <!-- CTA Agendar -->
 
-          <!-- CTA (solo si no está logueado) -->
-          <button *ngIf="!auth.isLoggedIn()"
-                  class="btn btn--primary btn--sm navbar__cta"
-                  (click)="goToLogin()" id="nav-cta-desktop">
+          <!-- CTA Agendar -->
+          <button class="btn btn--primary btn--sm navbar__cta"
+                  (click)="scrollToContact()">
             {{ 'NAV.GET_STARTED' | translate }}
           </button>
 
@@ -128,12 +99,10 @@ export class NavbarComponent implements OnInit {
   isScrolled   = signal(false);
   menuOpen     = signal(false);
   currentLang  = signal('es-CL');
-  userMenuOpen = signal(false);
 
   constructor(
     private translate: TranslateService,
     private router: Router,
-    public auth: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -163,25 +132,13 @@ export class NavbarComponent implements OnInit {
     this.closeMenu();
   }
 
-  goToLogin(): void {
+  scrollToContact(): void {
     this.closeMenu();
-    this.router.navigate(['/login']);
-  }
-
-  toggleUserMenu(): void {
-    this.userMenuOpen.set(!this.userMenuOpen());
-  }
-
-  goToDashboard(): void {
-    this.userMenuOpen.set(false);
-    this.router.navigate(['/dashboard']);
-  }
-
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(e: MouseEvent): void {
-    const target = e.target as HTMLElement;
-    if (!target.closest('.navbar__user')) {
-      this.userMenuOpen.set(false);
+    const el = document.getElementById('contact');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      this.router.navigate(['/'], { fragment: 'contact' });
     }
   }
 }

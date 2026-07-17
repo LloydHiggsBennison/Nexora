@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList }
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { Router } from '@angular/router';
+import { CalendarService } from '../../services/calendar.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChildren('animTarget') animTargets!: QueryList<ElementRef>;
 
-  constructor(private router: Router) {}
+  constructor(private calendarService: CalendarService) {}
 
   currentYear = new Date().getFullYear();
 
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       shortDesc: 'CRM/ERP empresarial',
       tag: 'Gestión',
       color: '#7C6DFA',
-      href: '#sysgen'
+      href: '#nexcore'
     },
     {
       id: 'nexbi',
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       shortDesc: 'Inteligencia de negocios',
       tag: 'Analítica',
       color: '#FA6D8B',
-      href: '#sysgen'
+      href: '#nexbi'
     },
     {
       id: 'nexpulse',
@@ -44,16 +44,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
       shortDesc: 'Marketing de proximidad',
       tag: 'Marketing',
       color: '#00E5CC',
-      href: '#proxipush'
+      href: '#nexpulse'
     },
     {
       id: 'nexsite',
       icon: '🌐',
       name: 'NexSite',
-      shortDesc: 'Desarrollo web y sistemas personalizados',
-      tag: 'Desarrollo',
+      shortDesc: 'Desarrollo web y automatización',
+      tag: 'Desarrollo & Automatización',
       color: '#FFB347',
-      href: '#webcrafts'
+      href: '#nexsite'
     },
     {
       id: 'nexorder',
@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       shortDesc: 'Gestión de pedidos',
       tag: 'Operaciones',
       color: '#A855F7',
-      href: '#queueflow'
+      href: '#nexorder'
     },
     {
       id: 'nexqueue',
@@ -71,50 +71,61 @@ export class HomeComponent implements OnInit, AfterViewInit {
       shortDesc: 'Cola de atención en tiempo real',
       tag: 'Atención',
       color: '#FF5722',
-      href: '#queueflow'
-    },
-    {
-      id: 'nexflow',
-      icon: '⚡',
-      name: 'NexFlow',
-      shortDesc: 'Automatización de procesos y transformación digital',
-      tag: 'Procesos',
-      color: '#00DC82',
-      href: '#autoflow'
+      href: '#nexqueue'
     }
   ];
 
   stats = [
     { value: '500+', labelKey: 'STATS.CLIENTS' },
-    { value: '5',    labelKey: 'STATS.SERVICES' },
+    { value: '6',    labelKey: 'STATS.SERVICES' },
     { value: '3',    labelKey: 'STATS.COUNTRIES' },
     { value: '99.9%',labelKey: 'STATS.UPTIME' }
   ];
 
   proxiFeatures = [
-    { icon: '📍', titleKey: 'PROXIPUSH.FEATURES.GEO.TITLE', descKey: 'PROXIPUSH.FEATURES.GEO.DESC' },
-    { icon: '✉️', titleKey: 'PROXIPUSH.FEATURES.PERSONALIZED.TITLE', descKey: 'PROXIPUSH.FEATURES.PERSONALIZED.DESC' },
-    { icon: '🛠️', titleKey: 'PROXIPUSH.FEATURES.PANEL.TITLE', descKey: 'PROXIPUSH.FEATURES.PANEL.DESC' },
-    { icon: '📧', titleKey: 'PROXIPUSH.FEATURES.EMAIL.TITLE', descKey: 'PROXIPUSH.FEATURES.EMAIL.DESC' },
-    { icon: '📊', titleKey: 'PROXIPUSH.FEATURES.REALTIME.TITLE', descKey: 'PROXIPUSH.FEATURES.REALTIME.DESC' },
-    { icon: '🏢', titleKey: 'PROXIPUSH.FEATURES.MULTISITE.TITLE', descKey: 'PROXIPUSH.FEATURES.MULTISITE.DESC' }
+    { icon: '📍', titleKey: 'NEXPULSE.FEATURES.GEO.TITLE', descKey: 'NEXPULSE.FEATURES.GEO.DESC' },
+    { icon: '✉️', titleKey: 'NEXPULSE.FEATURES.PERSONALIZED.TITLE', descKey: 'NEXPULSE.FEATURES.PERSONALIZED.DESC' },
+    { icon: '🛠️', titleKey: 'NEXPULSE.FEATURES.PANEL.TITLE', descKey: 'NEXPULSE.FEATURES.PANEL.DESC' },
+    { icon: '📧', titleKey: 'NEXPULSE.FEATURES.EMAIL.TITLE', descKey: 'NEXPULSE.FEATURES.EMAIL.DESC' },
+    { icon: '📊', titleKey: 'NEXPULSE.FEATURES.REALTIME.TITLE', descKey: 'NEXPULSE.FEATURES.REALTIME.DESC' },
+    { icon: '🏢', titleKey: 'NEXPULSE.FEATURES.MULTISITE.TITLE', descKey: 'NEXPULSE.FEATURES.MULTISITE.DESC' }
+  ];
+
+  orderFeatures = [
+    { icon: '📋', titleKey: 'NEXORDER.FEATURES.MENU.TITLE', descKey: 'NEXORDER.FEATURES.MENU.DESC' },
+    { icon: '🛒', titleKey: 'NEXORDER.FEATURES.CART.TITLE', descKey: 'NEXORDER.FEATURES.CART.DESC' },
+    { icon: '👨‍🍳', titleKey: 'NEXORDER.FEATURES.STAFF.TITLE', descKey: 'NEXORDER.FEATURES.STAFF.DESC' },
+    { icon: '🔄', titleKey: 'NEXORDER.FEATURES.REALTIME.TITLE', descKey: 'NEXORDER.FEATURES.REALTIME.DESC' }
   ];
 
   queueFeatures = [
-    { icon: '📋', titleKey: 'QUEUEFLOW.FEATURES.MENU.TITLE', descKey: 'QUEUEFLOW.FEATURES.MENU.DESC' },
-    { icon: '🛒', titleKey: 'QUEUEFLOW.FEATURES.CART.TITLE', descKey: 'QUEUEFLOW.FEATURES.CART.DESC' },
-    { icon: '🔢', titleKey: 'QUEUEFLOW.FEATURES.QUEUE.TITLE', descKey: 'QUEUEFLOW.FEATURES.QUEUE.DESC' },
-    { icon: '👨‍🍳', titleKey: 'QUEUEFLOW.FEATURES.STAFF.TITLE', descKey: 'QUEUEFLOW.FEATURES.STAFF.DESC' },
-    { icon: '🔄', titleKey: 'QUEUEFLOW.FEATURES.REALTIME.TITLE', descKey: 'QUEUEFLOW.FEATURES.REALTIME.DESC' },
-    { icon: '💳', titleKey: 'QUEUEFLOW.FEATURES.NOPAY.TITLE', descKey: 'QUEUEFLOW.FEATURES.NOPAY.DESC' }
+    { icon: '🔢', titleKey: 'NEXQUEUE.FEATURES.TURNS.TITLE', descKey: 'NEXQUEUE.FEATURES.TURNS.DESC' },
+    { icon: '📺', titleKey: 'NEXQUEUE.FEATURES.SCREEN.TITLE', descKey: 'NEXQUEUE.FEATURES.SCREEN.DESC' },
+    { icon: '🔔', titleKey: 'NEXQUEUE.FEATURES.NOTIF.TITLE', descKey: 'NEXQUEUE.FEATURES.NOTIF.DESC' },
+    { icon: '📈', titleKey: 'NEXQUEUE.FEATURES.METRICS.TITLE', descKey: 'NEXQUEUE.FEATURES.METRICS.DESC' }
+  ];
+
+  siteFeatures = [
+    { icon: '🌐', titleKey: 'NEXSITE.FEATURES.WEB.TITLE', descKey: 'NEXSITE.FEATURES.WEB.DESC' },
+    { icon: '⚡', titleKey: 'NEXSITE.FEATURES.AUTO.TITLE', descKey: 'NEXSITE.FEATURES.AUTO.DESC' },
+    { icon: '🔗', titleKey: 'NEXSITE.FEATURES.INTEGRATION.TITLE', descKey: 'NEXSITE.FEATURES.INTEGRATION.DESC' },
+    { icon: '📈', titleKey: 'NEXSITE.FEATURES.PERFORMANCE.TITLE', descKey: 'NEXSITE.FEATURES.PERFORMANCE.DESC' }
+  ];
+
+  biFeatures = [
+    { icon: '📊', titleKey: 'NEXBI.FEATURES.KPI.TITLE', descKey: 'NEXBI.FEATURES.KPI.DESC' },
+    { icon: '🧩', titleKey: 'NEXBI.FEATURES.DASHBOARD.TITLE', descKey: 'NEXBI.FEATURES.DASHBOARD.DESC' },
+    { icon: '📨', titleKey: 'NEXBI.FEATURES.REPORTS.TITLE', descKey: 'NEXBI.FEATURES.REPORTS.DESC' },
+    { icon: '💡', titleKey: 'NEXBI.FEATURES.DECISION.TITLE', descKey: 'NEXBI.FEATURES.DECISION.DESC' }
   ];
 
   steps = [
-    { num: '01', titleKey: 'HOW_IT_WORKS.STEPS.1.TITLE', descKey: 'HOW_IT_WORKS.STEPS.1.DESC', icon: '🚀' },
-    { num: '02', titleKey: 'HOW_IT_WORKS.STEPS.2.TITLE', descKey: 'HOW_IT_WORKS.STEPS.2.DESC', icon: '⚙️' },
-    { num: '03', titleKey: 'HOW_IT_WORKS.STEPS.3.TITLE', descKey: 'HOW_IT_WORKS.STEPS.3.DESC', icon: '✅' },
+    { num: '01', titleKey: 'HOW_IT_WORKS.STEPS.1.TITLE', descKey: 'HOW_IT_WORKS.STEPS.1.DESC', icon: '📞' },
+    { num: '02', titleKey: 'HOW_IT_WORKS.STEPS.2.TITLE', descKey: 'HOW_IT_WORKS.STEPS.2.DESC', icon: '🔍' },
+    { num: '03', titleKey: 'HOW_IT_WORKS.STEPS.3.TITLE', descKey: 'HOW_IT_WORKS.STEPS.3.DESC', icon: '🚀' },
     { num: '04', titleKey: 'HOW_IT_WORKS.STEPS.4.TITLE', descKey: 'HOW_IT_WORKS.STEPS.4.DESC', icon: '📈' }
   ];
+
 
   techCategories: any[] = [
     {
@@ -253,118 +264,40 @@ export class HomeComponent implements OnInit, AfterViewInit {
     { logo: 'Sw',  name: 'Swagger',       sub: 'API Docs',         color: '#85EA2D' },
   ];
 
-  sysgenPrompt = '';
-  sysgenGenerating = false;
-  sysgenGenerated = false;
-  sysgenLog: string[] = [];
-  currentConfig: any = null;
-  private streamInterval: any = null;
+  // ── Scheduler State ──
+  schedulerOpen = false;
+  schedulerProduct = '';
+  schedulerStep: 'form' | 'success' | 'error' = 'form';
+  schedulerDate = '';
+  schedulerTime = '';
+  schedulerEmail = '';
+  schedulerConfirming = false;
+  schedulerMinDate = '';
+  schedulerMaxDate = '';
+  schedulerError = '';
+  meetLink = '';
+  meetLinkLoading = false;
 
-  // ── Mapa de industrias (palabras clave → configuración de UI) ──
-  private industryMap = [
-    {
-      keywords: ['restaurante','café','bar','cocina','comida','gastro','pizza','hamburguesa','delivery','menú','menu'],
-      config: {
-        name: 'RestaurantOS', icon: '🍽️', domainColor: '#FA6D8B',
-        sidebarItems: [
-          { icon: '📊', label: 'Dashboard' }, { icon: '🍽️', label: 'Mesas' },
-          { icon: '📋', label: 'Pedidos' }, { icon: '👨‍🍳', label: 'Cocina' },
-          { icon: '💰', label: 'Caja' }, { icon: '📈', label: 'Reportes' }
-        ],
-        stats: [
-          { label: 'Mesas activas', value: '8/24' },
-          { label: 'Pedidos hoy', value: '87' },
-          { label: 'Ticket prom.', value: '$8.490' }
-        ],
-        activeModule: 'Pedidos'
-      }
-    },
-    {
-      keywords: ['clínica','clinica','médico','medico','dental','salud','paciente','cita','hospital'],
-      config: {
-        name: 'ClinicPro', icon: '🏥', domainColor: '#00E5CC',
-        sidebarItems: [
-          { icon: '📊', label: 'Dashboard' }, { icon: '👤', label: 'Pacientes' },
-          { icon: '📅', label: 'Agenda' }, { icon: '💊', label: 'Recetas' },
-          { icon: '💳', label: 'Pagos' }, { icon: '📈', label: 'Reportes' }
-        ],
-        stats: [
-          { label: 'Pacientes', value: '142' },
-          { label: 'Citas hoy', value: '18' },
-          { label: 'Atendidos', value: '94%' }
-        ],
-        activeModule: 'Agenda'
-      }
-    },
-    {
-      keywords: ['tienda','retail','inventario','stock','producto','venta','almacén'],
-      config: {
-        name: 'RetailERP', icon: '🛍️', domainColor: '#FFB347',
-        sidebarItems: [
-          { icon: '📊', label: 'Dashboard' }, { icon: '🛍️', label: 'Ventas' },
-          { icon: '📦', label: 'Inventario' }, { icon: '👥', label: 'Clientes' },
-          { icon: '💳', label: 'Pagos' }, { icon: '📈', label: 'Reportes' }
-        ],
-        stats: [
-          { label: 'Ventas hoy', value: '89' },
-          { label: 'Stock total', value: '2.341' },
-          { label: 'Ingresos', value: '$2.1M' }
-        ],
-        activeModule: 'Inventario'
-      }
-    },
-    {
-      keywords: ['hotel','hospedaje','habitación','reserva','check-in','alojamiento','hostal'],
-      config: {
-        name: 'HotelMS', icon: '🏨', domainColor: '#7C6DFA',
-        sidebarItems: [
-          { icon: '📊', label: 'Dashboard' }, { icon: '🏨', label: 'Reservas' },
-          { icon: '🛏️', label: 'Habitaciones' }, { icon: '🔑', label: 'Check-in' },
-          { icon: '💳', label: 'Facturación' }, { icon: '📈', label: 'Reportes' }
-        ],
-        stats: [
-          { label: 'Ocupación', value: '86%' },
-          { label: 'Check-in hoy', value: '3' },
-          { label: 'RevPAR', value: '$42k' }
-        ],
-        activeModule: 'Reservas'
-      }
-    },
-    {
-      keywords: ['peluquería','peluqueria','spa','salón','barbería','estética','belleza'],
-      config: {
-        name: 'BeautySuite', icon: '💇', domainColor: '#FA6D8B',
-        sidebarItems: [
-          { icon: '📊', label: 'Dashboard' }, { icon: '📅', label: 'Agenda' },
-          { icon: '👥', label: 'Clientes' }, { icon: '✂️', label: 'Servicios' },
-          { icon: '💳', label: 'Pagos' }, { icon: '📈', label: 'Reportes' }
-        ],
-        stats: [
-          { label: 'Citas hoy', value: '12' },
-          { label: 'Clientes', value: '387' },
-          { label: 'Ticket prom.', value: '$18.5k' }
-        ],
-        activeModule: 'Agenda'
-      }
-    }
+  availableSlots: string[] = [];
+
+  // ── Team members (About Us) ──
+  teamMembers = [
+    { nameKey: 'ABOUT_US.TEAM.1.NAME', roleKey: 'ABOUT_US.TEAM.1.ROLE', descKey: 'ABOUT_US.TEAM.1.DESC', photo: 'https://ui-avatars.com/api/?name=Carlos+Mendez&size=200&background=7C6DFA&color=fff&bold=true' },
+    { nameKey: 'ABOUT_US.TEAM.2.NAME', roleKey: 'ABOUT_US.TEAM.2.ROLE', descKey: 'ABOUT_US.TEAM.2.DESC', photo: 'https://ui-avatars.com/api/?name=Valentina+Rojas&size=200&background=FA6D8B&color=fff&bold=true' },
+    { nameKey: 'ABOUT_US.TEAM.3.NAME', roleKey: 'ABOUT_US.TEAM.3.ROLE', descKey: 'ABOUT_US.TEAM.3.DESC', photo: 'https://ui-avatars.com/api/?name=Diego+Fuentes&size=200&background=00E5CC&color=fff&bold=true' },
+    { nameKey: 'ABOUT_US.TEAM.4.NAME', roleKey: 'ABOUT_US.TEAM.4.ROLE', descKey: 'ABOUT_US.TEAM.4.DESC', photo: 'https://ui-avatars.com/api/?name=Catalina+Vera&size=200&background=FFB347&color=fff&bold=true' }
   ];
 
-  private defaultConfig = {
-    name: 'BusinessCRM', icon: '📊', domainColor: '#7C6DFA',
-    sidebarItems: [
-      { icon: '📊', label: 'Dashboard' }, { icon: '👥', label: 'Contactos' },
-      { icon: '📈', label: 'Pipeline' }, { icon: '📧', label: 'Campañas' },
-      { icon: '📅', label: 'Calendario' }, { icon: '⚙️', label: 'Config.' }
-    ],
-    stats: [
-      { label: 'Leads activos', value: '247' },
-      { label: 'Conversión', value: '34%' },
-      { label: 'Pipeline', value: '$2.4M' }
-    ],
-    activeModule: 'Dashboard'
-  };
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Set min/max dates for scheduler
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    this.schedulerMinDate = this.formatDateForInput(tomorrow);
+    const maxDate = new Date(today);
+    maxDate.setDate(maxDate.getDate() + 60);
+    this.schedulerMaxDate = this.formatDateForInput(maxDate);
+  }
 
   ngAfterViewInit(): void {
     this.initScrollAnimations();
@@ -387,51 +320,109 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // ── Detectar industria a partir del prompt ──
-  private detectIndustry(prompt: string): any {
-    const lower = prompt.toLowerCase();
-    for (const entry of this.industryMap) {
-      if (entry.keywords.some(kw => lower.includes(kw))) {
-        return entry.config;
+  // ── Scheduler Methods ──
+  openScheduler(product: string): void {
+    this.schedulerProduct = product;
+    this.schedulerStep = 'form';
+    this.schedulerDate = '';
+    this.schedulerTime = '';
+    this.schedulerEmail = '';
+    this.schedulerConfirming = false;
+    this.schedulerError = '';
+    this.availableSlots = [];
+    this.schedulerOpen = true;
+    document.body.style.overflow = 'hidden';
+    // Precargar SDK de Google mientras el usuario llena el formulario
+    this.calendarService.preload();
+  }
+
+  closeScheduler(): void {
+    this.schedulerOpen = false;
+    document.body.style.overflow = '';
+  }
+
+  onDateChange(): void {
+    if (!this.schedulerDate) {
+      this.availableSlots = [];
+      return;
+    }
+    const selected = new Date(this.schedulerDate + 'T12:00:00');
+    const day = selected.getDay(); // 0=Sun, 6=Sat
+    if (day === 0 || day === 6) {
+      this.availableSlots = [];
+      return;
+    }
+    // Generate 30-min slots from 9:00 to 17:30 (Mon-Fri)
+    this.availableSlots = [];
+    for (let h = 9; h < 18; h++) {
+      this.availableSlots.push(`${h.toString().padStart(2, '0')}:00`);
+      if (h < 17 || (h === 17 && true)) {
+        if (h < 17) {
+          this.availableSlots.push(`${h.toString().padStart(2, '0')}:30`);
+        }
       }
     }
-    return this.defaultConfig;
+    // Simulate some busy slots (random for demo)
+    const busyCount = Math.floor(Math.random() * 4) + 2;
+    for (let i = 0; i < busyCount; i++) {
+      const idx = Math.floor(Math.random() * this.availableSlots.length);
+      this.availableSlots.splice(idx, 1);
+    }
+    this.schedulerTime = '';
   }
 
-  // ── Generar preview con stream animado (100% local, 0 API calls) ──
-  generatePreview(): void {
-    if (!this.sysgenPrompt.trim()) return;
-    this.sysgenGenerating = true;
-    this.sysgenGenerated = false;
-    this.sysgenLog = [];
-    this.currentConfig = null;
-    if (this.streamInterval) clearInterval(this.streamInterval);
+  selectTime(slot: string): void {
+    this.schedulerTime = slot;
+  }
 
-    const config = this.detectIndustry(this.sysgenPrompt);
-    const logSteps = [
-      '🔍 Analizando prompt del cliente...',
-      `🏷️ Industria detectada: ${config.icon} ${config.name}`,
-      '🧩 Definiendo módulos del sistema...',
-      `📐 Construyendo layout "${config.name}"...`,
-      '✅ Vista previa lista'
-    ];
+  async confirmBooking(): Promise<void> {
+    if (!this.schedulerDate || !this.schedulerTime || !this.schedulerEmail) return;
+    this.schedulerConfirming = true;
+    this.schedulerError = '';
+    this.meetLink = '';
+    this.meetLinkLoading = true;
 
-    let i = 0;
-    this.streamInterval = setInterval(() => {
-      if (i < logSteps.length) {
-        this.sysgenLog = [...this.sysgenLog, logSteps[i]];
-        if (i === 3) { this.currentConfig = config; } // mostrar preview al paso 4
-        i++;
+    try {
+      // Solo esperar la autorización OAuth (el popup)
+      await this.calendarService.ensureAuthorized();
+
+      // Mostrar éxito inmediatamente después de autorizar
+      this.schedulerConfirming = false;
+      this.schedulerStep = 'success';
+
+      // Crear evento en segundo plano
+      const result = await this.calendarService.createMeeting({
+        date: this.schedulerDate,
+        time: this.schedulerTime,
+        email: this.schedulerEmail,
+        product: this.getProductName(this.schedulerProduct)
+      });
+
+      this.meetLinkLoading = false;
+
+      if (result.success) {
+        this.meetLink = result.meetLink || '';
       } else {
-        clearInterval(this.streamInterval);
-        this.sysgenGenerating = false;
-        this.sysgenGenerated = true;
+        this.meetLink = '';
+        console.error('Error creando evento:', result.error);
       }
-    }, 480);
+    } catch (error: any) {
+      this.schedulerConfirming = false;
+      this.meetLinkLoading = false;
+      this.schedulerError = error.message || 'Error al autorizar con Google';
+      this.schedulerStep = 'error';
+    }
   }
 
-  // ── Navegar al demo de un producto (con login gate) ──
-  goToDemo(product: string): void {
-    this.router.navigate(['/login'], { queryParams: { product } });
+  getProductName(id: string): string {
+    const svc = this.services.find(s => s.id === id);
+    return svc ? svc.name : 'Nexora Suite';
+  }
+
+  private formatDateForInput(d: Date): string {
+    const y = d.getFullYear();
+    const m = (d.getMonth() + 1).toString().padStart(2, '0');
+    const day = d.getDate().toString().padStart(2, '0');
+    return `${y}-${m}-${day}`;
   }
 }

@@ -36,13 +36,13 @@
 
       <!-- CTAs -->
       <div class="hero__cta-group">
-        <button class="btn btn--primary btn--lg" (click)="goToDemo('sysgen')" id="hero-cta-primary">
+        <button class="btn btn--primary btn--lg" (click)="openScheduler('nexcore')" id="hero-cta-primary">
           {{ 'HERO.CTA_PRIMARY' | translate }}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="white" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </button>
-        <a href="#how-it-works" class="btn btn--outline btn--lg">
+        <a href="#services" class="btn btn--outline btn--lg">
           {{ 'HERO.CTA_SECONDARY' | translate }}
         </a>
       </div>
@@ -52,19 +52,25 @@
     <div class="hero__visual anim-hidden delay-300">
       <div class="hero__visual-card glass-card">
         <div class="hero__visual-inner">
-          <div class="vis-icon vis-icon--main">⬡</div>
+          <!-- Isotipo N oficial (PNG con transparencia real) -->
+          <div class="vis-icon vis-icon--main" style="display: flex; align-items: center; justify-content: center; background: none; border: none; box-shadow: none;">
+            <img src="assets/Logo Nexora.png" alt="Nexora" style="width: 140px; height: 140px; object-fit: contain; filter: drop-shadow(0 0 25px rgba(124,109,250,0.65));">
+          </div>
           <div class="vis-ring vis-ring--1"></div>
           <div class="vis-ring vis-ring--2"></div>
           <div class="vis-ring vis-ring--3"></div>
-          <!-- Floating badges -->
+          <!-- Floating badges: Todos los 6 servicios de Nexora -->
           <div class="vis-badge vis-badge--1">
-            <span>📡</span> Push enviado
+            <span>📡</span> {{ 'MOCKUPS.HERO.PULSE' | translate }}
           </div>
           <div class="vis-badge vis-badge--2">
-            <span>🤖</span> IA generando...
+            <span>🤖</span> {{ 'MOCKUPS.HERO.CORE' | translate }}
           </div>
           <div class="vis-badge vis-badge--3">
-            <span>🍽️</span> Mesa #4 lista
+            <span>📊</span> {{ 'MOCKUPS.HERO.BI' | translate }}
+          </div>
+          <div class="vis-badge vis-badge--4">
+            <span>🌐</span> {{ 'MOCKUPS.HERO.SITE' | translate }}
           </div>
         </div>
       </div>
@@ -116,29 +122,29 @@
         <div class="service-card__icon-wrap">
           <span class="service-card__icon">{{ svc.icon }}</span>
         </div>
-        <span class="service-card__tag">{{ svc.tag }}</span>
+        <span class="service-card__tag">{{ 'SERVICES.' + svc.id.toUpperCase() + '.TAG' | translate }}</span>
         <h3 class="service-card__name">{{ svc.name }}</h3>
-        <p class="service-card__desc">{{ svc.shortDesc }}</p>
+        <p class="service-card__desc">{{ 'SERVICES.' + svc.id.toUpperCase() + '.SHORT' | translate }}</p>
         <div class="service-card__arrow">→</div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ======= 4. PROXIPUSH ======= -->
-<section class="section service-section" id="proxipush">
+<!-- ======= 4. NEXPULSE ======= -->
+<section class="section service-section" id="nexpulse">
   <div class="container">
     <div class="service-section__layout">
       <!-- Content -->
       <div class="service-section__content anim-hidden from-left">
         <div class="badge-pill badge-pill--purple">
-          {{ 'PROXIPUSH.BADGE' | translate }}
+          {{ 'NEXPULSE.BADGE' | translate }}
         </div>
         <h2 class="text-h1">
-          {{ 'PROXIPUSH.TITLE' | translate }}<br>
-          <span class="text-gradient">{{ 'PROXIPUSH.TITLE_HL' | translate }}</span>
+          {{ 'NEXPULSE.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXPULSE.TITLE_HL' | translate }}</span>
         </h2>
-        <p class="text-body-lg text-secondary">{{ 'PROXIPUSH.DESC' | translate }}</p>
+        <p class="text-body-lg text-secondary">{{ 'NEXPULSE.DESC' | translate }}</p>
 
         <div class="feature-list">
           <div class="feature-item" *ngFor="let f of proxiFeatures">
@@ -150,7 +156,7 @@
           </div>
         </div>
 
-        <button class="btn btn--primary" (click)="goToDemo('proxipush')" id="cta-proxipush">{{ 'PROXIPUSH.CTA' | translate }} →</button>
+        <button class="btn btn--primary" (click)="openScheduler('nexpulse')" id="cta-nexpulse">{{ 'NEXPULSE.CTA' | translate }} →</button>
       </div>
 
       <!-- Visual Mockup -->
@@ -163,9 +169,9 @@
             <div class="phone-notif">
               <div class="notif-icon">📡</div>
               <div class="notif-content">
-                <div class="notif-app">Digital Agency · NexPulse</div>
-                <div class="notif-title">🎉 ¡Promoción especial hoy!</div>
-                <div class="notif-body">2x1 en cócteles hasta las 22:00. ¡Estás a solo 80m!</div>
+                <div class="notif-app">{{ 'MOCKUPS.NEXPULSE.NOTIF_APP' | translate }}</div>
+                <div class="notif-title">{{ 'MOCKUPS.NEXPULSE.TITLE' | translate }}</div>
+                <div class="notif-body">{{ 'MOCKUPS.NEXPULSE.BODY' | translate }}</div>
               </div>
             </div>
             <div class="phone-map">
@@ -176,22 +182,22 @@
                   <div class="map-ring r2"></div>
                   <div class="map-ring r3"></div>
                 </div>
-                <div class="map-label">100m radius</div>
+                <div class="map-label">{{ 'MOCKUPS.NEXPULSE.RADIUS' | translate }}</div>
               </div>
             </div>
           </div>
           <!-- Admin panel mini -->
           <div class="proxipush-panel glass-card">
-            <div class="panel-header">Admin Panel</div>
+            <div class="panel-header">{{ 'MOCKUPS.NEXPULSE.HEADER' | translate }}</div>
             <div class="panel-row">
               <span class="panel-dot active"></span>
-              <span>Campaña activa</span>
-              <span class="panel-badge">847 enviados</span>
+              <span>{{ 'MOCKUPS.NEXPULSE.ACTIVE' | translate }}</span>
+              <span class="panel-badge">{{ 'MOCKUPS.NEXPULSE.SENT' | translate }}</span>
             </div>
             <div class="panel-row">
               <span class="panel-dot"></span>
-              <span>Email masivo</span>
-              <span class="panel-badge secondary">300/día</span>
+              <span>{{ 'MOCKUPS.NEXPULSE.MASS' | translate }}</span>
+              <span class="panel-badge secondary">{{ 'MOCKUPS.NEXPULSE.LIMIT' | translate }}</span>
             </div>
           </div>
         </div>
@@ -200,20 +206,20 @@
   </div>
 </section>
 
-<!-- ======= 5. QUEUEFLOW ======= -->
-<section class="section service-section service-section--alt" id="queueflow">
+<!-- ======= 5. NEXORDER ======= -->
+<section class="section service-section service-section--alt" id="nexorder">
   <div class="container">
     <div class="service-section__layout service-section__layout--reverse">
       <!-- Visual Mockup -->
       <div class="service-section__visual anim-hidden from-left">
-        <div class="queueflow-mockup">
+        <div class="queueflow-mockup" style="justify-content: center;">
           <!-- Carta digital -->
           <div class="qf-card glass-card">
-            <div class="qf-card-header">🍽️ Carta Digital</div>
+            <div class="qf-card-header">{{ 'MOCKUPS.NEXORDER.TITLE' | translate }}</div>
             <div class="qf-item">
               <div class="qf-item-emoji">🍔</div>
               <div class="qf-item-info">
-                <div class="qf-item-name">Hamburguesa Clásica</div>
+                <div class="qf-item-name">{{ 'MOCKUPS.NEXORDER.BURGER' | translate }}</div>
                 <div class="qf-item-price">$6.990</div>
               </div>
               <button class="qf-add">+</button>
@@ -221,25 +227,15 @@
             <div class="qf-item">
               <div class="qf-item-emoji">🍕</div>
               <div class="qf-item-info">
-                <div class="qf-item-name">Pizza Napolitana</div>
+                <div class="qf-item-name">{{ 'MOCKUPS.NEXORDER.PIZZA' | translate }}</div>
                 <div class="qf-item-price">$9.490</div>
               </div>
               <button class="qf-add">+</button>
             </div>
             <div class="qf-cart">
-              <span>🛒 2 items</span>
+              <span>{{ 'MOCKUPS.NEXORDER.CART' | translate: { count: 2 } }}</span>
               <span class="qf-total">$16.480</span>
             </div>
-          </div>
-
-          <!-- Estado del pedido -->
-          <div class="qf-status glass-card">
-            <div class="qf-card-header">📊 Estado pedido #47</div>
-            <div class="qf-step active">✅ Pedido recibido</div>
-            <div class="qf-step active">🔄 En preparación</div>
-            <div class="qf-step pending">🛎️ Listo para entrega</div>
-            <div class="qf-step pending">📦 Entregado</div>
-            <div class="qf-update">Actualiza en 10s...</div>
           </div>
         </div>
       </div>
@@ -247,13 +243,44 @@
       <!-- Content -->
       <div class="service-section__content anim-hidden from-right">
         <div class="badge-pill badge-pill--pink">
-          {{ 'QUEUEFLOW.BADGE' | translate }}
+          {{ 'NEXORDER.BADGE' | translate }}
         </div>
         <h2 class="text-h1">
-          {{ 'QUEUEFLOW.TITLE' | translate }}<br>
-          <span class="text-gradient">{{ 'QUEUEFLOW.TITLE_HL' | translate }}</span>
+          {{ 'NEXORDER.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXORDER.TITLE_HL' | translate }}</span>
         </h2>
-        <p class="text-body-lg text-secondary">{{ 'QUEUEFLOW.DESC' | translate }}</p>
+        <p class="text-body-lg text-secondary">{{ 'NEXORDER.DESC' | translate }}</p>
+
+        <div class="feature-list">
+          <div class="feature-item" *ngFor="let f of orderFeatures">
+            <div class="feature-item__icon">{{ f.icon }}</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">{{ f.titleKey | translate }}</div>
+              <div class="feature-item__desc">{{ f.descKey | translate }}</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="openScheduler('nexorder')" id="cta-nexorder">{{ 'NEXORDER.CTA' | translate }} →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 6. NEXQUEUE ======= -->
+<section class="section service-section" id="nexqueue">
+  <div class="container">
+    <div class="service-section__layout">
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-left">
+        <div class="badge-pill badge-pill--pink">
+          {{ 'NEXQUEUE.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'NEXQUEUE.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXQUEUE.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'NEXQUEUE.DESC' | translate }}</p>
 
         <div class="feature-list">
           <div class="feature-item" *ngFor="let f of queueFeatures">
@@ -265,261 +292,227 @@
           </div>
         </div>
 
-        <button class="btn btn--primary" (click)="goToDemo('queueflow')" id="cta-queueflow">{{ 'QUEUEFLOW.CTA' | translate }} →</button>
+        <button class="btn btn--primary" (click)="openScheduler('nexqueue')" id="cta-nexqueue">{{ 'NEXQUEUE.CTA' | translate }} →</button>
+      </div>
+
+      <!-- Visual Mockup -->
+      <div class="service-section__visual anim-hidden from-right">
+        <div class="queueflow-mockup" style="justify-content: center;">
+          <!-- Estado del pedido / cola -->
+          <div class="qf-status glass-card">
+            <div class="qf-card-header">{{ 'MOCKUPS.NEXQUEUE.TITLE' | translate }}</div>
+            <div class="qf-step active">{{ 'MOCKUPS.NEXQUEUE.STEP1' | translate }}</div>
+            <div class="qf-step active">{{ 'MOCKUPS.NEXQUEUE.STEP2' | translate }}</div>
+            <div class="qf-step pending">{{ 'MOCKUPS.NEXQUEUE.STEP3' | translate }}</div>
+            <div class="qf-step pending">{{ 'MOCKUPS.NEXQUEUE.STEP4' | translate }}</div>
+            <div class="qf-update">{{ 'MOCKUPS.NEXQUEUE.UPDATE' | translate }}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======= 6. WEBCRAFTS ======= -->
-<section class="section service-section" id="webcrafts">
+<!-- ======= 7. NEXSITE ======= -->
+<section class="section service-section service-section--alt" id="nexsite">
   <div class="container">
-    <div class="service-section__layout">
-      <div class="service-section__content anim-hidden from-left">
-        <div class="badge-pill badge-pill--accent">
-          {{ 'WEBCRAFTS.BADGE' | translate }}
-        </div>
-        <h2 class="text-h1">
-          {{ 'WEBCRAFTS.TITLE' | translate }}<br>
-          <span class="text-gradient">{{ 'WEBCRAFTS.TITLE_HL' | translate }}</span>
-        </h2>
-        <p class="text-body-lg text-secondary">{{ 'WEBCRAFTS.DESC' | translate }}</p>
-
-        <div class="webcrafts-tags">
-          <span class="wc-tag">React</span>
-          <span class="wc-tag">Angular</span>
-          <span class="wc-tag">Next.js</span>
-          <span class="wc-tag">SEO Optimizado</span>
-          <span class="wc-tag">Mobile First</span>
-          <span class="wc-tag">Dark Mode</span>
-          <span class="wc-tag">Animaciones</span>
-          <span class="wc-tag">CMS</span>
-        </div>
-
-        <button class="btn btn--primary" (click)="goToDemo('webcrafts')" id="cta-webcrafts">{{ 'WEBCRAFTS.CTA' | translate }} →</button>
-      </div>
-
-      <div class="service-section__visual anim-hidden from-right">
-        <div class="webcrafts-mockup">
+    <div class="service-section__layout service-section__layout--reverse">
+      <!-- Visual Mockup -->
+      <div class="service-section__visual anim-hidden from-left">
+        <div class="webcrafts-mockup" style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center;">
           <div class="wc-browser glass-card">
             <div class="wc-browser-bar">
               <span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-dot"></span>
-              <div class="wc-url">https://tu-empresa.cl</div>
+              <div class="wc-url">https://nexsite.tu-empresa.cl</div>
             </div>
-            <div class="wc-screen">
+            <div class="wc-screen" style="height: 120px;">
               <div class="wc-hero-mock">
                 <div class="wc-hero-text"></div>
                 <div class="wc-hero-sub"></div>
                 <div class="wc-hero-btn"></div>
               </div>
-              <div class="wc-cards-mock">
-                <div class="wc-card-mini" *ngFor="let c of [1,2,3]"></div>
-              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======= 7. SYSGEN AI ======= -->
-<section class="section service-section service-section--alt" id="sysgen">
-  <div class="container">
-    <div class="section-header centered anim-hidden">
-      <div class="badge-pill badge-pill--warn">
-        {{ 'SYSGEN.BADGE' | translate }}
-      </div>
-      <h2 class="text-h1">
-        {{ 'SYSGEN.TITLE' | translate }}<br>
-        <span class="text-gradient">{{ 'SYSGEN.TITLE_HL' | translate }}</span>
-      </h2>
-      <p class="text-body-lg text-secondary">{{ 'SYSGEN.DESC' | translate }}</p>
-    </div>
-
-    <!-- Demo interactivo estilo Rocket.new -->
-    <div class="sysgen-demo anim-hidden">
-
-      <!-- Editor / Input lado izquierdo -->
-      <div class="sysgen-editor-panel">
-        <div class="sysgen-editor-header">
-          <span class="sed-dot sed-dot--red"></span>
-          <span class="sed-dot sed-dot--yellow"></span>
-          <span class="sed-dot sed-dot--green"></span>
-          <span class="sed-label">prompt.txt</span>
-        </div>
-        <div class="sysgen-editor-body">
-          <div class="sysgen-input-header">
-            <span>🤖</span>
-            <span>Describe tu sistema</span>
-          </div>
-          <textarea
-            id="sysgen-home-textarea"
-            class="sysgen-textarea"
-            [(ngModel)]="sysgenPrompt"
-            [placeholder]="'SYSGEN.PROMPT_PLACEHOLDER' | translate"
-            rows="5">
-          </textarea>
-          <div class="sysgen-example">
-            <span class="sysgen-example-label">Ejemplo:</span>
-            <span class="sysgen-example-text">{{ 'SYSGEN.PROMPT_EXAMPLE' | translate }}</span>
-          </div>
-          <button
-            class="btn btn--primary w-full"
-            (click)="generatePreview()"
-            id="btn-sysgen-generate"
-            [disabled]="sysgenGenerating || !sysgenPrompt.trim()">
-            <span *ngIf="!sysgenGenerating">🚀 {{ 'SYSGEN.GENERATE_BTN' | translate }}</span>
-            <span *ngIf="sysgenGenerating" class="sysgen-loading">
-              <span></span><span></span><span></span> Generando...
-            </span>
-          </button>
-
-          <!-- Stream log -->
-          <div class="sysgen-stream-log" *ngIf="sysgenLog.length > 0">
-            <div *ngFor="let line of sysgenLog; let i = index"
-                 class="sysgen-log-line"
-                 [class.sysgen-log-line--last]="i === sysgenLog.length - 1">
-              {{ line }}
-            </div>
+          <!-- Diagrama de flujos de automatización -->
+          <div class="flow-diagram glass-card" style="padding: 12px; font-size: 0.8rem; display: flex; align-items: center; justify-content: space-around; gap: 8px;">
+            <div class="flow-node flow-node--trigger" style="padding: 6px 10px;">{{ 'MOCKUPS.NEXSITE.TRIGGER' | translate }}</div>
+            <div style="color: var(--color-primary);">→</div>
+            <div class="flow-node flow-node--process" style="padding: 6px 10px;">{{ 'MOCKUPS.NEXSITE.PROCESS' | translate }}</div>
+            <div style="color: var(--color-primary);">→</div>
+            <div class="flow-node flow-node--output" style="padding: 6px 10px;">{{ 'MOCKUPS.NEXSITE.OUTPUT' | translate }}</div>
           </div>
         </div>
       </div>
 
-      <!-- Preview lado derecho -->
-      <div class="sysgen-preview-panel glass-card">
-        <div class="sysgen-preview-header">
-          <div class="sysgen-browser-dots">
-            <span class="br-dot br-dot--r"></span>
-            <span class="br-dot br-dot--y"></span>
-            <span class="br-dot br-dot--g"></span>
-          </div>
-          <div class="sysgen-preview-url">
-            🔒 {{ currentConfig ? 'demo.' + currentConfig.name.toLowerCase() + '.app' : 'tu-sistema.app' }}
-          </div>
-          <div class="sysgen-status" [class.active]="sysgenGenerated">
-            {{ sysgenGenerated ? '✅ Listo' : sysgenGenerating ? '⚙️ Generando...' : '⏳ Esperando...' }}
-          </div>
-        </div>
-
-        @if (!sysgenGenerating && !currentConfig) {
-          <div class="sysgen-placeholder">
-            <div class="sysgen-placeholder-icon">🤖</div>
-            <p>Tu CRM/ERP aparecerá aquí en tiempo real</p>
-            <small>Describe tu negocio y pulsa el botón</small>
-          </div>
-        }
-
-        @if (currentConfig) {
-          <div class="sysgen-result">
-            <div class="crm-mock" [style.--dom-color]="currentConfig.domainColor">
-              <div class="crm-sidebar">
-                <div class="crm-sidebar-brand">
-                  <span>{{ currentConfig.icon }}</span>
-                  <span class="crm-sys-name-sm">{{ currentConfig.name }}</span>
-                </div>
-                <div *ngFor="let item of currentConfig.sidebarItems; let i = index"
-                     class="crm-nav-item"
-                     [class.active]="item.label === currentConfig.activeModule"
-                     [style.animation-delay]="(i * 0.08) + 's'">
-                  <span>{{ item.icon }}</span>
-                  <span>{{ item.label }}</span>
-                </div>
-              </div>
-              <div class="crm-main">
-                <div class="crm-main-header">
-                  <span>{{ currentConfig.activeModule }}</span>
-                  <div class="crm-hdr-btn">+ Nuevo</div>
-                </div>
-                <div class="crm-stat-row">
-                  <div class="crm-stat"
-                       *ngFor="let s of currentConfig.stats; let i = index"
-                       [style.animation-delay]="(i * 0.1) + 's'">
-                    <span>{{ s.value }}</span>
-                    <small>{{ s.label }}</small>
-                  </div>
-                </div>
-                <div class="crm-chart-mock"></div>
-                <div class="crm-rows-mock">
-                  <div class="crm-row-mock" *ngFor="let r of [1,2,3]; let i = index"
-                       [style.animation-delay]="(i * 0.1) + 's'">
-                    <span class="crm-shimmer"></span>
-                    <span class="crm-dot"></span>
-                    <span class="crm-shimmer sm"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        }
-      </div>
-    </div>
-
-    <div class="sysgen-cta-wrap anim-hidden">
-      <p class="text-secondary" style="margin-bottom:1.5rem; font-size:0.9rem;">🔑 Inicia sesión para acceder al demo completo con 500 tokens gratuitos</p>
-      <button class="btn btn--primary btn--lg" (click)="goToDemo('sysgen')" id="cta-sysgen">{{ 'SYSGEN.CTA' | translate }} 🤖</button>
-    </div>
-  </div>
-</section>
-
-<!-- ======= 8. AUTOFLOW ======= -->
-<section class="section service-section" id="autoflow">
-  <div class="container">
-    <div class="service-section__layout">
-      <div class="service-section__content anim-hidden from-left">
-        <div class="badge-pill badge-pill--purple2">
-          {{ 'AUTOFLOW.BADGE' | translate }}
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-right">
+        <div class="badge-pill badge-pill--accent">
+          {{ 'NEXSITE.BADGE' | translate }}
         </div>
         <h2 class="text-h1">
-          {{ 'AUTOFLOW.TITLE' | translate }}<br>
-          <span class="text-gradient">{{ 'AUTOFLOW.TITLE_HL' | translate }}</span>
+          {{ 'NEXSITE.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXSITE.TITLE_HL' | translate }}</span>
         </h2>
-        <p class="text-body-lg text-secondary">{{ 'AUTOFLOW.DESC' | translate }}</p>
+        <p class="text-body-lg text-secondary">{{ 'NEXSITE.DESC' | translate }}</p>
 
-        <div class="automation-grid">
-          <div class="auto-item" *ngFor="let item of [
-            {icon:'📋', text:'Digitalización de formularios'},
-            {icon:'🔗', text:'Integración entre sistemas'},
-            {icon:'📊', text:'Reportes automáticos'},
-            {icon:'🤖', text:'Chatbots y asistentes'},
-            {icon:'📧', text:'Emails automáticos'},
-            {icon:'🔔', text:'Alertas y notificaciones'}
-          ]">
-            <span class="auto-icon">{{ item.icon }}</span>
-            <span class="auto-text">{{ item.text }}</span>
+        <div class="feature-list">
+          <div class="feature-item" *ngFor="let f of siteFeatures">
+            <div class="feature-item__icon">{{ f.icon }}</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">{{ f.titleKey | translate }}</div>
+              <div class="feature-item__desc">{{ f.descKey | translate }}</div>
+            </div>
           </div>
         </div>
 
-        <button class="btn btn--primary" (click)="goToDemo('autoflow')" id="cta-autoflow">{{ 'AUTOFLOW.CTA' | translate }} →</button>
+        <button class="btn btn--primary" (click)="openScheduler('nexsite')" id="cta-nexsite">{{ 'NEXSITE.CTA' | translate }} →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 8. NEXBI ======= -->
+<section class="section service-section" id="nexbi">
+  <div class="container">
+    <div class="service-section__layout">
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-left">
+        <div class="badge-pill badge-pill--warn">
+          {{ 'NEXBI.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'NEXBI.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXBI.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'NEXBI.DESC' | translate }}</p>
+
+        <div class="feature-list">
+          <div class="feature-item" *ngFor="let f of biFeatures">
+            <div class="feature-item__icon">{{ f.icon }}</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">{{ f.titleKey | translate }}</div>
+              <div class="feature-item__desc">{{ f.descKey | translate }}</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="openScheduler('nexbi')" id="cta-nexbi">{{ 'NEXBI.CTA' | translate }} →</button>
       </div>
 
+      <!-- Visual Mockup (Tablero Dinámico) -->
       <div class="service-section__visual anim-hidden from-right">
-        <div class="autoflow-visual">
-          <div class="flow-diagram glass-card">
-            <div class="flow-node flow-node--trigger">
-              <span>⚡</span> Trigger
+        <div class="queueflow-mockup" style="justify-content: center;">
+          <div class="qf-status glass-card qf-status--bi">
+            <div class="qf-card-header" style="font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; display: flex; justify-content: space-between;">
+              <span>{{ 'MOCKUPS.NEXBI.TITLE' | translate }}</span>
+              <span style="font-size: 0.75rem; color: #00E5CC;">Live</span>
             </div>
-            <div class="flow-arrow">↓</div>
-            <div class="flow-node flow-node--process">
-              <span>⚙️</span> Procesar
-            </div>
-            <div class="flow-arrow">↓</div>
-            <div class="flow-node flow-node--condition">
-              <span>🔀</span> Condición
-            </div>
-            <div class="flow-branches">
-              <div class="flow-branch">
-                <div class="flow-arrow">↙</div>
-                <div class="flow-node flow-node--yes">✅ Sí</div>
+            <!-- Widgets de Reportes -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">{{ 'MOCKUPS.NEXBI.SALES' | translate }}</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #00E5CC; margin-top: 4px;">$14.820.000</div>
               </div>
-              <div class="flow-branch">
-                <div class="flow-arrow">↘</div>
-                <div class="flow-node flow-node--no">❌ No</div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">{{ 'MOCKUPS.NEXBI.RETENTION' | translate }}</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #FA6D8B; margin-top: 4px;">94.2%</div>
               </div>
             </div>
-            <div class="flow-arrow">↓</div>
-            <div class="flow-node flow-node--output">
-              <span>📤</span> Resultado
+            <div class="qf-step active" style="font-size: 0.8rem; padding: 6px 0;">{{ 'MOCKUPS.NEXBI.MARGIN' | translate }}</div>
+            <div class="qf-step active" style="font-size: 0.8rem; padding: 6px 0;">{{ 'MOCKUPS.NEXBI.NEW' | translate }}</div>
+            <div class="qf-update">{{ 'MOCKUPS.NEXBI.UPDATE' | translate }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 9. NEXCORE ======= -->
+<section class="section service-section service-section--alt" id="nexcore">
+  <div class="container">
+    <div class="service-section__layout">
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-left">
+        <div class="badge-pill badge-pill--warn">
+          {{ 'NEXCORE.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'NEXCORE.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXCORE.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'NEXCORE.DESC' | translate }}</p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-item__icon">📊</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">CRM integrado</div>
+              <div class="feature-item__desc">Gestión de contactos, leads y pipeline de ventas</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item__icon">📦</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">ERP operativo</div>
+              <div class="feature-item__desc">Inventario, facturación y control financiero</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item__icon">⚙️</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">Personalizable</div>
+              <div class="feature-item__desc">Adaptable a la industria y tamaño de tu negocio</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item__icon">🔗</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">Integraciones</div>
+              <div class="feature-item__desc">Conecta con tu facturador, pasarela de pagos y más</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="openScheduler('nexcore')" id="cta-nexcore">{{ 'NEXCORE.CTA' | translate }} →</button>
+      </div>
+
+      <!-- Visual Mockup (CRM estático) -->
+      <div class="service-section__visual anim-hidden from-right">
+        <div class="queueflow-mockup" style="justify-content: center;">
+          <div class="qf-status glass-card qf-status--bi">
+            <div class="qf-card-header" style="font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; display: flex; justify-content: space-between;">
+              <span>📊 NexCore CRM</span>
+              <span style="font-size: 0.75rem; color: #7C6DFA;">Active</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">Leads activos</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #7C6DFA; margin-top: 4px;">247</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">Conversión</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #00E5CC; margin-top: 4px;">34%</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">Pipeline</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #FFB347; margin-top: 4px;">$2.4M</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">Clientes</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #FA6D8B; margin-top: 4px;">1.284</div>
+              </div>
+            </div>
+            <div class="crm-chart-mock"></div>
+            <div class="crm-rows-mock">
+              <div class="crm-row-mock" *ngFor="let r of [1,2,3]; let i = index"
+                   [style.animation-delay]="(i * 0.1) + 's'">
+                <span class="crm-shimmer"></span>
+                <span class="crm-dot"></span>
+                <span class="crm-shimmer sm"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -528,7 +521,7 @@
   </div>
 </section>
 
-<!-- ======= 9. CÓMO FUNCIONA ======= -->
+<!-- ======= 10. CÓMO FUNCIONA ======= -->
 <section class="section how-it-works" id="how-it-works">
   <div class="container">
     <div class="section-header centered anim-hidden">
@@ -549,7 +542,7 @@
   </div>
 </section>
 
-<!-- ======= 10. TECH STACK ======= -->
+<!-- ======= 10b. TECH STACK ======= -->
 <section class="section tech-section">
   <div class="container">
     <div class="section-header centered anim-hidden">
@@ -618,28 +611,195 @@
   </div>
 </section>
 
-<!-- ======= 11. CTA FINAL ======= -->
+<!-- ======= 11. ABOUT US ======= -->
+<section class="section about-us" id="about-us">
+  <div class="container">
+    <div class="section-header centered anim-hidden">
+      <div class="badge-pill badge-pill--purple">
+        {{ 'ABOUT_US.BADGE' | translate }}
+      </div>
+      <h2 class="text-h1">
+        {{ 'ABOUT_US.TITLE' | translate }}
+        <span class="text-gradient">{{ 'ABOUT_US.TITLE_HL' | translate }}</span>
+      </h2>
+      <p class="text-body-lg text-secondary">{{ 'ABOUT_US.DESC' | translate }}</p>
+    </div>
+
+    <div class="team-grid anim-hidden">
+      <div class="team-card glass-card" *ngFor="let member of teamMembers">
+        <div class="team-card__photo-wrap">
+          <img [src]="member.photo" [alt]="member.nameKey | translate" class="team-card__photo" loading="lazy">
+        </div>
+        <h3 class="team-card__name">{{ member.nameKey | translate }}</h3>
+        <div class="team-card__role">{{ member.roleKey | translate }}</div>
+        <p class="team-card__desc">{{ member.descKey | translate }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 12. CTA FINAL ======= -->
 <section class="cta-final" id="contact">
   <div class="cta-final__orb cta-final__orb--left"></div>
   <div class="cta-final__orb cta-final__orb--right"></div>
 
-  <div class="cta-final__inner anim-hidden">
-    <div class="badge-pill" style="margin: 0 auto 2rem;">🚀 Chile</div>
-    <h2 class="text-h1 cta-final__title">
+  <div class="cta-final__inner anim-hidden" style="display: flex; flex-direction: column; align-items: center;">
+    
+    <!-- Logotipo completo B2B con isotipo N oficial -->
+    <div class="nexora-b2b-logo" style="margin-bottom: 3rem;">
+      <div class="nexora-b2b-logo__main">
+        <!-- Isotipo N oficial (PNG con transparencia real) -->
+        <img src="assets/Short Nexora.png" alt="N" style="height: 58px; width: auto; margin-right: -10px;">
+        <span class="nexora-b2b-logo__brand">
+          E<span class="char-x">X</span>ORA
+        </span>
+      </div>
+      <div class="nexora-b2b-logo__sub">
+        Soluciones Tecnológicas B2B
+      </div>
+    </div>
+
+    <h2 class="text-h1 cta-final__title" style="margin-top: 0; text-align: center;">
       {{ 'CTA_FINAL.TITLE' | translate }}<br>
       <span class="text-gradient">{{ 'CTA_FINAL.TITLE_HL' | translate }}</span>
     </h2>
     <p class="text-body-lg cta-final__desc text-secondary">{{ 'CTA_FINAL.DESC' | translate }}</p>
     <div class="cta-final__btn-group">
-      <button class="btn btn--primary btn--lg" (click)="goToDemo('sysgen')" id="cta-final-primary">
+      <button class="btn btn--primary btn--lg" (click)="openScheduler('general')" id="cta-final-primary">
         {{ 'CTA_FINAL.BTN_PRIMARY' | translate }}
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="white" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
-      <a href="#contact" class="btn btn--outline btn--lg">
+      <a href="https://wa.me/56912345678" target="_blank" class="btn btn--outline btn--lg">
         {{ 'CTA_FINAL.BTN_SECONDARY' | translate }}
       </a>
     </div>
   </div>
 </section>
+
+<!-- ======= SCHEDULER MODAL ======= -->
+<div class="scheduler-overlay" *ngIf="schedulerOpen" (click)="closeScheduler()">
+  <div class="scheduler-modal glass-card" (click)="$event.stopPropagation()">
+    
+    <!-- Close button -->
+    <button class="scheduler-close" (click)="closeScheduler()">✕</button>
+
+    <!-- Form Step -->
+    @if (schedulerStep === 'form') {
+      <div class="scheduler-header">
+        <div class="scheduler-icon">📅</div>
+        <h3 class="text-h3">{{ 'SCHEDULER.TITLE' | translate }}</h3>
+        <p class="text-secondary">{{ 'SCHEDULER.SUBTITLE' | translate }}</p>
+        <div class="scheduler-duration">{{ 'SCHEDULER.DURATION' | translate }}</div>
+      </div>
+
+      <div class="scheduler-body">
+        <!-- Product -->
+        <div class="scheduler-field">
+          <label class="scheduler-label">{{ 'SCHEDULER.PRODUCT_LABEL' | translate }}</label>
+          <div class="scheduler-product-badge">
+            {{ getProductName(schedulerProduct) }}
+          </div>
+        </div>
+
+        <!-- Date -->
+        <div class="scheduler-field">
+          <label class="scheduler-label">{{ 'SCHEDULER.DATE_LABEL' | translate }}</label>
+          <input type="date"
+                 class="scheduler-input"
+                 [(ngModel)]="schedulerDate"
+                 [min]="schedulerMinDate"
+                 [max]="schedulerMaxDate"
+                 (change)="onDateChange()">
+        </div>
+
+        <!-- Time slots -->
+        <div class="scheduler-field" *ngIf="schedulerDate">
+          <label class="scheduler-label">{{ 'SCHEDULER.TIME_LABEL' | translate }}</label>
+          <div class="scheduler-slots" *ngIf="availableSlots.length > 0">
+            <button *ngFor="let slot of availableSlots"
+                    class="scheduler-slot"
+                    [class.selected]="schedulerTime === slot"
+                    (click)="selectTime(slot)">
+              {{ slot }}
+            </button>
+          </div>
+          <div class="scheduler-no-slots" *ngIf="availableSlots.length === 0">
+            {{ 'SCHEDULER.NO_SLOTS' | translate }}
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="scheduler-field" *ngIf="schedulerTime">
+          <label class="scheduler-label">{{ 'SCHEDULER.EMAIL_LABEL' | translate }}</label>
+          <input type="email"
+                 class="scheduler-input"
+                 [(ngModel)]="schedulerEmail"
+                 [placeholder]="'SCHEDULER.EMAIL_PLACEHOLDER' | translate">
+        </div>
+
+        <!-- Confirm -->
+        <button class="btn btn--primary btn--lg w-full scheduler-confirm"
+                [disabled]="!schedulerDate || !schedulerTime || !schedulerEmail || schedulerConfirming"
+                (click)="confirmBooking()">
+          {{ schedulerConfirming ? ('SCHEDULER.CONFIRMING' | translate) : ('SCHEDULER.CONFIRM_BTN' | translate) }}
+        </button>
+      </div>
+    }
+
+    <!-- Success Step -->
+    @if (schedulerStep === 'success') {
+      <div class="scheduler-success">
+        <div class="scheduler-success-icon">✅</div>
+        <h3 class="text-h3">{{ 'SCHEDULER.SUCCESS_TITLE' | translate }}</h3>
+        <p class="text-secondary">{{ 'SCHEDULER.SUCCESS_DESC' | translate }}</p>
+        <div class="scheduler-summary">
+          <div class="scheduler-summary-row">
+            <span>📅</span> {{ schedulerDate }}
+          </div>
+          <div class="scheduler-summary-row">
+            <span>🕐</span> {{ schedulerTime }} — {{ getProductName(schedulerProduct) }}
+          </div>
+          <div class="scheduler-summary-row">
+            <span>📧</span> {{ schedulerEmail }}
+          </div>
+          <div class="scheduler-summary-row" *ngIf="meetLinkLoading">
+            <span>⏳</span>
+            <span style="color: var(--text-secondary); font-style: italic;">Generando enlace de Google Meet...</span>
+          </div>
+          <div class="scheduler-summary-row" *ngIf="!meetLinkLoading && meetLink">
+            <span>🔗</span>
+            <a [href]="meetLink" target="_blank" style="color: #7C6DFA; text-decoration: underline; font-weight: 600;">
+              Abrir Google Meet
+            </a>
+          </div>
+          <div class="scheduler-summary-row" *ngIf="!meetLinkLoading && !meetLink && schedulerError">
+            <span>⚠️</span>
+            <span style="color: #FA6D8B;">{{ schedulerError }}</span>
+          </div>
+        </div>
+        <button class="btn btn--outline btn--lg" (click)="closeScheduler()">
+          {{ 'SCHEDULER.CLOSE' | translate }}
+        </button>
+      </div>
+    }
+
+    <!-- Error Step -->
+    @if (schedulerStep === 'error') {
+      <div class="scheduler-success">
+        <div class="scheduler-success-icon">⚠️</div>
+        <h3 class="text-h3">Error al agendar</h3>
+        <p class="text-secondary">{{ schedulerError }}</p>
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem; justify-content: center;">
+          <button class="btn btn--primary btn--lg" (click)="schedulerStep = 'form'">
+            Reintentar
+          </button>
+          <button class="btn btn--outline btn--lg" (click)="closeScheduler()">
+            {{ 'SCHEDULER.CLOSE' | translate }}
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</div>

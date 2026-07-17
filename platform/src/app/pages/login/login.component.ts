@@ -1,7 +1,9 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 
 // ============================================================
@@ -10,11 +12,13 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslateModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, AfterViewInit {
+export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
+
+  private langChangeSub!: Subscription;
 
   // ── Estado de tabs ──
   activeTab: 'login' | 'register' = 'login';
@@ -50,6 +54,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private translate: TranslateService,
     public auth: AuthService
   ) {}
 
@@ -70,6 +75,17 @@ export class LoginComponent implements OnInit, AfterViewInit {
       this.navigateToDashboard();
     });
 
+    // Escuchar cambios de idioma para recargar y re-renderizar el botón de Google en caliente con limpieza profunda
+    this.langChangeSub = this.translate.onLangChange.subscribe(() => {
+      this.auth.initGoogle(() => {
+        this.navigateToDashboard();
+      });
+      setTimeout(() => {
+        const containerId = this.activeTab === 'login' ? 'google-btn-container' : 'google-btn-container-reg';
+        this.auth.renderButton(containerId);
+      }, 300);
+    });
+
     // Animar entrada del card
     setTimeout(() => {
       const card = document.querySelector('.login-card');
@@ -82,21 +98,27 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.auth.renderButton('google-btn-container');
   }
 
+  ngOnDestroy(): void {
+    // Evitar fugas de memoria cancelando la suscripción
+    if (this.langChangeSub) {
+      this.langChangeSub.unsubscribe();
+    }
+  }
+
   // ── Cambiar tab activo ──
   setTab(tab: 'login' | 'register'): void {
     this.activeTab = tab;
     this.loginError = '';
     this.registerError = '';
-    // Re-renderizar el botón si es necesario
-    if (tab === 'login') {
-      setTimeout(() => this.auth.renderButton('google-btn-container'), 50);
-    }
+    // Re-renderizar el botón en el contenedor correcto
+    const containerId = tab === 'login' ? 'google-btn-container' : 'google-btn-container-reg';
+    setTimeout(() => this.auth.renderButton(containerId), 50);
   }
 
   // ── Login con email/contraseña (simulado — reemplazar con tu backend) ──
   submitLogin(): void {
     if (!this.loginForm.email || !this.loginForm.password) {
-      this.loginError = 'Por favor completa todos los campos.';
+      this.loginError = this.translate.instant('LOGIN.ERR_FIELDS');
       return;
     }
     this.loginLoading = true;
@@ -111,7 +133,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   // ── Registro de cuenta (simulado — reemplazar con tu backend) ──
   submitRegister(): void {
     if (!this.registerValid) {
-      this.registerError = 'Por favor completa todos los campos y acepta los términos.';
+      this.registerError = this.translate.instant('LOGIN.ERR_TERMS');
       return;
     }
     this.registerLoading = true;

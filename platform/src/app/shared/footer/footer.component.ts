@@ -15,10 +15,10 @@ import { TranslateModule } from '@ngx-translate/core';
         <div class="footer__grid">
           <!-- Brand -->
           <div class="footer__brand">
-            <div class="footer__logo">
-              <div class="footer__logo-mark">⬡</div>
-              <span class="footer__logo-text">
-                <span>Nex</span><span class="text-purple">ora</span>
+            <div class="footer__logo" style="display: flex; align-items: center;">
+              <img src="assets/Short Nexora.png" alt="N" style="height: 34px; width: auto; margin-right: -11px;">
+              <span class="nexora-brand-text">
+                E<span class="char-x">X</span>ORA
               </span>
             </div>
             <p class="footer__brand-desc">{{ 'FOOTER.BRAND_DESC' | translate }}</p>
@@ -41,11 +41,12 @@ import { TranslateModule } from '@ngx-translate/core';
           <div class="footer__col">
             <h4 class="footer__col-title">{{ 'FOOTER.SERVICES_TITLE' | translate }}</h4>
             <ul class="footer__links">
-              <li><a href="#proxipush">{{ 'NAV.PROXIPUSH' | translate }}</a></li>
-              <li><a href="#queueflow">{{ 'NAV.QUEUEFLOW' | translate }}</a></li>
-              <li><a href="#webcrafts">{{ 'NAV.WEBCRAFTS' | translate }}</a></li>
-              <li><a href="#sysgen">{{ 'NAV.SYSGEN' | translate }}</a></li>
-              <li><a href="#autoflow">{{ 'NAV.AUTOFLOW' | translate }}</a></li>
+              <li><a href="#nexcore">{{ 'NAV.NEXCORE' | translate }}</a></li>
+              <li><a href="#nexbi">{{ 'NAV.NEXBI' | translate }}</a></li>
+              <li><a href="#nexpulse">{{ 'NAV.NEXPULSE' | translate }}</a></li>
+              <li><a href="#nexsite">{{ 'NAV.NEXSITE' | translate }}</a></li>
+              <li><a href="#nexorder">{{ 'NAV.NEXORDER' | translate }}</a></li>
+              <li><a href="#nexqueue">{{ 'NAV.NEXQUEUE' | translate }}</a></li>
             </ul>
           </div>
 
