@@ -9,18 +9,18 @@ $font-display: 'Outfit', sans-serif;
 $font-body: 'Inter', sans-serif;
 
 // --- COLORES PRIMARIOS ---
-$color-primary:     #8B7CF6;   // Violeta más suave (protagonista)
-$color-secondary:   #FA6D8B;   // Rosa coral (uso raro)
-$color-accent:      #3ECFB0;   // Teal más suave (secundario)
-$color-warning:     #FFB347;   // Ámbar
+$color-primary:     #8B7CF6;   // antes: #7C6DFA — violeta, ligeramente menos saturado
+$color-secondary:   #E8899F;   // antes: #FA6D8B — rosa suavizado, ahora de uso puntual (badges/detalles)
+$color-accent:      #3ECFB0;   // antes: #00E5CC — teal suave en vez de cian eléctrico, es tu nuevo secundario "de peso"
+$color-warning:     #E0A455;   // antes: #FFB347 — ámbar más apagado, reservado para estados puntuales
 
 // --- FONDOS ---
-$bg-base:           #0B0B12;
-$bg-elevated:       #13131C;
-$bg-card:           #1A1A26;
-$bg-card-hover:     #222232;
-$bg-glass:          rgba(255, 255, 255, 0.04);
-$bg-glass-hover:    rgba(255, 255, 255, 0.08);
+$bg-base:           #0B0B12;   // antes: #050508 — menos contraste extremo con los acentos
+$bg-elevated:       #121219;   // antes: #0D0D14
+$bg-card:           #16161F;   // antes: #12121E
+$bg-card-hover:     #1E1E2C;   // antes: #1A1A2E
+$bg-glass:          rgba(255, 255, 255, 0.04);   // sin cambios
+$bg-glass-hover:    rgba(255, 255, 255, 0.08);   // sin cambios
 
 // --- TEXTO ---
 $text-primary:      #FFFFFF;
@@ -28,14 +28,14 @@ $text-secondary:    #9090A8;
 $text-muted:        #5A5A72;
 
 // --- GRADIENTES ---
-$gradient-hero:     linear-gradient(135deg, #8B7CF6 0%, rgba(250, 109, 139, 0.85) 100%);
+$gradient-hero:     linear-gradient(135deg, #8B7CF6 0%, #3ECFB0 100%);   // antes iba violeta→rosa, ahora violeta→teal
 $gradient-accent:   linear-gradient(135deg, #3ECFB0 0%, #8B7CF6 100%);
-$gradient-card:     linear-gradient(135deg, rgba(139,124,246,0.1) 0%, rgba(250,109,139,0.1) 100%);
-$gradient-dark:     linear-gradient(180deg, #13131C 0%, #0B0B12 100%);
+$gradient-card:     linear-gradient(135deg, rgba(139,124,246,0.08) 0%, rgba(62,207,176,0.08) 100%);   // opacidad bajada de 0.1 a 0.08
+$gradient-dark:     linear-gradient(180deg, #121219 0%, #0B0B12 100%);
 
 // --- BORDES ---
 $border-glass:      1px solid rgba(255, 255, 255, 0.06);
-$border-primary:    1px solid rgba(124, 109, 250, 0.3);
+$border-primary:    1px solid rgba(139, 124, 246, 0.3);
 $border-radius-sm:  8px;
 $border-radius-md:  16px;
 $border-radius-lg:  24px;
@@ -46,9 +46,9 @@ $border-radius-full: 9999px;
 $shadow-sm:         0 4px 24px rgba(0, 0, 0, 0.3);
 $shadow-md:         0 8px 40px rgba(0, 0, 0, 0.4);
 $shadow-lg:         0 16px 64px rgba(0, 0, 0, 0.5);
-$shadow-glow-primary:  0 0 40px rgba(139, 124, 246, 0.25);
-$shadow-glow-secondary: 0 0 40px rgba(250, 109, 139, 0.25);
-$shadow-glow-accent:   0 0 40px rgba(62, 207, 176, 0.2);
+$shadow-glow-primary:   0 0 32px rgba(139, 124, 246, 0.20);   // antes: 0.25
+$shadow-glow-secondary: 0 0 32px rgba(232, 137, 159, 0.18);   // antes: 0.25
+$shadow-glow-accent:    0 0 32px rgba(62, 207, 176, 0.16);    // antes: 0.20
 
 // --- SPACING ---
 $space-xs:  4px;
