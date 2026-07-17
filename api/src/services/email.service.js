@@ -107,7 +107,7 @@ async function sendConfirmationEmail({ toEmail, date, time, meetLink, service })
 
     try {
       const response = await resend.emails.send({
-        from: 'Nexora <hola@nexora.cl>', // IMPORTANTE: nexora.cl debe estar verificado en Resend
+        from: 'onboarding@resend.dev', // Dominio de prueba para cuentas sin DNS verificado
         to: [toEmail],
         subject: subject,
         html: htmlContent,
