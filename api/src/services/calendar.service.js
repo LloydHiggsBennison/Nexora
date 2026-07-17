@@ -48,11 +48,8 @@ async function createMeeting({ date, time, email, service }) {
         dateTime: endDateTime.toISOString(),
         timeZone: 'America/Santiago',
       },
-      attendees: [
-        { email: email },
-        // La Service Account crea el evento. Hay que invitar al admin real para que lo vea en su calendario.
-        { email: adminEmail } 
-      ],
+      // Removemos 'attendees' porque las Cuentas de Servicio gratuitas no pueden invitar sin Domain-Wide Delegation.
+      // En su lugar, Resend enviará el correo con el link de Meet al cliente de forma independiente.
       conferenceData: {
         createRequest: {
           requestId: `nexora-${Date.now()}`,
@@ -68,15 +65,15 @@ async function createMeeting({ date, time, email, service }) {
       },
     };
 
-    // Crear el evento en el calendario de la service account (o en un calendario compartido)
-    // process.env.CALENDAR_ID normalmente es el correo de la service account o un ID de calendario
-    const calendarId = process.env.CALENDAR_ID || 'primary';
+    // Usar el correo del administrador como calendarId, no 'primary' (que sería el de la Service Account).
+    // De esta forma, el evento se crea directamente en el calendario del administrador.
+    const calendarId = process.env.CALENDAR_ID || adminEmail || 'primary';
 
     const response = await calendar.events.insert({
       calendarId: calendarId,
       resource: event,
       conferenceDataVersion: 1, // Requerido para generar link de Meet
-      sendUpdates: 'all' // Envía invitaciones de calendario a los attendees
+      // sendUpdates: 'all' // Comentado porque ya no estamos enviando invites de Google, usamos Resend.
     });
 
     console.log(`[Calendar] Evento creado: ${response.data.htmlLink}`);
