@@ -1,8 +1,17 @@
 const { Resend } = require('resend');
+const nodemailer = require('nodemailer');
 
-// Para desarrollo sin apiKey válida, usaremos un mock log
-const hasApiKey = !!process.env.RESEND_API_KEY;
-const resend = hasApiKey ? new Resend(process.env.RESEND_API_KEY) : null;
+const hasResendApiKey = !!process.env.RESEND_API_KEY;
+const resend = hasResendApiKey ? new Resend(process.env.RESEND_API_KEY) : null;
+
+// Configuración de Nodemailer (Gmail)
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.GMAIL_USER || process.env.ADMIN_EMAIL,
+    pass: process.env.GMAIL_PASS
+  }
+});
 
 async function sendConfirmationEmail({ toEmail, date, time, meetLink, service }) {
   const subject = `Reserva de Reunión Confirmada - Nexora`;
@@ -79,30 +88,55 @@ async function sendConfirmationEmail({ toEmail, date, time, meetLink, service })
     </html>
   `;
 
-  if (!hasApiKey) {
-    console.log(`[Email Mock] Simulando envío a ${toEmail}. Link: ${meetLink}`);
-    return { id: 'mock-id' };
-  }
+  // Lógica para elegir el proveedor de correos (Resend vs Nodemailer)
+  const provider = process.env.EMAIL_PROVIDER || 'nodemailer'; // Por defecto usaremos nodemailer por ahora
 
-  try {
-    const response = await resend.emails.send({
-      from: 'Nexora <hola@nexora.cl>', // IMPORTANTE: nexora.cl debe estar verificado en Resend
-      to: [toEmail],
-      subject: subject,
-      html: htmlContent,
-    });
-    
-    if (response.error) {
-      console.error('[Email Error] Resend rechazó el correo:', response.error);
-      return null;
+  if (provider === 'resend') {
+    if (!hasResendApiKey) {
+      console.log(`[Email Mock] Simulando envío a ${toEmail}. Link: ${meetLink}`);
+      return { id: 'mock-id' };
     }
 
-    console.log(`[Email] Correo enviado exitosamente a ${toEmail} con ID: ${response.data.id}`);
-    return response.data;
-  } catch (error) {
-    console.error('[Email Error] Error crítico enviando correo con Resend:', error);
-    // No lanzamos el error para no romper el flujo principal si solo falla el correo
-    return null;
+    try {
+      const response = await resend.emails.send({
+        from: 'Nexora <hola@nexora.cl>', // IMPORTANTE: nexora.cl debe estar verificado en Resend
+        to: [toEmail],
+        subject: subject,
+        html: htmlContent,
+      });
+      
+      if (response.error) {
+        console.error('[Email Error] Resend rechazó el correo:', response.error);
+        return null;
+      }
+
+      console.log(`[Email] Correo enviado por Resend a ${toEmail} con ID: ${response.data.id}`);
+      return response.data;
+    } catch (error) {
+      console.error('[Email Error] Error crítico enviando correo con Resend:', error);
+      return null;
+    }
+  } else {
+    // Modo Nodemailer (Gmail)
+    if (!process.env.GMAIL_PASS) {
+      console.log(`[Email Mock] Simulando envío (Falta GMAIL_PASS) a ${toEmail}. Link: ${meetLink}`);
+      return { id: 'mock-id' };
+    }
+
+    try {
+      const info = await transporter.sendMail({
+        from: `"Nexora Consultoría" <${process.env.GMAIL_USER || process.env.ADMIN_EMAIL}>`,
+        to: toEmail,
+        subject: subject,
+        html: htmlContent
+      });
+
+      console.log(`[Email] Correo enviado por Nodemailer a ${toEmail} con ID: ${info.messageId}`);
+      return info;
+    } catch (error) {
+      console.error('[Email Error] Error enviando correo con Nodemailer:', error);
+      return null;
+    }
   }
 }
 
