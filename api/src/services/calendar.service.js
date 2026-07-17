@@ -47,15 +47,10 @@ async function createMeeting({ date, time, email, service }) {
       end: {
         dateTime: endDateTime.toISOString(),
         timeZone: 'America/Santiago',
-      },
-      // Removemos 'attendees' porque las Cuentas de Servicio gratuitas no pueden invitar sin Domain-Wide Delegation.
-      // En su lugar, Resend enviará el correo con el link de Meet al cliente de forma independiente.
-      conferenceData: {
-        createRequest: {
-          requestId: `nexora-${Date.now()}`,
-          conferenceSolutionKey: { type: 'hangoutsMeet' }
-        }
-      },
+      }
+      // NOTA: 'conferenceData' fue removido.
+      // Las Cuentas de Servicio en cuentas @gmail.com gratuitas NO tienen permisos 
+      // para generar enlaces de Google Meet dinámicamente mediante la API.
       reminders: {
         useDefault: false,
         overrides: [
@@ -72,14 +67,14 @@ async function createMeeting({ date, time, email, service }) {
     const response = await calendar.events.insert({
       calendarId: calendarId,
       resource: event,
-      conferenceDataVersion: 1, // Requerido para generar link de Meet
-      // sendUpdates: 'all' // Comentado porque ya no estamos enviando invites de Google, usamos Resend.
     });
 
     console.log(`[Calendar] Evento creado: ${response.data.htmlLink}`);
     
     return {
-      meetLink: response.data.hangoutLink
+      success: true,
+      // Si la API no genera el link (como en cuentas gratuitas), usamos un link estático o mensaje
+      meetLink: response.data.hangoutLink || process.env.STATIC_MEET_LINK || 'El link será enviado por tu consultor pronto.'
     };
 
   } catch (error) {
