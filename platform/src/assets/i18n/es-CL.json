@@ -163,10 +163,10 @@
     "TITLE_HL": "Nexora",
     "DESC": "Un equipo apasionado por la tecnología y comprometido con el éxito de tu negocio.",
     "TEAM": {
-      "1": { "NAME": "Carlos Méndez", "ROLE": "CEO & Co-Founder", "DESC": "Ingeniero informático con más de 10 años de experiencia en transformación digital para PYMES en Latinoamérica." },
-      "2": { "NAME": "Valentina Rojas", "ROLE": "CTO & Co-Founder", "DESC": "Especialista en arquitectura de software cloud-native y sistemas distribuidos de alto rendimiento." },
-      "3": { "NAME": "Diego Fuentes", "ROLE": "Director Comercial", "DESC": "Experto en estrategia comercial B2B con enfoque en soluciones tecnológicas para mercados emergentes." },
-      "4": { "NAME": "Catalina Vera", "ROLE": "Directora de Operaciones", "DESC": "Líder en gestión de proyectos tecnológicos y optimización de procesos operativos empresariales." }
+      "1": { "NAME": "Lloyd Higgs", "ROLE": "CEO & Founder | Principal Cloud Architect", "DESC": "Ingeniero Informático con excepcional trayectoria liderando estrategias de transformación digital. Máximo referente en Cloud Engineering y diseño de arquitecturas de clase mundial para entornos empresariales de alta criticidad." },
+      "2": { "NAME": "Sergio Briones", "ROLE": "CTO & Co-Founder | Head of Cloud Infrastructure", "DESC": "Ingeniero Informático y líder tecnológico especializado en Cloud Engineering. Dirige el diseño y despliegue de infraestructuras escalables, seguras y de alto rendimiento para garantizar la continuidad operativa." },
+      "3": { "NAME": "Eduardo Torrejón", "ROLE": "VP of Engineering | Principal Backend Architect", "DESC": "Ingeniero Informático experto en el núcleo tecnológico corporativo. Especialista en arquitecturas Backend, bases de datos distribuidas y desarrollo de APIs robustas de alto rendimiento y resiliencia." },
+      "4": { "NAME": "Jalhef Alfaro", "ROLE": "Head of Product & UI | Frontend Tech Lead", "DESC": "Ingeniero Informático con visión estratégica para el desarrollo de productos digitales. Experto en tecnologías Frontend y UI/UX, creando interfaces modernas, intuitivas y de máximo impacto visual." }
     }
   },
   "SCHEDULER": {
