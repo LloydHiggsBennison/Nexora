@@ -37,6 +37,34 @@
   }
 }
 
+// ======= SERVICE SECTIONS — MOBILE =======
+@media screen and (max-width: 1023px) {
+  .service-section__layout {
+    grid-template-columns: 1fr;
+    gap: $space-2xl;
+    text-align: center;
+
+    &--reverse .service-section__visual { order: 0; }
+
+    .service-section__content {
+      align-items: center;
+
+      .badge-pill { margin: 0 auto; }
+      .btn { margin: 0 auto; }
+
+      .feature-list { text-align: left; }
+    }
+  }
+
+  .queueflow-mockup,
+  .proxipush-mockup,
+  .webcrafts-mockup,
+  .flow-diagram {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
 // ======= PROXIPUSH MOCKUP =======
 .proxipush-mockup {
   display: flex;

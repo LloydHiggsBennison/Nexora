@@ -811,19 +811,42 @@
     &::before { display: none; }
 
     .steps-timeline__step {
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      grid-template-rows: auto auto auto;
+      column-gap: $space-md;
+      row-gap: 2px;
       text-align: left;
-      align-items: flex-start;
+      align-items: center;
       background: $bg-glass;
       border: $border-glass;
       border-radius: $border-radius-md;
       padding: $space-lg;
 
       .step-icon {
+        grid-column: 1;
+        grid-row: 1 / span 3;
         width: 48px;
         height: 48px;
         flex-shrink: 0;
         font-size: 1.5rem;
+        align-self: flex-start;
+      }
+
+      .step-num {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .step-title {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .step-desc {
+        grid-column: 2;
+        grid-row: 3;
+        font-size: 0.8125rem;
       }
     }
 

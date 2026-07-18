@@ -156,23 +156,24 @@
 
     &__links {
       display: none;
-      position: fixed;
-      top: 64px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(5, 5, 8, 0.97);
-      backdrop-filter: blur(32px);
-      -webkit-backdrop-filter: blur(32px);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: $space-xl;
-      z-index: 998;
-      padding: $space-3xl $space-xl;
-      border-top: $border-glass;
 
-      &.is-open { display: flex; }
+      &.is-open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(5, 5, 8, 0.98);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        z-index: 999;
+        padding: $space-3xl $space-xl;
+        gap: $space-xl;
+        align-items: center;
+        justify-content: flex-start;
+      }
     }
 
     &__link {
