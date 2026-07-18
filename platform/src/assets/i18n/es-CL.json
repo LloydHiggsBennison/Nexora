@@ -64,7 +64,7 @@
     }
   },
   "NEXPULSE": {
-    "BADGE": "Servicio 01 · NexPulse",
+    "BADGE": "Servicio 03 · NexPulse",
     "TITLE": "Llega a tus clientes",
     "TITLE_HL": "en el momento exacto",
     "DESC": "Envía notificaciones push personalizadas a todos los usuarios dentro de un radio de 100 metros de tu local. Mide tasas de apertura y conversiones en vivo desde un único panel administrativo.",
@@ -79,7 +79,7 @@
     "CTA": "Activar NexPulse"
   },
   "NEXORDER": {
-    "BADGE": "Servicio 02 · NexOrder",
+    "BADGE": "Servicio 05 · NexOrder",
     "TITLE": "Tu local digital,",
     "TITLE_HL": "sin fricciones comerciales",
     "DESC": "Implementa una carta digital moderna con carrito de compras integrado. Tus clientes escanean, ordenan desde sus teléfonos y la comanda llega al instante al personal, sin necesidad de pasarelas de pago obligatorias.",
@@ -92,7 +92,7 @@
     "CTA": "Activar NexOrder"
   },
   "NEXQUEUE": {
-    "BADGE": "Servicio 03 · NexQueue",
+    "BADGE": "Servicio 06 · NexQueue",
     "TITLE": "Colas de atención",
     "TITLE_HL": "digitales en vivo",
     "DESC": "Reduce los tiempos de espera y optimiza la satisfacción del cliente. Permite a los usuarios tomar un turno digitalmente y monitorear su estado a través de pantallas o sus propios dispositivos móviles.",
@@ -118,7 +118,7 @@
     "CTA": "Solicitar cotización de NexSite"
   },
   "NEXBI": {
-    "BADGE": "Servicio 05 · NexBI",
+    "BADGE": "Servicio 02 · NexBI",
     "TITLE": "Inteligencia de negocios",
     "TITLE_HL": "para decisiones inteligentes",
     "DESC": "Transforma los datos operativos de tu empresa en indicadores estratégicos en tiempo real. NexBI consolida tu información y genera tableros interactivos automatizados para gerencia y operaciones.",
@@ -131,7 +131,7 @@
     "CTA": "Activar NexBI"
   },
   "NEXCORE": {
-    "BADGE": "Servicio 06 · NexCore",
+    "BADGE": "Servicio 01 · NexCore",
     "TITLE": "Tu CRM / ERP,",
     "TITLE_HL": "a tu medida",
     "DESC": "NexCore es el núcleo operativo de Nexora Suite. Un CRM/ERP personalizable que centraliza ventas, clientes, inventario y operaciones en una sola plataforma diseñada para tu industria.",

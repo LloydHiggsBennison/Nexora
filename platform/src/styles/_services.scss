@@ -44,7 +44,14 @@
     gap: $space-2xl;
     text-align: center;
 
-    &--reverse .service-section__visual { order: 0; }
+    // En el DOM, las secciones "--reverse" (NexOrder, NexSite) tienen el
+    // visual ANTES que el contenido (así se logra mockup-izquierda en desktop).
+    // En mobile forzamos que el contenido (badge + título + texto) se vea
+    // siempre primero, y el mockup después — sin importar el orden real del DOM.
+    &--reverse {
+      .service-section__visual { order: 1; }
+      .service-section__content { order: 0; }
+    }
 
     .service-section__content {
       align-items: center;
