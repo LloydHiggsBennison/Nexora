@@ -166,14 +166,22 @@
   }
 
   .service-card {
-    padding: $space-xl $space-lg;
+    padding: $space-lg $space-md;
     min-height: unset;
     text-align: center;
     align-items: center;
+    gap: $space-sm;
 
-    &__icon { margin-bottom: $space-md; }
-    &__title { font-size: 1rem; }
-    &__desc  { font-size: 0.875rem; }
+    &__icon-wrap {
+      width: 44px;
+      height: 44px;
+      font-size: 1.3rem;
+      margin-bottom: 0;
+    }
+
+    &__name { font-size: 0.95rem; }
+    &__desc { font-size: 0.8125rem; line-height: 1.5; }
+    &__tag  { font-size: 0.68rem; }
   }
 
   // ---- SERVICE SECTIONS MOBILE ----

@@ -199,16 +199,18 @@
     }
 
     &__grid {
-      grid-template-columns: 1fr;
-      gap: $space-2xl;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-xl $space-lg;
       margin-bottom: $space-2xl;
     }
 
     &__brand {
+      grid-column: 1 / -1;
       text-align: center;
       align-items: center;
       display: flex;
       flex-direction: column;
+      margin-bottom: $space-md;
     }
 
     &__logo { justify-content: center; }
@@ -219,29 +221,23 @@
     }
 
     &__col {
-      align-items: center;
-      text-align: center;
+      align-items: flex-start;
+      text-align: left;
     }
 
     &__col-title::after {
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      transform: none;
     }
 
-    &__links li a {
-      &:hover { padding-left: 0; }
+    &__links {
+      li a:hover { padding-left: 0; }
     }
 
     &__bottom {
       flex-direction: column;
       gap: $space-sm;
       text-align: center;
-    }
-  }
-
-  @media screen and (min-width: 600px) {
-    .footer__grid {
-      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
