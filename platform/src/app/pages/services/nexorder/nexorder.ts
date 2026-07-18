@@ -29,7 +29,7 @@ export class Nexorder implements OnInit {
   ngOnInit() {
     this.translate.get('NAV.NEXORDER').subscribe(res => {
       this.title.setTitle(res + ' - Nexora');
-      this.meta.updateTag({ name: 'description', content: 'Conoce los beneficios de ' + res + ' y cómo impulsará tu negocio.' });
+      this.meta.updateTag({ name: 'description', content: 'Carta digital con carrito integrado: tus clientes escanean, ordenan desde el celular y la comanda llega al instante a tu personal, sin pasarelas de pago obligatorias.' });
     });
   }
 

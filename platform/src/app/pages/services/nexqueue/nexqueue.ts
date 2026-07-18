@@ -29,7 +29,7 @@ export class Nexqueue implements OnInit {
   ngOnInit() {
     this.translate.get('NAV.NEXQUEUE').subscribe(res => {
       this.title.setTitle(res + ' - Nexora');
-      this.meta.updateTag({ name: 'description', content: 'Conoce los beneficios de ' + res + ' y cómo impulsará tu negocio.' });
+      this.meta.updateTag({ name: 'description', content: 'Gestión digital de filas de atención: turnos por QR, pantalla de llamados, notificaciones por SMS/WhatsApp y métricas de tiempos de espera en tiempo real.' });
     });
   }
 

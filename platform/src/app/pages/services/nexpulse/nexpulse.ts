@@ -31,7 +31,7 @@ export class Nexpulse implements OnInit {
   ngOnInit() {
     this.translate.get('NAV.NEXPULSE').subscribe(res => {
       this.title.setTitle(res + ' - Nexora');
-      this.meta.updateTag({ name: 'description', content: 'Conoce los beneficios de ' + res + ' y cómo impulsará tu negocio.' });
+      this.meta.updateTag({ name: 'description', content: 'Notificaciones push geolocalizadas para llegar a clientes a 100m de tu local. Personaliza mensajes, mide aperturas y conversiones en tiempo real desde un solo panel.' });
     });
   }
 

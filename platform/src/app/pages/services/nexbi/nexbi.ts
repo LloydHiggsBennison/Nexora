@@ -29,7 +29,7 @@ export class Nexbi implements OnInit {
   ngOnInit() {
     this.translate.get('NAV.NEXBI').subscribe(res => {
       this.title.setTitle(res + ' - Nexora');
-      this.meta.updateTag({ name: 'description', content: 'Conoce los beneficios de ' + res + ' y cómo impulsará tu negocio.' });
+      this.meta.updateTag({ name: 'description', content: 'Inteligencia de negocios que convierte tus datos operativos en tableros interactivos en tiempo real, con reportes automatizados para decisiones más rápidas y certeras.' });
     });
   }
 
