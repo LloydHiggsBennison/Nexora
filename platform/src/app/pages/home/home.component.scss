@@ -830,9 +830,18 @@
     .step-connector { display: none; }
   }
 
-  .tech-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: $space-md;
+  .tech-fade {
+    width: 48px;
+  }
+
+  .tech-logo-card {
+    padding: 10px 14px 10px 10px;
+    gap: 8px;
+
+    &__badge {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   .cta-final {
