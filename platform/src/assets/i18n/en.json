@@ -64,7 +64,7 @@
     }
   },
   "NEXPULSE": {
-    "BADGE": "Service 01 · NexPulse",
+    "BADGE": "Service 03 · NexPulse",
     "TITLE": "Reach your customers",
     "TITLE_HL": "at the perfect moment",
     "DESC": "Send personalized push notifications to all users within 100 meters of your venue. Measure open rates and live conversions from a single unified admin dashboard.",
@@ -79,7 +79,7 @@
     "CTA": "Activate NexPulse"
   },
   "NEXORDER": {
-    "BADGE": "Service 02 · NexOrder",
+    "BADGE": "Service 05 · NexOrder",
     "TITLE": "Your digital venue,",
     "TITLE_HL": "without business friction",
     "DESC": "Implement a modern digital menu with an integrated shopping cart. Your customers scan, order from their phones, and the ticket arrives instantly to the staff, with no mandatory payment gateway setup.",
@@ -92,7 +92,7 @@
     "CTA": "Activate NexOrder"
   },
   "NEXQUEUE": {
-    "BADGE": "Service 03 · NexQueue",
+    "BADGE": "Service 06 · NexQueue",
     "TITLE": "Real-time digital",
     "TITLE_HL": "queues and turns",
     "DESC": "Reduce waiting times and optimize customer satisfaction. Allow users to take a turn digitally and monitor their status on screens or their own mobile devices.",
@@ -118,7 +118,7 @@
     "CTA": "Request a quote for NexSite"
   },
   "NEXBI": {
-    "BADGE": "Service 05 · NexBI",
+    "BADGE": "Service 02 · NexBI",
     "TITLE": "Business Intelligence",
     "TITLE_HL": "for smart decisions",
     "DESC": "Transform your company's operational data into real-time strategic indicators. NexBI consolidates your information and generates dynamic dashboards for management and operations.",
@@ -131,7 +131,7 @@
     "CTA": "Activate NexBI"
   },
   "NEXCORE": {
-    "BADGE": "Service 06 · NexCore",
+    "BADGE": "Service 01 · NexCore",
     "TITLE": "Your CRM / ERP,",
     "TITLE_HL": "tailored to you",
     "DESC": "NexCore is the operational core of Nexora Suite. A customizable CRM/ERP that centralizes sales, customers, inventory, and operations in a single platform designed for your industry.",
