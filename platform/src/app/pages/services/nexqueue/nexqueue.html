@@ -1,0 +1,44 @@
+<section class="section service-section" id="nexqueue">
+  <div class="container">
+    <div class="service-section__layout">
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-left">
+        <div class="badge-pill badge-pill--pink">
+          {{ 'NEXQUEUE.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'NEXQUEUE.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXQUEUE.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'NEXQUEUE.DESC' | translate }}</p>
+
+        <div class="feature-list">
+          <div class="feature-item" *ngFor="let f of queueFeatures">
+            <div class="feature-item__icon">{{ f.icon }}</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">{{ f.titleKey | translate }}</div>
+              <div class="feature-item__desc">{{ f.descKey | translate }}</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="bookMeeting()" id="cta-nexqueue">{{ 'NEXQUEUE.CTA' | translate }} →</button>
+      </div>
+
+      <!-- Visual Mockup -->
+      <div class="service-section__visual anim-hidden from-right">
+        <div class="queueflow-mockup" style="justify-content: center;">
+          <!-- Estado del pedido / cola -->
+          <div class="qf-status glass-card">
+            <div class="qf-card-header">{{ 'MOCKUPS.NEXQUEUE.TITLE' | translate }}</div>
+            <div class="qf-step active">{{ 'MOCKUPS.NEXQUEUE.STEP1' | translate }}</div>
+            <div class="qf-step active">{{ 'MOCKUPS.NEXQUEUE.STEP2' | translate }}</div>
+            <div class="qf-step pending">{{ 'MOCKUPS.NEXQUEUE.STEP3' | translate }}</div>
+            <div class="qf-step pending">{{ 'MOCKUPS.NEXQUEUE.STEP4' | translate }}</div>
+            <div class="qf-update">{{ 'MOCKUPS.NEXQUEUE.UPDATE' | translate }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

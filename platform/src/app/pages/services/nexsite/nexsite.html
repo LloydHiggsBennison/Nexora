@@ -1,0 +1,56 @@
+<section class="section service-section service-section--alt" id="nexsite">
+  <div class="container">
+    <div class="service-section__layout service-section__layout--reverse">
+      <!-- Visual Mockup -->
+      <div class="service-section__visual anim-hidden from-left">
+        <div class="webcrafts-mockup" style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center;">
+          <div class="wc-browser glass-card">
+            <div class="wc-browser-bar">
+              <span class="wc-dot"></span><span class="wc-dot"></span><span class="wc-dot"></span>
+              <div class="wc-url">https://nexsite.tu-empresa.cl</div>
+            </div>
+            <div class="wc-screen" style="height: 120px;">
+              <div class="wc-hero-mock">
+                <div class="wc-hero-text"></div>
+                <div class="wc-hero-sub"></div>
+                <div class="wc-hero-btn"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Diagrama de flujos de automatización -->
+          <div class="flow-diagram glass-card" style="padding: 12px; font-size: 0.8rem; display: flex; align-items: center; justify-content: space-around; gap: 8px;">
+            <div class="flow-node flow-node--trigger" style="padding: 6px 10px;">{{ 'MOCKUPS.NEXSITE.TRIGGER' | translate }}</div>
+            <div style="color: var(--color-primary);">→</div>
+            <div class="flow-node flow-node--process" style="padding: 6px 10px;">{{ 'MOCKUPS.NEXSITE.PROCESS' | translate }}</div>
+            <div style="color: var(--color-primary);">→</div>
+            <div class="flow-node flow-node--output" style="padding: 6px 10px;">{{ 'MOCKUPS.NEXSITE.OUTPUT' | translate }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-right">
+        <div class="badge-pill badge-pill--accent">
+          {{ 'NEXSITE.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'NEXSITE.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXSITE.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'NEXSITE.DESC' | translate }}</p>
+
+        <div class="feature-list">
+          <div class="feature-item" *ngFor="let f of siteFeatures">
+            <div class="feature-item__icon">{{ f.icon }}</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">{{ f.titleKey | translate }}</div>
+              <div class="feature-item__desc">{{ f.descKey | translate }}</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="bookMeeting()" id="cta-nexsite">{{ 'NEXSITE.CTA' | translate }} →</button>
+      </div>
+    </div>
+  </div>
+</section>

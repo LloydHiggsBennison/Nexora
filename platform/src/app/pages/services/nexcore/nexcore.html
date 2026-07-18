@@ -1,0 +1,91 @@
+<section class="section service-section service-section--alt" id="nexcore">
+  <div class="container">
+    <div class="service-section__layout">
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-left">
+        <div class="badge-pill badge-pill--warn">
+          {{ 'NEXCORE.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'NEXCORE.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXCORE.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'NEXCORE.DESC' | translate }}</p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-item__icon">📊</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">CRM integrado</div>
+              <div class="feature-item__desc">Gestión de contactos, leads y pipeline de ventas</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item__icon">📦</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">ERP operativo</div>
+              <div class="feature-item__desc">Inventario, facturación y control financiero</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item__icon">⚙️</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">Personalizable</div>
+              <div class="feature-item__desc">Adaptable a la industria y tamaño de tu negocio</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item__icon">🔗</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">Integraciones</div>
+              <div class="feature-item__desc">Conecta con tu facturador, pasarela de pagos y más</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="bookMeeting()" id="cta-nexcore">{{ 'NEXCORE.CTA' | translate }} →</button>
+      </div>
+
+      <!-- Visual Mockup (CRM estático) -->
+      <div class="service-section__visual anim-hidden from-right">
+        <div class="queueflow-mockup" style="justify-content: center;">
+          <div class="qf-status glass-card qf-status--bi">
+            <div class="qf-card-header" style="font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; display: flex; justify-content: space-between;">
+              <span>📊 NexCore CRM</span>
+              <span style="font-size: 0.75rem; color: #7C6DFA;">Active</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">Leads activos</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #7C6DFA; margin-top: 4px;">247</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">Conversión</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #00E5CC; margin-top: 4px;">34%</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">Pipeline</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #FFB347; margin-top: 4px;">$2.4M</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">Clientes</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #FA6D8B; margin-top: 4px;">1.284</div>
+              </div>
+            </div>
+            <div class="crm-chart-mock"></div>
+            <div class="crm-rows-mock">
+              <div class="crm-row-mock" *ngFor="let r of [1,2,3]; let i = index"
+                   [style.animation-delay]="(i * 0.1) + 's'">
+                <span class="crm-shimmer"></span>
+                <span class="crm-dot"></span>
+                <span class="crm-shimmer sm"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
