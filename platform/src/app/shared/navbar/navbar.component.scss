@@ -9,12 +9,25 @@
   transition: $transition-base;
   padding: 0 $space-3xl;
 
-  &.scrolled {
+  // El blur va en un pseudo-elemento (no en .navbar directamente) para que
+  // .navbar NO establezca un containing block nuevo — si lo hiciera, rompería
+  // el position:fixed del menú mobile (.navbar__links), que es hijo suyo.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
     background: rgba(5, 5, 8, 0.85);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
     border-bottom: $border-glass;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease;
+  }
+
+  &.scrolled::before {
+    opacity: 1;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
   }
 
   &__inner {
@@ -156,24 +169,25 @@
 
     &__links {
       display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(5, 5, 8, 0.97);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: $space-lg;
+      z-index: 998;
+      padding: $space-2xl $space-xl $space-3xl;
+      border-top: $border-glass;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
 
-      &.is-open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 64px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(5, 5, 8, 0.98);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
-        z-index: 999;
-        padding: $space-3xl $space-xl;
-        gap: $space-xl;
-        align-items: center;
-        justify-content: flex-start;
-      }
+      &.is-open { display: flex; }
     }
 
     &__link {
@@ -299,4 +313,3 @@
   &:hover { background: rgba(255,255,255,0.04); color: $text-primary; }
   &--danger { color: #ff6b6b; &:hover { background: rgba(255,107,107,0.08); } }
 }
-
