@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Title, Meta } from '@angular/platform-browser';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './nexqueue.html',
   styleUrl: './nexqueue.scss'
 })
-export class Nexqueue implements OnInit {
+export class Nexqueue implements OnInit, AfterViewInit {
   queueFeatures = [
     { icon: '🔢', titleKey: 'NEXQUEUE.FEATURES.TURNS.TITLE', descKey: 'NEXQUEUE.FEATURES.TURNS.DESC' },
     { icon: '📺', titleKey: 'NEXQUEUE.FEATURES.SCREEN.TITLE', descKey: 'NEXQUEUE.FEATURES.SCREEN.DESC' },
@@ -30,6 +30,23 @@ export class Nexqueue implements OnInit {
     this.translate.get('NAV.NEXQUEUE').subscribe(res => {
       this.title.setTitle(res + ' - Nexora');
       this.meta.updateTag({ name: 'description', content: 'Gestión digital de filas de atención: turnos por QR, pantalla de llamados, notificaciones por SMS/WhatsApp y métricas de tiempos de espera en tiempo real.' });
+    });
+  }
+
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('.anim-hidden').forEach((el) => {
+      observer.observe(el);
     });
   }
 
