@@ -1,0 +1,59 @@
+<section class="section service-section service-section--alt" id="nexorder">
+  <div class="container">
+    <div class="service-section__layout service-section__layout--reverse">
+      <!-- Visual Mockup -->
+      <div class="service-section__visual anim-hidden from-left">
+        <div class="queueflow-mockup" style="justify-content: center;">
+          <!-- Carta digital -->
+          <div class="qf-card glass-card">
+            <div class="qf-card-header">{{ 'MOCKUPS.NEXORDER.TITLE' | translate }}</div>
+            <div class="qf-item">
+              <div class="qf-item-emoji">🍔</div>
+              <div class="qf-item-info">
+                <div class="qf-item-name">{{ 'MOCKUPS.NEXORDER.BURGER' | translate }}</div>
+                <div class="qf-item-price">$6.990</div>
+              </div>
+              <button class="qf-add">+</button>
+            </div>
+            <div class="qf-item">
+              <div class="qf-item-emoji">🍕</div>
+              <div class="qf-item-info">
+                <div class="qf-item-name">{{ 'MOCKUPS.NEXORDER.PIZZA' | translate }}</div>
+                <div class="qf-item-price">$9.490</div>
+              </div>
+              <button class="qf-add">+</button>
+            </div>
+            <div class="qf-cart">
+              <span>{{ 'MOCKUPS.NEXORDER.CART' | translate: { count: 2 } }}</span>
+              <span class="qf-total">$16.480</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-right">
+        <div class="badge-pill badge-pill--pink">
+          {{ 'NEXORDER.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'NEXORDER.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXORDER.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'NEXORDER.DESC' | translate }}</p>
+
+        <div class="feature-list">
+          <div class="feature-item" *ngFor="let f of orderFeatures">
+            <div class="feature-item__icon">{{ f.icon }}</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">{{ f.titleKey | translate }}</div>
+              <div class="feature-item__desc">{{ f.descKey | translate }}</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="bookMeeting()" id="cta-nexorder">{{ 'NEXORDER.CTA' | translate }} →</button>
+      </div>
+    </div>
+  </div>
+</section>

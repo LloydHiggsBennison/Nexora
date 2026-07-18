@@ -2,12 +2,14 @@ import { Component, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList, 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
 import { CalendarService } from '../../services/calendar.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslateModule],
+  imports: [CommonModule, FormsModule, TranslateModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -16,7 +18,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor(
     private calendarService: CalendarService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private route: ActivatedRoute
   ) {}
 
   currentYear = new Date().getFullYear();
@@ -85,42 +88,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     { value: '99.9%',labelKey: 'STATS.UPTIME' }
   ];
 
-  proxiFeatures = [
-    { icon: '📍', titleKey: 'NEXPULSE.FEATURES.GEO.TITLE', descKey: 'NEXPULSE.FEATURES.GEO.DESC' },
-    { icon: '✉️', titleKey: 'NEXPULSE.FEATURES.PERSONALIZED.TITLE', descKey: 'NEXPULSE.FEATURES.PERSONALIZED.DESC' },
-    { icon: '🛠️', titleKey: 'NEXPULSE.FEATURES.PANEL.TITLE', descKey: 'NEXPULSE.FEATURES.PANEL.DESC' },
-    { icon: '📧', titleKey: 'NEXPULSE.FEATURES.EMAIL.TITLE', descKey: 'NEXPULSE.FEATURES.EMAIL.DESC' },
-    { icon: '📊', titleKey: 'NEXPULSE.FEATURES.REALTIME.TITLE', descKey: 'NEXPULSE.FEATURES.REALTIME.DESC' },
-    { icon: '🏢', titleKey: 'NEXPULSE.FEATURES.MULTISITE.TITLE', descKey: 'NEXPULSE.FEATURES.MULTISITE.DESC' }
-  ];
+  
 
-  orderFeatures = [
-    { icon: '📋', titleKey: 'NEXORDER.FEATURES.MENU.TITLE', descKey: 'NEXORDER.FEATURES.MENU.DESC' },
-    { icon: '🛒', titleKey: 'NEXORDER.FEATURES.CART.TITLE', descKey: 'NEXORDER.FEATURES.CART.DESC' },
-    { icon: '👨‍🍳', titleKey: 'NEXORDER.FEATURES.STAFF.TITLE', descKey: 'NEXORDER.FEATURES.STAFF.DESC' },
-    { icon: '🔄', titleKey: 'NEXORDER.FEATURES.REALTIME.TITLE', descKey: 'NEXORDER.FEATURES.REALTIME.DESC' }
-  ];
+  
 
-  queueFeatures = [
-    { icon: '🔢', titleKey: 'NEXQUEUE.FEATURES.TURNS.TITLE', descKey: 'NEXQUEUE.FEATURES.TURNS.DESC' },
-    { icon: '📺', titleKey: 'NEXQUEUE.FEATURES.SCREEN.TITLE', descKey: 'NEXQUEUE.FEATURES.SCREEN.DESC' },
-    { icon: '🔔', titleKey: 'NEXQUEUE.FEATURES.NOTIF.TITLE', descKey: 'NEXQUEUE.FEATURES.NOTIF.DESC' },
-    { icon: '📈', titleKey: 'NEXQUEUE.FEATURES.METRICS.TITLE', descKey: 'NEXQUEUE.FEATURES.METRICS.DESC' }
-  ];
+  
 
-  siteFeatures = [
-    { icon: '🌐', titleKey: 'NEXSITE.FEATURES.WEB.TITLE', descKey: 'NEXSITE.FEATURES.WEB.DESC' },
-    { icon: '⚡', titleKey: 'NEXSITE.FEATURES.AUTO.TITLE', descKey: 'NEXSITE.FEATURES.AUTO.DESC' },
-    { icon: '🔗', titleKey: 'NEXSITE.FEATURES.INTEGRATION.TITLE', descKey: 'NEXSITE.FEATURES.INTEGRATION.DESC' },
-    { icon: '📈', titleKey: 'NEXSITE.FEATURES.PERFORMANCE.TITLE', descKey: 'NEXSITE.FEATURES.PERFORMANCE.DESC' }
-  ];
+  
 
-  biFeatures = [
-    { icon: '📊', titleKey: 'NEXBI.FEATURES.KPI.TITLE', descKey: 'NEXBI.FEATURES.KPI.DESC' },
-    { icon: '🧩', titleKey: 'NEXBI.FEATURES.DASHBOARD.TITLE', descKey: 'NEXBI.FEATURES.DASHBOARD.DESC' },
-    { icon: '📨', titleKey: 'NEXBI.FEATURES.REPORTS.TITLE', descKey: 'NEXBI.FEATURES.REPORTS.DESC' },
-    { icon: '💡', titleKey: 'NEXBI.FEATURES.DECISION.TITLE', descKey: 'NEXBI.FEATURES.DECISION.DESC' }
-  ];
+  
 
   steps = [
     { num: '01', titleKey: 'HOW_IT_WORKS.STEPS.1.TITLE', descKey: 'HOW_IT_WORKS.STEPS.1.DESC', icon: '📞' },

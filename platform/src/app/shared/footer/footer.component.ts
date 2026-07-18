@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, RouterModule],
   template: `
     <footer class="footer">
       <div class="footer__glow footer__glow--left"></div>
@@ -41,12 +42,12 @@ import { TranslateModule } from '@ngx-translate/core';
           <div class="footer__col">
             <h4 class="footer__col-title">{{ 'FOOTER.SERVICES_TITLE' | translate }}</h4>
             <ul class="footer__links">
-              <li><a href="#nexcore">{{ 'NAV.NEXCORE' | translate }}</a></li>
-              <li><a href="#nexbi">{{ 'NAV.NEXBI' | translate }}</a></li>
-              <li><a href="#nexpulse">{{ 'NAV.NEXPULSE' | translate }}</a></li>
-              <li><a href="#nexsite">{{ 'NAV.NEXSITE' | translate }}</a></li>
-              <li><a href="#nexorder">{{ 'NAV.NEXORDER' | translate }}</a></li>
-              <li><a href="#nexqueue">{{ 'NAV.NEXQUEUE' | translate }}</a></li>
+              <li><a [routerLink]="['/servicios/nexcore']">{{ 'NAV.NEXCORE' | translate }}</a></li>
+              <li><a [routerLink]="['/servicios/nexbi']">{{ 'NAV.NEXBI' | translate }}</a></li>
+              <li><a [routerLink]="['/servicios/nexpulse']">{{ 'NAV.NEXPULSE' | translate }}</a></li>
+              <li><a [routerLink]="['/servicios/nexsite']">{{ 'NAV.NEXSITE' | translate }}</a></li>
+              <li><a [routerLink]="['/servicios/nexorder']">{{ 'NAV.NEXORDER' | translate }}</a></li>
+              <li><a [routerLink]="['/servicios/nexqueue']">{{ 'NAV.NEXQUEUE' | translate }}</a></li>
             </ul>
           </div>
 

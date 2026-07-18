@@ -25,16 +25,16 @@ import { Router, RouterModule } from '@angular/router';
           <a class="navbar__link" [routerLink]="['/']" fragment="services" (click)="closeMenu()">
             {{ 'NAV.SERVICES' | translate }}
           </a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="nexcore" (click)="closeMenu()">
+          <a class="navbar__link" [routerLink]="['/servicios/nexcore']" (click)="closeMenu()">
             {{ 'NAV.NEXCORE' | translate }}
           </a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="nexbi" (click)="closeMenu()">
+          <a class="navbar__link" [routerLink]="['/servicios/nexbi']" (click)="closeMenu()">
             {{ 'NAV.NEXBI' | translate }}
           </a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="nexpulse" (click)="closeMenu()">
+          <a class="navbar__link" [routerLink]="['/servicios/nexpulse']" (click)="closeMenu()">
             {{ 'NAV.NEXPULSE' | translate }}
           </a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="nexsite" (click)="closeMenu()">
+          <a class="navbar__link" [routerLink]="['/servicios/nexsite']" (click)="closeMenu()">
             {{ 'NAV.NEXSITE' | translate }}
           </a>
           <a class="navbar__link" [routerLink]="['/']" fragment="how-it-works" (click)="closeMenu()">

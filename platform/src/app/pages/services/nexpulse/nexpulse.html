@@ -1,0 +1,73 @@
+<section class="section service-section" id="nexpulse">
+  <div class="container">
+    <div class="service-section__layout">
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-left">
+        <div class="badge-pill badge-pill--purple">
+          {{ 'NEXPULSE.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'NEXPULSE.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXPULSE.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'NEXPULSE.DESC' | translate }}</p>
+
+        <div class="feature-list">
+          <div class="feature-item" *ngFor="let f of proxiFeatures">
+            <div class="feature-item__icon">{{ f.icon }}</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">{{ f.titleKey | translate }}</div>
+              <div class="feature-item__desc">{{ f.descKey | translate }}</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="bookMeeting()" id="cta-nexpulse">{{ 'NEXPULSE.CTA' | translate }} →</button>
+      </div>
+
+      <!-- Visual Mockup -->
+      <div class="service-section__visual anim-hidden from-right">
+        <div class="proxipush-mockup">
+          <div class="mockup-phone glass-card">
+            <div class="phone-header">
+              <div class="phone-notch"></div>
+            </div>
+            <div class="phone-notif">
+              <div class="notif-icon">📡</div>
+              <div class="notif-content">
+                <div class="notif-app">{{ 'MOCKUPS.NEXPULSE.NOTIF_APP' | translate }}</div>
+                <div class="notif-title">{{ 'MOCKUPS.NEXPULSE.TITLE' | translate }}</div>
+                <div class="notif-body">{{ 'MOCKUPS.NEXPULSE.BODY' | translate }}</div>
+              </div>
+            </div>
+            <div class="phone-map">
+              <div class="map-bg">
+                <div class="map-pulse">
+                  <div class="map-center">📍</div>
+                  <div class="map-ring r1"></div>
+                  <div class="map-ring r2"></div>
+                  <div class="map-ring r3"></div>
+                </div>
+                <div class="map-label">{{ 'MOCKUPS.NEXPULSE.RADIUS' | translate }}</div>
+              </div>
+            </div>
+          </div>
+          <!-- Admin panel mini -->
+          <div class="proxipush-panel glass-card">
+            <div class="panel-header">{{ 'MOCKUPS.NEXPULSE.HEADER' | translate }}</div>
+            <div class="panel-row">
+              <span class="panel-dot active"></span>
+              <span>{{ 'MOCKUPS.NEXPULSE.ACTIVE' | translate }}</span>
+              <span class="panel-badge">{{ 'MOCKUPS.NEXPULSE.SENT' | translate }}</span>
+            </div>
+            <div class="panel-row">
+              <span class="panel-dot"></span>
+              <span>{{ 'MOCKUPS.NEXPULSE.MASS' | translate }}</span>
+              <span class="panel-badge secondary">{{ 'MOCKUPS.NEXPULSE.LIMIT' | translate }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

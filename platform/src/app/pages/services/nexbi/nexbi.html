@@ -1,0 +1,55 @@
+<section class="section service-section" id="nexbi">
+  <div class="container">
+    <div class="service-section__layout">
+      <!-- Content -->
+      <div class="service-section__content anim-hidden from-left">
+        <div class="badge-pill badge-pill--warn">
+          {{ 'NEXBI.BADGE' | translate }}
+        </div>
+        <h2 class="text-h1">
+          {{ 'NEXBI.TITLE' | translate }}<br>
+          <span class="text-gradient">{{ 'NEXBI.TITLE_HL' | translate }}</span>
+        </h2>
+        <p class="text-body-lg text-secondary">{{ 'NEXBI.DESC' | translate }}</p>
+
+        <div class="feature-list">
+          <div class="feature-item" *ngFor="let f of biFeatures">
+            <div class="feature-item__icon">{{ f.icon }}</div>
+            <div class="feature-item__body">
+              <div class="feature-item__title">{{ f.titleKey | translate }}</div>
+              <div class="feature-item__desc">{{ f.descKey | translate }}</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" (click)="bookMeeting()" id="cta-nexbi">{{ 'NEXBI.CTA' | translate }} →</button>
+      </div>
+
+      <!-- Visual Mockup (Tablero Dinámico) -->
+      <div class="service-section__visual anim-hidden from-right">
+        <div class="queueflow-mockup" style="justify-content: center;">
+          <div class="qf-status glass-card qf-status--bi">
+            <div class="qf-card-header" style="font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; display: flex; justify-content: space-between;">
+              <span>{{ 'MOCKUPS.NEXBI.TITLE' | translate }}</span>
+              <span style="font-size: 0.75rem; color: #00E5CC;">Live</span>
+            </div>
+            <!-- Widgets de Reportes -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">{{ 'MOCKUPS.NEXBI.SALES' | translate }}</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #00E5CC; margin-top: 4px;">$14.820.000</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-secondary);">{{ 'MOCKUPS.NEXBI.RETENTION' | translate }}</div>
+                <div style="font-size: 1.1rem; font-weight: 700; color: #FA6D8B; margin-top: 4px;">94.2%</div>
+              </div>
+            </div>
+            <div class="qf-step active" style="font-size: 0.8rem; padding: 6px 0;">{{ 'MOCKUPS.NEXBI.MARGIN' | translate }}</div>
+            <div class="qf-step active" style="font-size: 0.8rem; padding: 6px 0;">{{ 'MOCKUPS.NEXBI.NEW' | translate }}</div>
+            <div class="qf-update">{{ 'MOCKUPS.NEXBI.UPDATE' | translate }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
