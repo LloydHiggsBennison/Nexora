@@ -40,6 +40,9 @@ import { Router, RouterModule } from '@angular/router';
           <a class="navbar__link" [routerLink]="['/']" fragment="how-it-works" (click)="closeMenu()">
             {{ 'NAV.HOW_IT_WORKS' | translate }}
           </a>
+          <a class="navbar__link" [routerLink]="['/']" fragment="about-us" (click)="closeMenu()">
+            {{ 'NAV.ABOUT_US' | translate }}
+          </a>
 
           <!-- Language switcher mobile (inside menu) -->
           <div class="lang-switcher lang-switcher--mobile">
@@ -54,10 +57,7 @@ import { Router, RouterModule } from '@angular/router';
               (click)="setLang('en')">EN</button>
           </div>
 
-          <!-- CTA Mobile -->
-          <button class="btn btn--primary btn--mobile-cta" (click)="scrollToContact()">
-            {{ 'NAV.GET_STARTED' | translate }}
-          </button>
+          <!-- Botón quitado por solicitud del cliente -->
         </div>
 
         <!-- Right actions (Desktop) -->
@@ -75,14 +75,7 @@ import { Router, RouterModule } from '@angular/router';
               (click)="setLang('en')">EN</button>
           </div>
 
-          <!-- CTA Agendar -->
-
-          <!-- CTA Agendar -->
-          <button class="btn btn--primary btn--sm navbar__cta"
-                  (click)="scrollToContact()">
-            {{ 'NAV.GET_STARTED' | translate }}
-          </button>
-
+          <!-- Botón quitado por solicitud del cliente -->
           <!-- Hamburger (Mobile) -->
           <button class="hamburger" (click)="toggleMenu()" [class.is-open]="menuOpen()" aria-label="Menu">
             <span></span>
