@@ -22,21 +22,37 @@ import { Router, RouterModule } from '@angular/router';
 
         <!-- Nav Links (Desktop) -->
         <div class="navbar__links" [class.is-open]="menuOpen()">
-          <a class="navbar__link" [routerLink]="['/']" fragment="services" (click)="closeMenu()">
-            {{ 'NAV.SERVICES' | translate }}
-          </a>
-          <a class="navbar__link" [routerLink]="['/servicios/nexcore']" (click)="closeMenu()">
-            {{ 'NAV.NEXCORE' | translate }}
-          </a>
-          <a class="navbar__link" [routerLink]="['/servicios/nexbi']" (click)="closeMenu()">
-            {{ 'NAV.NEXBI' | translate }}
-          </a>
-          <a class="navbar__link" [routerLink]="['/servicios/nexpulse']" (click)="closeMenu()">
-            {{ 'NAV.NEXPULSE' | translate }}
-          </a>
-          <a class="navbar__link" [routerLink]="['/servicios/nexsite']" (click)="closeMenu()">
-            {{ 'NAV.NEXSITE' | translate }}
-          </a>
+          <div class="navbar__dropdown" [class.is-open]="servicesOpen()">
+            <button
+              class="navbar__link navbar__dropdown-trigger"
+              (click)="toggleServices()"
+              [attr.aria-expanded]="servicesOpen()">
+              {{ 'NAV.SERVICES' | translate }}
+              <span class="navbar__dropdown-chevron" [class.is-open]="servicesOpen()">▾</span>
+            </button>
+
+            <div class="navbar__dropdown-menu" [class.is-open]="servicesOpen()">
+              <a class="navbar__dropdown-item" [routerLink]="['/servicios/nexcore']" (click)="closeMenu()">
+                {{ 'NAV.NEXCORE' | translate }}
+              </a>
+              <a class="navbar__dropdown-item" [routerLink]="['/servicios/nexbi']" (click)="closeMenu()">
+                {{ 'NAV.NEXBI' | translate }}
+              </a>
+              <a class="navbar__dropdown-item" [routerLink]="['/servicios/nexpulse']" (click)="closeMenu()">
+                {{ 'NAV.NEXPULSE' | translate }}
+              </a>
+              <a class="navbar__dropdown-item" [routerLink]="['/servicios/nexsite']" (click)="closeMenu()">
+                {{ 'NAV.NEXSITE' | translate }}
+              </a>
+              <a class="navbar__dropdown-item" [routerLink]="['/servicios/nexorder']" (click)="closeMenu()">
+                {{ 'NAV.NEXORDER' | translate }}
+              </a>
+              <a class="navbar__dropdown-item" [routerLink]="['/servicios/nexqueue']" (click)="closeMenu()">
+                {{ 'NAV.NEXQUEUE' | translate }}
+              </a>
+            </div>
+          </div>
+
           <a class="navbar__link" [routerLink]="['/']" fragment="how-it-works" (click)="closeMenu()">
             {{ 'NAV.HOW_IT_WORKS' | translate }}
           </a>
@@ -91,6 +107,7 @@ import { Router, RouterModule } from '@angular/router';
 export class NavbarComponent implements OnInit {
   isScrolled   = signal(false);
   menuOpen     = signal(false);
+  servicesOpen = signal(false);
   currentLang  = signal('es-CL');
 
   constructor(
@@ -108,13 +125,28 @@ export class NavbarComponent implements OnInit {
     this.isScrolled.set(window.scrollY > 20);
   }
 
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    if (!this.servicesOpen()) return;
+    const target = event.target as HTMLElement;
+    if (!target.closest('.navbar__dropdown')) {
+      this.servicesOpen.set(false);
+    }
+  }
+
+  toggleServices(): void {
+    this.servicesOpen.set(!this.servicesOpen());
+  }
+
   toggleMenu(): void {
     this.menuOpen.set(!this.menuOpen());
+    this.servicesOpen.set(false);
     document.body.style.overflow = this.menuOpen() ? 'hidden' : '';
   }
 
   closeMenu(): void {
     this.menuOpen.set(false);
+    this.servicesOpen.set(false);
     document.body.style.overflow = '';
   }
 
