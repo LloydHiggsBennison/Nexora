@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Title, Meta } from '@angular/platform-browser';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './nexsite.html',
   styleUrl: './nexsite.scss'
 })
-export class Nexsite implements OnInit {
+export class Nexsite implements OnInit, AfterViewInit {
   siteFeatures = [
     { icon: '🌐', titleKey: 'NEXSITE.FEATURES.WEB.TITLE', descKey: 'NEXSITE.FEATURES.WEB.DESC' },
     { icon: '⚡', titleKey: 'NEXSITE.FEATURES.AUTO.TITLE', descKey: 'NEXSITE.FEATURES.AUTO.DESC' },
@@ -30,6 +30,23 @@ export class Nexsite implements OnInit {
     this.translate.get('NAV.NEXSITE').subscribe(res => {
       this.title.setTitle(res + ' - Nexora');
       this.meta.updateTag({ name: 'description', content: 'Sitios web corporativos de alto rendimiento que automatizan tus flujos internos: formularios conectados a tu ERP/CRM, SEO y velocidad optimizados desde el diseño.' });
+    });
+  }
+
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('.anim-hidden').forEach((el) => {
+      observer.observe(el);
     });
   }
 
