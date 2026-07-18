@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList, 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { CalendarService } from '../../services/calendar.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(
     private calendarService: CalendarService,
     private cdr: ChangeDetectorRef,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   currentYear = new Date().getFullYear();
@@ -261,10 +262,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   // ── Team members (About Us) ──
   teamMembers = [
-    { nameKey: 'ABOUT_US.TEAM.1.NAME', roleKey: 'ABOUT_US.TEAM.1.ROLE', badgeKey: 'ABOUT_US.TEAM.1.BADGE', descKey: 'ABOUT_US.TEAM.1.DESC', initials: 'LH', color: '#7C6DFA', linkedin: 'https://www.linkedin.com/in/lloyd-higgs-bennison/' },
-    { nameKey: 'ABOUT_US.TEAM.2.NAME', roleKey: 'ABOUT_US.TEAM.2.ROLE', badgeKey: 'ABOUT_US.TEAM.2.BADGE', descKey: 'ABOUT_US.TEAM.2.DESC', initials: 'SB', color: '#FA6D8B', linkedin: '' },
-    { nameKey: 'ABOUT_US.TEAM.3.NAME', roleKey: 'ABOUT_US.TEAM.3.ROLE', badgeKey: 'ABOUT_US.TEAM.3.BADGE', descKey: 'ABOUT_US.TEAM.3.DESC', initials: 'ET', color: '#00E5CC', linkedin: '' },
-    { nameKey: 'ABOUT_US.TEAM.4.NAME', roleKey: 'ABOUT_US.TEAM.4.ROLE', badgeKey: 'ABOUT_US.TEAM.4.BADGE', descKey: 'ABOUT_US.TEAM.4.DESC', initials: 'JA', color: '#FFB347', linkedin: '' }
+    { nameKey: 'ABOUT_US.TEAM.1.NAME', roleKey: 'ABOUT_US.TEAM.1.ROLE', badgeKey: 'ABOUT_US.TEAM.1.BADGE', descKey: 'ABOUT_US.TEAM.1.DESC', initials: 'LH', color: '#8B7CF6', linkedin: 'https://www.linkedin.com/in/lloyd-higgs-bennison/' },
+    { nameKey: 'ABOUT_US.TEAM.2.NAME', roleKey: 'ABOUT_US.TEAM.2.ROLE', badgeKey: 'ABOUT_US.TEAM.2.BADGE', descKey: 'ABOUT_US.TEAM.2.DESC', initials: 'SB', color: '#E8899F', linkedin: '' },
+    { nameKey: 'ABOUT_US.TEAM.3.NAME', roleKey: 'ABOUT_US.TEAM.3.ROLE', badgeKey: 'ABOUT_US.TEAM.3.BADGE', descKey: 'ABOUT_US.TEAM.3.DESC', initials: 'ET', color: '#3ECFB0', linkedin: '' },
+    { nameKey: 'ABOUT_US.TEAM.4.NAME', roleKey: 'ABOUT_US.TEAM.4.ROLE', badgeKey: 'ABOUT_US.TEAM.4.BADGE', descKey: 'ABOUT_US.TEAM.4.DESC', initials: 'JA', color: '#E0A455', linkedin: '' }
   ];
 
   ngOnInit(): void {
@@ -276,6 +277,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
     const maxDate = new Date(today);
     maxDate.setDate(maxDate.getDate() + 60);
     this.schedulerMaxDate = this.formatDateForInput(maxDate);
+
+    // Si llegamos desde una página de producto (/servicios/X) con ?book=producto,
+    // abrimos el modal de agendamiento automáticamente con ese producto preseleccionado.
+    this.route.queryParams.subscribe(params => {
+      const product = params['book'];
+      if (product) {
+        this.openScheduler(product);
+        // Limpiamos el query param de la URL para que no se reabra al recargar o navegar atrás
+        this.router.navigate([], {
+          relativeTo: this.route,
+          queryParams: {},
+          replaceUrl: true
+        });
+      }
+    });
   }
 
   ngAfterViewInit(): void {

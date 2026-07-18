@@ -29,7 +29,7 @@ export class Nexsite implements OnInit {
   ngOnInit() {
     this.translate.get('NAV.NEXSITE').subscribe(res => {
       this.title.setTitle(res + ' - Nexora');
-      this.meta.updateTag({ name: 'description', content: 'Conoce los beneficios de ' + res + ' y cómo impulsará tu negocio.' });
+      this.meta.updateTag({ name: 'description', content: 'Sitios web corporativos de alto rendimiento que automatizan tus flujos internos: formularios conectados a tu ERP/CRM, SEO y velocidad optimizados desde el diseño.' });
     });
   }
 

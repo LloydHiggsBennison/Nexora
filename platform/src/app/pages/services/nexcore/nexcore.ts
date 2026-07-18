@@ -24,7 +24,7 @@ export class Nexcore implements OnInit {
   ngOnInit() {
     this.translate.get('NAV.NEXCORE').subscribe(res => {
       this.title.setTitle(res + ' - Nexora');
-      this.meta.updateTag({ name: 'description', content: 'Conoce los beneficios de ' + res + ' y cómo impulsará tu negocio.' });
+      this.meta.updateTag({ name: 'description', content: 'CRM/ERP personalizable que centraliza ventas, clientes, inventario y operaciones de tu empresa en una sola plataforma diseñada a la medida de tu industria.' });
     });
   }
 
