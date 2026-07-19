@@ -55,7 +55,7 @@ import { RouterModule } from '@angular/router';
           <div class="footer__col">
             <h4 class="footer__col-title">{{ 'FOOTER.COMPANY_TITLE' | translate }}</h4>
             <ul class="footer__links">
-              <li><a href="#">{{ 'FOOTER.COMPANY.ABOUT' | translate }}</a></li>
+              <li><a [routerLink]="['/sobre-nosotros']">{{ 'FOOTER.COMPANY.ABOUT' | translate }}</a></li>
               <li><a href="#">{{ 'FOOTER.COMPANY.BLOG' | translate }}</a></li>
               <li><a href="#">{{ 'FOOTER.COMPANY.CAREERS' | translate }}</a></li>
               <li><a href="#">{{ 'FOOTER.COMPANY.CONTACT' | translate }}</a></li>

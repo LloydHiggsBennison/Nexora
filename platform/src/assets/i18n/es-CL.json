@@ -19,6 +19,8 @@
     "HEADLINE_2": "automatiza",
     "HEADLINE_3": "y haz crecer tu negocio.",
     "SUBTITLE": "Centraliza tus ventas, automatiza procesos, mide tus resultados y conecta con tus clientes desde una sola suite tecnológica diseñada para PYMES chilenas.",
+    "MISSION": "Creemos que el tamaño de tu empresa no debería limitar tu tecnología.",
+    "MISSION_LINK": "Conoce nuestra historia →",
     "CTA_PRIMARY": "Solicitar demo",
     "CTA_SECONDARY": "Conocer Nexora Suite",
     "SCROLL_HINT": "Descubre más"
@@ -159,6 +161,16 @@
     "BTN_SECONDARY": "Escríbenos por WhatsApp"
   },
   "ABOUT_US": {
+    "STORY": {
+      "BADGE": "Nuestra historia",
+      "TITLE": "El punto donde tu negocio se",
+      "TITLE_HL": "conecta con la tecnología",
+      "P1": "En Chile, miles de PYMEs operan todos los días con planillas Excel, WhatsApp y procesos manuales — no por falta de ambición, sino porque la tecnología de nivel empresarial nunca fue diseñada, ni tiene el precio pensado, para ellas. Mientras las grandes corporaciones automatizan sus ventas, su inventario y sus decisiones con datos en tiempo real, la mayoría de los negocios chilenos sigue resolviendo lo mismo a mano, con herramientas sueltas que no conversan entre sí.",
+      "P2": "Nexora nace para cerrar esa brecha.",
+      "P3": "Creemos que el tamaño de una empresa no debería determinar el nivel de tecnología al que tiene acceso. Por eso construimos Nexora Suite: un entorno corporativo diseñado para integrar, bajo un mismo estándar, cada solución que tu negocio necesita —CRM, inteligencia de negocios, automatización, marketing de proximidad y más— en vez de obligarte a mantener herramientas desconectadas que no comparten datos ni contexto entre sí.",
+      "P4": "Nexora —de nexus, punto de conexión— es eso: el punto donde tu negocio se conecta con la tecnología que hasta ahora le fue negada.",
+      "CTA": "Conversemos sobre tu negocio"
+    },
     "BADGE": "Nuestro equipo",
     "TITLE": "Las personas detrás de",
     "TITLE_HL": "Nexora",

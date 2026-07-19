@@ -56,7 +56,7 @@ import { Router, RouterModule } from '@angular/router';
           <a class="navbar__link" [routerLink]="['/']" fragment="how-it-works" (click)="closeMenu()">
             {{ 'NAV.HOW_IT_WORKS' | translate }}
           </a>
-          <a class="navbar__link" [routerLink]="['/']" fragment="about-us" (click)="closeMenu()">
+          <a class="navbar__link" [routerLink]="['/sobre-nosotros']" (click)="closeMenu()">
             {{ 'NAV.ABOUT_US' | translate }}
           </a>
 

@@ -19,6 +19,8 @@
     "HEADLINE_2": "automate,",
     "HEADLINE_3": "and grow your business.",
     "SUBTITLE": "Centralize your sales, automate processes, measure your results, and connect with your customers from a single technology suite designed for Chilean SMEs.",
+    "MISSION": "We believe your company's size shouldn't limit your technology.",
+    "MISSION_LINK": "Read our story →",
     "CTA_PRIMARY": "Request demo",
     "CTA_SECONDARY": "Discover Nexora Suite",
     "SCROLL_HINT": "Discover more"
@@ -159,6 +161,16 @@
     "BTN_SECONDARY": "Message us on WhatsApp"
   },
   "ABOUT_US": {
+    "STORY": {
+      "BADGE": "Our story",
+      "TITLE": "Where your business",
+      "TITLE_HL": "connects with technology",
+      "P1": "Across Chile, thousands of SMEs run their day-to-day on spreadsheets, WhatsApp, and manual processes — not for lack of ambition, but because enterprise-grade technology was never designed, or priced, for them. While large corporations automate their sales, inventory, and decisions with real-time data, most Chilean businesses are still solving the same problems by hand, juggling disconnected tools that don't talk to each other.",
+      "P2": "Nexora exists to close that gap.",
+      "P3": "We believe a company's size shouldn't determine the level of technology it has access to. That's why we built Nexora Suite: a corporate environment designed to integrate, under one standard, every solution your business needs — CRM, business intelligence, automation, proximity marketing, and more — instead of forcing you to juggle disconnected tools that share no data or context.",
+      "P4": "Nexora — from nexus, point of connection — is exactly that: the point where your business connects with the technology it was denied until now.",
+      "CTA": "Let's talk about your business"
+    },
     "BADGE": "Our team",
     "TITLE": "The people behind",
     "TITLE_HL": "Nexora",

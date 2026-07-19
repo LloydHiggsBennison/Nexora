@@ -260,13 +260,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   availableSlots: string[] = [];
 
-  // ── Team members (About Us) ──
-  teamMembers = [
-    { nameKey: 'ABOUT_US.TEAM.1.NAME', roleKey: 'ABOUT_US.TEAM.1.ROLE', badgeKey: 'ABOUT_US.TEAM.1.BADGE', descKey: 'ABOUT_US.TEAM.1.DESC', initials: 'LH', color: '#8B7CF6', linkedin: 'https://www.linkedin.com/in/lloyd-higgs-bennison/' },
-    { nameKey: 'ABOUT_US.TEAM.2.NAME', roleKey: 'ABOUT_US.TEAM.2.ROLE', badgeKey: 'ABOUT_US.TEAM.2.BADGE', descKey: 'ABOUT_US.TEAM.2.DESC', initials: 'SB', color: '#E8899F', linkedin: '' },
-    { nameKey: 'ABOUT_US.TEAM.3.NAME', roleKey: 'ABOUT_US.TEAM.3.ROLE', badgeKey: 'ABOUT_US.TEAM.3.BADGE', descKey: 'ABOUT_US.TEAM.3.DESC', initials: 'ET', color: '#3ECFB0', linkedin: '' },
-    { nameKey: 'ABOUT_US.TEAM.4.NAME', roleKey: 'ABOUT_US.TEAM.4.ROLE', badgeKey: 'ABOUT_US.TEAM.4.BADGE', descKey: 'ABOUT_US.TEAM.4.DESC', initials: 'JA', color: '#E0A455', linkedin: '' }
-  ];
 
   ngOnInit(): void {
     // Set min/max dates for scheduler
