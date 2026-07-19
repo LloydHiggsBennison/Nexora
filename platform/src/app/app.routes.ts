@@ -7,6 +7,11 @@ export const routes: Routes = [
       import('./pages/home/home.component').then(m => m.HomeComponent)
   },
   {
+    path: 'sobre-nosotros',
+    loadComponent: () =>
+      import('./pages/about-us/about-us').then(m => m.AboutUs)
+  },
+  {
     path: 'servicios/nexpulse',
     loadComponent: () =>
       import('./pages/services/nexpulse/nexpulse').then(m => m.Nexpulse)

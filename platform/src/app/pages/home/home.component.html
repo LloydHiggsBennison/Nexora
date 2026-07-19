@@ -34,6 +34,12 @@
         {{ 'HERO.SUBTITLE' | translate }}
       </p>
 
+      <!-- Mission line -->
+      <p class="hero__mission">
+        {{ 'HERO.MISSION' | translate }}
+        <a [routerLink]="['/sobre-nosotros']">{{ 'HERO.MISSION_LINK' | translate }}</a>
+      </p>
+
       <!-- CTAs -->
       <div class="hero__cta-group">
         <button class="btn btn--primary btn--lg" (click)="openScheduler('nexcore')" id="hero-cta-primary">
@@ -240,76 +246,7 @@
 </section>
 
 <!-- ======= 11. ABOUT US ======= -->
-<section class="section about-us" id="about-us">
-  <div class="container">
-    <div class="section-header centered anim-hidden">
-      <div class="badge-pill badge-pill--purple">
-        {{ 'ABOUT_US.BADGE' | translate }}
-      </div>
-      <h2 class="text-h1">
-        {{ 'ABOUT_US.TITLE' | translate }}
-        <span class="text-gradient">{{ 'ABOUT_US.TITLE_HL' | translate }}</span>
-      </h2>
-      <p class="text-body-lg text-secondary">{{ 'ABOUT_US.DESC' | translate }}</p>
-    </div>
 
-    <div class="team-container anim-hidden">
-      <!-- Spotlight Card (Lloyd Higgs) -->
-      <div class="team-card team-card--spotlight glass-card" *ngIf="teamMembers.length > 0" [style.--accent]="teamMembers[0].color">
-        <div class="team-card__inner">
-          <div class="team-card__header">
-            <div class="team-card__avatar-wrap">
-              <div class="team-card__ring"></div>
-              <div class="team-card__monogram" [style.background-color]="teamMembers[0].color">
-                {{ teamMembers[0].initials }}
-              </div>
-            </div>
-            <div class="team-card__meta">
-              <h3 class="team-card__name">{{ teamMembers[0].nameKey | translate }}</h3>
-              <div class="team-card__role">{{ teamMembers[0].roleKey | translate }}</div>
-              <div class="team-card__badge" [style.color]="teamMembers[0].color">
-                {{ teamMembers[0].badgeKey | translate }}
-              </div>
-            </div>
-            <a *ngIf="teamMembers[0].linkedin" [href]="teamMembers[0].linkedin" target="_blank" class="team-card__social" aria-label="LinkedIn">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-            </a>
-          </div>
-          <p class="team-card__desc">{{ teamMembers[0].descKey | translate }}</p>
-        </div>
-      </div>
-
-      <!-- Rest of the team in a grid -->
-      <div class="team-grid">
-        <ng-container *ngFor="let member of teamMembers; let i = index">
-          <div class="team-card glass-card" *ngIf="i > 0" [style.--accent]="member.color">
-            <div class="team-card__inner">
-              <div class="team-card__avatar-wrap">
-                <div class="team-card__ring"></div>
-                <div class="team-card__monogram" [style.background-color]="member.color">
-                  {{ member.initials }}
-                </div>
-              </div>
-              <h3 class="team-card__name">{{ member.nameKey | translate }}</h3>
-              <div class="team-card__role">{{ member.roleKey | translate }}</div>
-              <div class="team-card__badge" [style.color]="member.color">
-                {{ member.badgeKey | translate }}
-              </div>
-              <p class="team-card__desc">{{ member.descKey | translate }}</p>
-              <a *ngIf="member.linkedin" [href]="member.linkedin" target="_blank" class="team-card__social" aria-label="LinkedIn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ======= 12. CTA FINAL ======= -->
 <section class="cta-final" id="contact">
